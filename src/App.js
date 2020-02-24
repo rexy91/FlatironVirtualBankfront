@@ -4,8 +4,6 @@ import './App.css';
 //Redux
 import {saveUserToState} from './Redux/actions'
 import { connect } from 'react-redux';
-import {mstp} from './Redux/actions';
-
 // Components:
 import Login from './Components/Login'
 import Home from './Components/Home'
@@ -15,6 +13,8 @@ import Profile from './Components/Profile'
 import {Switch, Route} from 'react-router'
 import LoginSignupContainer from './Components/LoginSignupContainer';
 import {withRouter} from 'react-router-dom'
+import CheckingTransPage from './Components/CheckingTransPage';
+import SavingTransPage from './Components/SavingTransPage'
 
 export class App extends Component {
 
@@ -36,26 +36,40 @@ export class App extends Component {
     }
   }
 
-  // fetchUserInfo = () => {
-
-  // }
+  getCheckingTransactions = () =>{
+      console.log(this.props.user.checking.transactions)
+  }
 
   render() {
-
-    return (
+    // console.log(this.props)
+    return (    
       <div className = 'app'>
-        
         {localStorage.getItem ? null : <LoginSignupContainer />}
-
         {/* routing */}
         <Switch>
           <Route exact path = '/' render = { Home } />
           <Route exact path = '/login' render = { (routerProps) => <Login {...routerProps} />} />
-          <Route exact path = '/account/:id' component = { Profile } /> 
+          <Route exact path = '/account/:id' component = { Profile } />
+          <Route exact path = '/account/:id/checking/transactions' 
+          render = {(routerProps) =>
+           <CheckingTransPage {...routerProps} 
+           user = {this.props.user}
+           />} />
+          <Route exact path = '/account/:id/saving/transactions' 
+          render = {(routerProps) =>
+           <SavingTransPage {...routerProps} 
+           user = {this.props.user}
+           />} />
         </Switch>
       </div>
     )
   }
+}
+
+const mstp = (appState) => {
+    return {
+      user: appState.user // Now App.props has user 
+    }
 }
 
 export default connect(mstp, {saveUserToState})(withRouter(App))

@@ -11,7 +11,7 @@ const userReducer = (state = initialState, action) => {
             // console.log('here')
             // Update the state, with user object form backend.
             // Spread the state, add key value pairs.
-            console.log(action.payload)
+            // console.log(action.payload)
         return {...state, user:action.payload.user, token:action.payload.token}
 
         case 'SIGN_UP_USER':
