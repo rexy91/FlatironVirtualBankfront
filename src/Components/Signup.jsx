@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import {signUpUser} from '../Redux/actions'
 import {connect} from 'react-redux'
+import swal from 'sweetalert';
 
+import {withRouter} from 'react-router-dom'
 export class Signup extends Component {
     state = {
         username: '',
@@ -13,8 +15,8 @@ export class Signup extends Component {
             [e.target.name]: e.target.value
         })
     }
-    handleSignupSubmit = (e) => {
 
+    handleSignupSubmit = (e) => {
         e.preventDefault()
         fetch('http://localhost:3000/users', {
             method: "POST",
@@ -28,11 +30,33 @@ export class Signup extends Component {
           })
             .then(r => r.json())
             .then(responseFromServer => {
-
+                console.log(!responseFromServer.errors)
+                // debugging
+                // console.log(responseFromServer)
+                // console.log(responseFromServer.user)
+                // console.log(responseFromServer.user.signup_type === 'Checking')
+            if (!responseFromServer.errors) {
+                this.props.history.push(`/account/${responseFromServer.user.id}`)
                 localStorage.setItem('token',responseFromServer.token)
                 this.props.signUpUser(responseFromServer)
-            })
-        }
+                if (responseFromServer.signup_type === 'Checking'){
+                    swal(`Welcome, ${responseFromServer.user.username}`,
+                    "$5000 signup bonus has been desposited into you checking account.",
+                    "success");     
+                } else if (responseFromServer.signup_type === 'Saving'){
+                    swal(`Welcome, ${responseFromServer.user.username}`,
+                    "$5000 signup bonus has been desposited into you saving account.",
+                    "success"); 
+                }}
+            else {
+                //    console.log('fjsdjfsdjfjdsf')
+                swal(`Unsuccessful Signup`,
+                `${responseFromServer.errors}`,
+                "error")
+            }
+            }) 
+    }
+
     render() {
         return (
             <div>
@@ -44,9 +68,9 @@ export class Signup extends Component {
                     <label >Email: </label>
                     <input type="textarea" name='email' placeholder = 'email address' onChange = {this.handleChange} value = {this.state.email}/> <br />
                     <select name="accountType" id="">
-                        <option value="checkings">Checkings</option>
-                        <option value="savings">Savings</option>
-                        <option value="creditcards">Credit Cards</option>
+                        <option value="checking">Checking</option>
+                        <option value="saving">Saving</option>
+                        <option value="creditcard">Credit Card</option>
                     </select>
                     <br/>
                     <input type="submit"/>
@@ -55,6 +79,5 @@ export class Signup extends Component {
         )
     }
 }
-
                           //   curlies!!!!
-export default connect(null, {signUpUser})(Signup)
+export default connect(null, {signUpUser})(withRouter(Signup))

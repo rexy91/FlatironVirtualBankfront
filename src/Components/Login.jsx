@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
-
 import {saveUserToState} from '../Redux/actions'
 export class Login extends Component {
     // This state has nothign to do with redux, just senidng this up as object. 
