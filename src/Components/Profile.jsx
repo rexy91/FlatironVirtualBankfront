@@ -6,18 +6,44 @@ import { NavLink, Link } from 'react-router-dom'
 import {Switch, Route} from 'react-router'
 import {withRouter} from 'react-router-dom'
 import { Signup } from './Signup'
+import { Button } from 'semantic-ui-react'
+import swal from 'sweetalert';
+import ModalDeposit from './ModalDeposit'
+// Redux
+import {deleteAccount} from './Redux/actions'
+import { Modal } from 'semantic-ui-react'
 
 export class Profile extends Component {
 
+    handleDeleteAcc = (e) => {
+        if(this.props.user.checking.balance !== 0){
+            swal('Please transfer out your funds before deactivating.')
+        }
+        else{
+        this.props.deleteAccount(this.props.user.checking.id)
+
+    }}
+
+    // handleDeposit = () => {
+    //     console.log('here')
+    //    return <ModalDeposit /> 
+    // }
+
     checkingAccount = () => {
+        const accountstatusTenery = this.props.user.checking.status ? 'Active' : 'Deactived'
         if(this.props.user.checking){
             return (
             <div id='checkingSection'>
             <p>Checking Acc: {this.props.user.checking.acc_num}</p>
             <p>Available Balance: ${this.props.user.checking.balance}</p>
+            <p>Status: {accountstatusTenery}</p>
             <Link to={`${this.props.match.url}/checking/transactions`}>
-            <button>View Transactions</button>
+            <Button color='black'>View Transactions</Button>
             </Link>
+            <Button color='black' onClick={this.handleDeposit}>Deposit</Button>
+            <br/>
+            <Button color='black' onClick = {this.handleDeleteAcc} >Deactivate Account</Button>
+            <ModalDeposit /> 
             </div>
             )
         }
@@ -33,8 +59,10 @@ export class Profile extends Component {
             <p>Saving Acc: {this.props.user.saving.acc_num}</p>
             <p>Available Balance: ${this.props.user.saving.balance}</p>
             <Link to={`${this.props.match.url}/saving/transactions`}>
-                <button>View Transactions</button>
+                <Button color ='black'>View Transactions</Button>
             </Link>
+                <Button color ='black' onClick = {this.handleDeleteAcc}>Deactivate Account</Button>
+                
         </div>)
         }
         else{
@@ -45,11 +73,13 @@ export class Profile extends Component {
     render() {
         const {user} = this.props
         // To avoid ashy issues, first render if user doesn't exist, just return null. To avoid errors.
-        if (user.id) {
+        if (user) {
         return (
             <div>
+                <div id='welcome-section'>
                 <h3>Welcome: {user.username}</h3>
                  <h4>Here are you accounts:</h4>
+                 </div>
                 <div className = 'accContainer'>
                     {this.checkingAccount()}
                      <br/>
@@ -66,8 +96,7 @@ export class Profile extends Component {
 // get states from reducer
 // Now this.props will give you the user state. 
 const mstp = (appState) => {
-
     return appState
 }
-export default connect (mstp)(withRouter(Profile))
+export default connect (mstp, {deleteAccount})(withRouter(Profile))
 

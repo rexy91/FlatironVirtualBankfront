@@ -1,7 +1,7 @@
 const initialState = {
 
 }
-  
+
 const userReducer = (state = initialState, action) => {
     switch (action.type) {
       
@@ -26,6 +26,24 @@ const userReducer = (state = initialState, action) => {
                   /// ??????
           // return {...state,transactions: arrayWeCareAbout}
                 return {...state, searchTerm: action.payload}
+
+        // Deleting
+
+        case 'DELETE_ACCOUNT':
+                
+                // Payload has the id: 
+                // Keep {...state.user} , but set checking to be empty. 
+                // If don't keep state, user will be gone too.
+                // Then persist to the backend. 
+                fetch(`http://localhost:3000/checkings/${action.payload}`,{
+                    method:'DELETE'
+                })
+                .then(res =>res.json())
+                .then(console.log)
+                
+                return {user: {...state.user, checking: {}}}
+                
+
         default:
             return state 
     }

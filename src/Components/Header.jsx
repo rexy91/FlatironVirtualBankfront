@@ -19,8 +19,9 @@ class FixedNavbarExample extends React.Component {
   }
 
   handleLogout = (e) => {
+      console.log('here')
       localStorage.clear()
-      this.props.history.push('/')
+      this.props.history.push('/home')
   }
 
   renderLogout = () => {
@@ -37,7 +38,7 @@ class FixedNavbarExample extends React.Component {
     const container = {height: 100}
     return(
       <div id = 'header'>
-        <Router>
+ 
           <header>
             <MDBNavbar style={bgPink} dark expand="md" scrolling fixed="top">
               <MDBNavbarBrand href="/">
@@ -74,7 +75,7 @@ class FixedNavbarExample extends React.Component {
               </MDBCollapse>
             </MDBNavbar>
           </header>
-        </Router>
+
         <MDBContainer style={container} className="text-center mt-5 pt-5" >
           <h2 id='title'>Welcome to the #### Banking System</h2>
         </MDBContainer>

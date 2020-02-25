@@ -4,7 +4,7 @@ import DynamicSearch from '../Components/TransactionPage/DynamicSearch'
 export class CheckingTransPage extends Component {
 
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         const transactions = this.props.user.checking.transactions
         // Debugging
         // console.log(this.props.state.searchTerm)
@@ -14,13 +14,14 @@ export class CheckingTransPage extends Component {
               let arrayWeCareAbout = transactions.filter(transaction => {
               return transaction.trans_type.toLowerCase().includes(this.props.searchTerm)
               })
-        console.log(arrayWeCareAbout)
-
+              
         // Map here :
         let transactionMapper = this.props.user.checking ? arrayWeCareAbout.map( (transaction) => (
-        <li>{transaction.amount} {transaction.trans_type}</li> 
+        <>
+            <li>AmountTypeDescription</li>
+        <li>${transaction.amount} {transaction.trans_type}{transaction.description}</li> </>
         )) : null
-
+        
         return (
             <div>
                 <h4>Transactions History:</h4>

@@ -6,6 +6,14 @@ export const signUpUser = (newUserState) => {
   }
 }
 
+export const deleteAccount = (accountId) => {
+   
+        return {
+          type: "DELETE_ACCOUNT",
+          payload: accountId
+        }
+} 
+
 export const saveUserToState = (userInfoFromBackEnd) => {
     // When this action is called, it will then look into reducer to match the switch statement. 
     return {

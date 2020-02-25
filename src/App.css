@@ -48,8 +48,6 @@ ul.nav li a:hover {
   margin-left: 10vh;
   margin-right: 50vh;
 } */
-
-
 .app{
   margin: 5vh;
 }
@@ -79,4 +77,20 @@ ul.nav li a:hover {
 
 #signup-form{
   margin-left: 32vw;
+}
+
+#welcome-section{
+  border: solid 1px;
+  margin-bottom: 0.5%;
+}
+
+#checkingSection{
+  border: solid 1px;
+}
+
+
+
+.modals.dimmer .ui.scrolling.modal {
+  margin: 11rem auto !important;
+  margin-left: 20vw !important;
 }

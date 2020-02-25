@@ -45,6 +45,7 @@ export class App extends Component {
     // console.log(this.props)
     return (    
       <div className = 'app'>
+        
         {localStorage.getItem ? null : <LoginSignupContainer />}
         {/* routing */}
         <Switch>
@@ -52,14 +53,14 @@ export class App extends Component {
           <Route exact path = '/login' render = { (routerProps) => <MDBLogin {...routerProps} />} />
           <Route exact path = '/account/:id' component = { Profile } />
           <Route exact path = '/account/:id/checking/transactions' 
-          render = {(routerProps) =>
+              render = {(routerProps) =>
            <CheckingTransPage {...routerProps} 
            user = {this.props.user}
            />} />
           <Route exact path = '/account/:id/saving/transactions' 
-          render = {(routerProps) =>
+              render = {(routerProps) =>
            <SavingTransPage {...routerProps} 
-           user = {this.props.user}
+              user = {this.props.user}
            />} />
         </Switch>
       </div>
