@@ -4,13 +4,13 @@ export class SavingTransPage extends Component {
     
     render() {
 
-        let transactionMapper = this.props.user.saving.transactions.map( (transaction) => (
+        let transactionMapper = this.props.user.saving ? this.props.user.saving.transactions.map( (transaction) => (
         <li>{transaction.amount} {transaction.trans_type}</li>
-        ))
+        )) : null
 
         return (
             <div>
-                <h4>jjj</h4>
+                <h4>Transactions History:</h4>
                 <ul>
                    {transactionMapper}
                 </ul>
@@ -20,8 +20,9 @@ export class SavingTransPage extends Component {
 }
 
 const mstp = (appState) => {
-    console.log(appState)
+    // console.log(appState)
 }
 
 // export default connect (mstp)(CheckingTransPage)
-export default connect(mstp)(SavingTransPage)
+// export default connect(mstp)(SavingTransPage)
+export default SavingTransPage

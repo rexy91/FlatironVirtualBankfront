@@ -1,12 +1,12 @@
-.app{
+/* .app{
   margin: 5vh;
 }
 
 #header{
   display: inline-block;
-  /* color: dodgerblue; */
+  color: dodgerblue;
   text-align: center;
-  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bolder;
 }
 
@@ -47,4 +47,36 @@ ul.nav li a:hover {
   color:black;
   margin-left: 10vh;
   margin-right: 50vh;
+} */
+
+
+.app{
+  margin: 5vh;
+}
+
+#header{
+  color: black;
+  /* font-weight: bolder; */
+  margin-bottom: 1px;
+}
+
+#title {
+  font-weight: bolder;
+  font-size:180%;
+}
+#login-form{
+  margin-left: 32vw;
+}
+
+#login-button{
+  background-color: black !important;
+}
+
+.login-signup-toggle{
+  margin-left: 32vw;
+  margin-bottom: 10vh;
+}
+
+#signup-form{
+  margin-left: 32vw;
 }

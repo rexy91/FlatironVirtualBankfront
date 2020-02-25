@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Login from './Login'
+import MDBLogin from './MDBLogin'
+import MDBSignup from './MDBSignup'
 import Signup from './Signup'
 class LoginSignupContainer extends Component {
     state = {
@@ -21,13 +22,13 @@ class LoginSignupContainer extends Component {
     // toggleForm  =  this.state.login ? <Login /> : <Signup />
 
     
-    toggleForm  = () =>  this.state.login ? <Login /> : <Signup />
+    toggleForm  = () =>  this.state.login ? <MDBLogin /> : <MDBSignup />
 
     render() {
         return (
-            <div>
-                <button onClick = {this.toggleLogin}> Login </button>
-                <button onClick = {this.toggleSignup}>Sign up</button>
+            <div >
+                <button class='login-signup-toggle' onClick = {this.toggleLogin}> Login </button>
+                <button class='login-signup-toggle' onClick = {this.toggleSignup}>Sign up</button>
                 {this.toggleForm()}
             </div>
         );

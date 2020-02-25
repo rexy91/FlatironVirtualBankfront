@@ -1,21 +1,22 @@
 import React, { Component } from 'react'
+import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from 'mdbreact';
+import {withRouter} from 'react-router-dom'
 import {signUpUser} from './Redux/actions'
 import {connect} from 'react-redux'
 import swal from 'sweetalert';
 
-import {withRouter} from 'react-router-dom'
-export class Signup extends Component {
+export class MDBSignup extends Component {
     state = {
         username: '',
         password: '',
         email: '',
     }
+
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
-
     handleSignupSubmit = (e) => {
         e.preventDefault()
         fetch('http://localhost:3000/users', {
@@ -30,7 +31,7 @@ export class Signup extends Component {
           })
             .then(r => r.json())
             .then(responseFromServer => {
-                console.log(!responseFromServer.errors)
+                // console.log(!responseFromServer.errors)
                 // debugging
                 // console.log(responseFromServer)
                 // console.log(responseFromServer.user)
@@ -56,28 +57,39 @@ export class Signup extends Component {
             }
             }) 
     }
-
-    render() {
+render() {
         return (
-            <div>
-                <form id='signup-form' onSubmit ={this.handleSignupSubmit}>
-                    <label >Username: </label>
-                    <input type="text" name='username' placeholder = 'username' onChange = {this.handleChange} value = {this.state.username}/> <br/>
-                    <label >Password: </label>
-                    <input type="password" name='password' placeholder='password' onChange = {this.handleChange} value={this.state.password}/> <br/>
-                    <label >Email: </label>
-                    <input type="textarea" name='email' placeholder = 'email address' onChange = {this.handleChange} value = {this.state.email}/> <br />
+        <div id = 'signup-form'>
+          <MDBContainer>
+            <MDBRow>
+              <MDBCol md="6">
+                <form onSubmit ={this.handleSignupSubmit}>
+                  <p className="h5 text-center mb-4">Sign up</p>
+                  <div className="grey-text">
+                    <MDBInput label="Username" icon="user" group type="text" validate error="wrong"
+                      success="right" name = 'username' onChange = {this.handleChange} />
+                    <MDBInput label="Your email" icon="envelope" group type="email" validate error="wrong"
+                      success="right" name = 'email' onChange = {this.handleChange} />
+                    <MDBInput label="Your password" icon="lock" group type="password" validate 
+                      name = 'password' onChange = {this.handleChange}/>
+                      
+                  </div>
+                  <div className="text-center">
                     <select name="accountType" id="">
                         <option value="checking">Checking</option>
                         <option value="saving">Saving</option>
                         <option value="creditcard">Credit Card</option>
+                        <br/><br/>
                     </select>
-                    <br/>
-                    <input type="submit"/>
+                    <MDBBtn type = 'submit' color="black">Register</MDBBtn>
+                  </div>
                 </form>
-            </div>
+              </MDBCol>
+            </MDBRow>
+          </MDBContainer>
+        </div>
         )
     }
 }
-                          //   curlies!!!!
-export default connect(null, {signUpUser})(withRouter(Signup))
+
+export default connect(null, {signUpUser})(withRouter(MDBSignup))

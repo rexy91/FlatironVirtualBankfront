@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import './App.css';
 
 //Redux
-import {saveUserToState} from './Redux/actions'
+import {saveUserToState} from './Components/Redux/actions'
 import { connect } from 'react-redux';
+
 // Components:
-import Login from './Components/Login'
+import MDBLogin from './Components/MDBLogin'
 import Home from './Components/Home'
 import Profile from './Components/Profile'
 
@@ -21,7 +22,6 @@ export class App extends Component {
   componentDidMount(){
     if (localStorage.getItem("token")) {
       let token = localStorage.getItem('token')
-
       fetch("http://localhost:3000/persist", {
         headers: {
           "Authorization": `bearer ${token}`
@@ -30,14 +30,15 @@ export class App extends Component {
       .then(r => r.json())
       .then(resp => {
         if (resp.token) {
+          localStorage.setItem('token',resp.token)
           this.props.saveUserToState(resp);
         }
       })
     }
   }
-
+  
   getCheckingTransactions = () =>{
-      console.log(this.props.user.checking.transactions)
+      // console.log(this.props.user.checking.transactions)
   }
 
   render() {
@@ -48,7 +49,7 @@ export class App extends Component {
         {/* routing */}
         <Switch>
           <Route exact path = '/' render = { Home } />
-          <Route exact path = '/login' render = { (routerProps) => <Login {...routerProps} />} />
+          <Route exact path = '/login' render = { (routerProps) => <MDBLogin {...routerProps} />} />
           <Route exact path = '/account/:id' component = { Profile } />
           <Route exact path = '/account/:id/checking/transactions' 
           render = {(routerProps) =>

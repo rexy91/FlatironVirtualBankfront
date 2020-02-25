@@ -15,9 +15,9 @@ export class Profile extends Component {
             <div id='checkingSection'>
             <p>Checking Acc: {this.props.user.checking.acc_num}</p>
             <p>Available Balance: ${this.props.user.checking.balance}</p>
-            <NavLink to={`${this.props.match.url}/checking/transactions`}>
+            <Link to={`${this.props.match.url}/checking/transactions`}>
             <button>View Transactions</button>
-            </NavLink>
+            </Link>
             </div>
             )
         }
@@ -32,9 +32,9 @@ export class Profile extends Component {
             <div id='savingSection'>
             <p>Saving Acc: {this.props.user.saving.acc_num}</p>
             <p>Available Balance: ${this.props.user.saving.balance}</p>
-            <NavLink to={`${this.props.match.url}/saving/transactions`}>
+            <Link to={`${this.props.match.url}/saving/transactions`}>
                 <button>View Transactions</button>
-            </NavLink>
+            </Link>
         </div>)
         }
         else{
