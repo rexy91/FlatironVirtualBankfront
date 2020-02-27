@@ -57,6 +57,7 @@ export class MDBSignup extends Component {
             }
             }) 
     }
+    
 render() {
         return (
         <div id = 'signup-form'>

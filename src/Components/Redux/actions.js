@@ -39,3 +39,13 @@ export const dynamicSearch = (searchTerm) => {
     payload: searchTerm
   }
 }
+
+// checkingDepositObj will be passed as payload to reducer: 
+export const onlineCheckingDeposit = (checkingDepositObj) => {
+  console.log('here', checkingDepositObj);
+  
+  return {
+    type: 'ONLINE_CHECKING_DEPOSIT',
+    payload: checkingDepositObj
+  }
+}

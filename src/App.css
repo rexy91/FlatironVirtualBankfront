@@ -88,9 +88,9 @@ ul.nav li a:hover {
   border: solid 1px;
 }
 
-
-
 .modals.dimmer .ui.scrolling.modal {
   margin: 11rem auto !important;
   margin-left: 20vw !important;
+  /* height: 30% !important; */
 }
+

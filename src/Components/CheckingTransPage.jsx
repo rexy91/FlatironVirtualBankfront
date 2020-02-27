@@ -3,9 +3,17 @@ import {connect} from 'react-redux'
 import DynamicSearch from '../Components/TransactionPage/DynamicSearch'
 export class CheckingTransPage extends Component {
 
+
+    goback = () => {
+        this.props.history.goBack();
+    }
+
     render() {
         // console.log(this.props)
+        // This is how we render the checking trans, so return state inside reduer needs to match this when updating the DOM.
+
         const transactions = this.props.user.checking.transactions
+        // console.log(this.props)
         // Debugging
         // console.log(this.props.state.searchTerm)
         // console.log(transation.trans_type.toLowerCase().includes(this.props.searchTerm)
@@ -29,6 +37,7 @@ export class CheckingTransPage extends Component {
                 <ul>
                    {transactionMapper}
                 </ul>
+                <button onClick = {this.goback}>Back</button>
             </div>
         )
     }

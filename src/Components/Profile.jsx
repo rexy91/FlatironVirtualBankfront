@@ -9,6 +9,7 @@ import { Signup } from './Signup'
 import { Button } from 'semantic-ui-react'
 import swal from 'sweetalert';
 import ModalDeposit from './ModalDeposit'
+
 // Redux
 import {deleteAccount} from './Redux/actions'
 import { Modal } from 'semantic-ui-react'
@@ -48,7 +49,12 @@ export class Profile extends Component {
             )
         }
         else{
-            return "You currently don't have a Checking Account."
+            {
+                return <div>
+                <p>You currently don't have a checking account.</p>
+                <br></br>
+                <button>Sign Up</button>
+                </div>}       
         }
     }
 
@@ -66,8 +72,14 @@ export class Profile extends Component {
         </div>)
         }
         else{
-            return "You currently don't have a Saving Account"
-        }
+            
+            {
+            return <div>
+            <p>You currently don't have a saving account.</p>
+            <br></br>
+            <button>Sign Up</button>
+            </div>}
+             }
     }
 
     render() {

@@ -30,7 +30,6 @@ const userReducer = (state = initialState, action) => {
         // Deleting
 
         case 'DELETE_ACCOUNT':
-                
                 // Payload has the id: 
                 // Keep {...state.user} , but set checking to be empty. 
                 // If don't keep state, user will be gone too.
@@ -43,6 +42,15 @@ const userReducer = (state = initialState, action) => {
                 
                 return {user: {...state.user, checking: {}}}
                 
+        case 'ONLINE_CHECKING_DEPOSIT':
+                
+               const updatedChecking = action.payload.checking
+                // console.log(newCheckingTransArray)
+                // See the entire state in console:
+                // console.log(state) 
+                // define a new state here, ...state.user to keep the user. 
+                // Just update the checking state to be action.payload's checking state which got rendered after the deposit.
+                return {user: {...state.user, checking: updatedChecking}}
 
         default:
             return state 
