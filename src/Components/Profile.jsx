@@ -14,6 +14,7 @@ import ModalWithdrawal from './ModalWithdrawal'
 // Redux
 import {deleteAccount} from './Redux/actions'
 import { Modal } from 'semantic-ui-react'
+import { MDBSignup } from './MDBSignup'
 
 export class Profile extends Component {
 
@@ -23,22 +24,23 @@ export class Profile extends Component {
         }
         else{
         this.props.deleteAccount(this.props.user.checking.id)
-
     }}
 
-    // handleDeposit = () => {
-    //     console.log('here')
-    //    return <ModalDeposit /> 
-    // }
+    renderModalSignup = () => {
+
+        this.props.history.push('/signup')
+    }
 
     checkingAccount = () => {
-        const accountstatusTenery = this.props.user.checking.status ? 'Active' : 'Deactived'
+        // if (this.props.user.checking){
+
+        // const accountstatusTenery = this.props.user.checking.status ? 'Active' : 'Deactived'
         if(this.props.user.checking){
             return (
             <div id='checkingSection'>
             <p>Checking Acc: {this.props.user.checking.acc_num}</p>
             <p>Available Balance: ${this.props.user.checking.balance}</p>
-            <p>Status: {accountstatusTenery}</p>
+            {/* <p>Status: {accountstatusTenery}</p> */}
             <Link to={`${this.props.match.url}/checking/transactions`}>
             <Button color='black'>View Transactions</Button>
             </Link>
@@ -55,7 +57,7 @@ export class Profile extends Component {
                 return <div>
                 <p>You currently don't have a checking account.</p>
                 <br></br>
-                <button>Sign Up</button>
+                <button onClick = {this.renderModalSignup}>Sign Up</button>
                 </div>}       
         }
     }
@@ -79,7 +81,7 @@ export class Profile extends Component {
             return <div>
             <p>You currently don't have a saving account.</p>
             <br></br>
-            <button>Sign Up</button>
+            <button onClick = {this.renderModalSignup}>Sign Up</button>
             </div>}
              }
     }

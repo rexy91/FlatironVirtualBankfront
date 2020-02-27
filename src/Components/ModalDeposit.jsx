@@ -80,6 +80,7 @@ export class ModalDeposit extends Component {
       <Modal.Content image>
         <Modal.Description>
           <Header>Make a deposit</Header>
+          <p>Available balance: ${this.props.user.checking.balance} </p>
           <form onSubmit = {this.submitDeposit}>
             <label htmlFor="">Deposit Amount</label>
             <input type="number" name = 'amount' />

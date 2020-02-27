@@ -49,10 +49,18 @@ export const onlineCheckingDeposit = (checkingDepositObj) => {
   }
 }
 
-export const onlineWithdrawal = (checkingWithdrawalObj) => {
-  
+// export const onlineWithdrawal = (checkingWithdrawalObj) => {
+//   return {
+//     type: 'ONLINE_WITHDRAWAL',
+//     payload: checkingWithdrawalObj
+
+//   }
+// }
+
+export const onlineWithdrawal = (check) => {
+  // debugger
   return {
-    type: 'ONLINE_WITHDRAWAL',
-    payload: checkingWithdrawalObj
+    type: "ONLINE_WITHDRAWAL",
+    payload: check
   }
 }

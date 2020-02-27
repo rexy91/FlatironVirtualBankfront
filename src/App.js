@@ -16,6 +16,7 @@ import LoginSignupContainer from './Components/LoginSignupContainer';
 import {withRouter} from 'react-router-dom'
 import CheckingTransPage from './Components/CheckingTransPage';
 import SavingTransPage from './Components/SavingTransPage'
+import { MDBSignup } from './Components/MDBSignup';
 
 export class App extends Component {
 
@@ -45,13 +46,14 @@ export class App extends Component {
     // console.log(this.props)
     return (    
       <div className = 'app'>
-        
         {localStorage.getItem ? null : <LoginSignupContainer />}
         {/* routing */}
         <Switch>
           <Route exact path = '/' render = { Home } />
           <Route exact path = '/login' render = { (routerProps) => <MDBLogin {...routerProps} />} />
           <Route exact path = '/account/:id' component = { Profile } />
+                                                                                                {/* pass down current user state */}
+          <Route exact path = '/signup' render = { (routerProps) => <MDBSignup {...routerProps} userState = {this.props.user}/>} /> 
           <Route exact path = '/account/:id/checking/transactions' 
               render = {(routerProps) =>
            <CheckingTransPage {...routerProps} 

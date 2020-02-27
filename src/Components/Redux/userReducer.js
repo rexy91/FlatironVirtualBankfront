@@ -3,7 +3,7 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
     switch (action.type) {
-      
+        
         case 'SAVE_USER_TO_STATE':
             // Update the state, with user object form backend.
             // Spread the state, add key value pairs.
@@ -40,6 +40,7 @@ const userReducer = (state = initialState, action) => {
                 return {user: {...state.user, checking: {}}}
                 
         case 'ONLINE_CHECKING_DEPOSIT':
+ 
                const updatedCheckingDeposit = action.payload.checking
                 // console.log(newCheckingTransArray)
                 // See the entire state in console:
