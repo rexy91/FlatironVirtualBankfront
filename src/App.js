@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import './App.css';
 
+import Header from './Components/Header'
+
 //Redux
 import {saveUserToState} from './Components/Redux/actions'
 import { connect } from 'react-redux';
@@ -16,9 +18,9 @@ import LoginSignupContainer from './Components/LoginSignupContainer';
 import {withRouter} from 'react-router-dom'
 import CheckingTransPage from './Components/CheckingTransPage';
 import SavingTransPage from './Components/SavingTransPage'
-import { MDBSignup } from './Components/MDBSignup';
+import MDBSignup from './Components/MDBSignup';
 
-export class App extends Component {
+class App extends Component {
 
   componentDidMount(){
     if (localStorage.getItem("token")) {
@@ -53,7 +55,7 @@ export class App extends Component {
           <Route exact path = '/login' render = { (routerProps) => <MDBLogin {...routerProps} />} />
           <Route exact path = '/account/:id' component = { Profile } />
                                                                                                 {/* pass down current user state */}
-          <Route exact path = '/signup' render = { (routerProps) => <MDBSignup {...routerProps} userState = {this.props.user}/>} /> 
+          <Route exact path = '/signup' render = { (routerProps) => <MDBSignup {...routerProps}/>} /> 
           <Route exact path = '/account/:id/checking/transactions' 
               render = {(routerProps) =>
            <CheckingTransPage {...routerProps} 

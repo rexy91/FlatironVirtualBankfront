@@ -42,7 +42,7 @@ import {onlineCheckingDeposit} from './Redux/actions'
 import swal from 'sweetalert';
 import {withRouter} from 'react-router-dom'
 export class ModalDeposit extends Component {
-
+  
       submitDeposit = (e) => {
           e.preventDefault()
           const amount = e.target.amount.value

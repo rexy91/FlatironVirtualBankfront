@@ -6,6 +6,13 @@ export const signUpUser = (newUserState) => {
   }
 }
 
+export const signUpAccount = (newUserState) => {
+    return {
+        type: 'EXISTINGUSER_SIGNUP_ACCOUNT',
+        payload: newUserState
+    }
+}
+
 export const deleteAccount = (accountId) => {
    
         return {
@@ -62,5 +69,13 @@ export const onlineWithdrawal = (check) => {
   return {
     type: "ONLINE_WITHDRAWAL",
     payload: check
+  }
+}
+
+
+export const handleLogout = () => {
+  console.log('here')
+  return {
+    type: 'HANDLE_LOGOUT',
   }
 }

@@ -8,11 +8,20 @@ const userReducer = (state = initialState, action) => {
             // Update the state, with user object form backend.
             // Spread the state, add key value pairs.
             // console.log(action.payload)
-        return {...state, user:action.payload.user, token:action.payload.token}
+                return {...state, user:action.payload.user, token:action.payload.token}
 
         case 'SIGN_UP_USER':
+                 return {...state, user:action.payload.user, token:action.payload.token}
 
-        return {...state, user:action.payload.user, token:action.payload.token}
+        case 'HANDLE_LOGOUT':
+                 return {}
+
+        case 'EXISTINGUSER_SIGNUP_ACCOUNT':
+            // console.log(action.payload)
+                // This is how we render out an account inside profile: this.props.user.checking
+                // So define a new state according to the way we are rending out info inside profile component.
+
+                 return {...state, user: action.payload.user, checking: action.payload.user.checking, saving: action.payload.saving }
 
         case 'DYNAMIC_SEARCH_TRANS':
               //  console.log(state)
@@ -40,7 +49,6 @@ const userReducer = (state = initialState, action) => {
                 return {user: {...state.user, checking: {}}}
                 
         case 'ONLINE_CHECKING_DEPOSIT':
- 
                const updatedCheckingDeposit = action.payload.checking
                 // console.log(newCheckingTransArray)
                 // See the entire state in console:
@@ -48,7 +56,6 @@ const userReducer = (state = initialState, action) => {
                 // define a new state here, ...state.user to keep the user. 
                 // Just update the checking state to be action.payload's checking state which got rendered after the deposit.
                 return {user: {...state.user, checking: updatedCheckingDeposit}}
-
         case 'ONLINE_WITHDRAWAL':
                 console.log('here')
                 const updatedCheckingWithdrawl = action.payload.checking

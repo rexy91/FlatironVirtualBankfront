@@ -3,6 +3,10 @@ import { MDBContainer, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler
 import { BrowserRouter as Router } from 'react-router-dom';
 import {withRouter} from 'react-router-dom'
 import { NavLink, Link } from 'react-router-dom'
+import {connect} from 'react-redux'
+import {handleLogout} from './Redux/actions'
+import logo from '../image/mylogo.jpg'
+
 class FixedNavbarExample extends React.Component {
   constructor(props) {
       super(props);
@@ -19,15 +23,17 @@ class FixedNavbarExample extends React.Component {
   }
 
   handleLogout = (e) => {
-      console.log('here')
+      e.preventDefault()
       localStorage.clear()
-      this.props.history.push('/home')
+      this.props.history.push('/')
+      this.props.handleLogout()
+
   }
 
   renderLogout = () => {
     if(localStorage.getItem){
      return <MDBNavItem active>
-          <MDBNavLink onClick = {this.handleLogout}to="#">Log Out</MDBNavLink>
+          <MDBNavLink onClick = {this.handleLogout} to="/">Log Out</MDBNavLink>
       </MDBNavItem>
     }
   }
@@ -36,6 +42,7 @@ class FixedNavbarExample extends React.Component {
     // console.log(this.props)
     const bgPink = {backgroundColor: 'black'}
     const container = {height: 100}
+    const imgSize = {height: '100px', width:'100px'}
     return(
       <div id = 'header'>
  
@@ -77,6 +84,7 @@ class FixedNavbarExample extends React.Component {
           </header>
 
         <MDBContainer style={container} className="text-center mt-5 pt-5" >
+          <img id = 'logo' style = {imgSize} src={logo} alt=""/>
           <h2 id='title'>Welcome to the #### Banking System</h2>
         </MDBContainer>
       </div>
@@ -84,4 +92,4 @@ class FixedNavbarExample extends React.Component {
   }
 }
 
-export default withRouter(FixedNavbarExample)
+export default withRouter(connect(null, {handleLogout})(FixedNavbarExample))

@@ -4,6 +4,7 @@ import LoginSignupContainer from './LoginSignupContainer'
 import BonusAd from './BonusAd'
 import Footer from './Footer'
 import Particles from './Particles'
+import MDBSignup from './MDBSignup'
 export default function Home() {
     return (
             
@@ -11,6 +12,7 @@ export default function Home() {
             {/* <img id ='logo' src="https://image.shutterstock.com/image-vector/dots-letter-c-logo-design-260nw-551769190.jpg" alt="logo"/> */}
             <LoginSignupContainer />
             <BonusAd />
+            {/* <MDBSignup/> */}
             {/* <Particles /> */}
             <Footer />
         </div>

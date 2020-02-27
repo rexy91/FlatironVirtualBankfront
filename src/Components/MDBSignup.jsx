@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from 'mdbreact';
 import {withRouter} from 'react-router-dom'
 import {signUpUser} from './Redux/actions'
+import {signUpAccount} from './Redux/actions'
 import {connect} from 'react-redux'
 import swal from 'sweetalert';
 
-export class MDBSignup extends Component {
+class MDBSignup extends Component {
     state = {
         username: '',
         password: '',
@@ -36,8 +37,8 @@ export class MDBSignup extends Component {
                 // console.log(responseFromServer)
                 // console.log(responseFromServer.user)
                 // console.log(responseFromServer.user.signup_type === 'Checking')
-                
-            if (!responseFromServer.errors) {
+
+          if (!responseFromServer.errors) {
                 this.props.history.push(`/account/${responseFromServer.user.id}`)
                 localStorage.setItem('token',responseFromServer.token)
                 this.props.signUpUser(responseFromServer)
@@ -59,12 +60,47 @@ export class MDBSignup extends Component {
             }) 
     }
 
+    handleExistingUserSignup = (e) => {
+        e.preventDefault()
+        const accType = e.target.accountType.value
+        const userId = this.props.user.id
+        console.log(accType)
+        fetch(`http://localhost:3000/users/${userId}/new_account`, {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+              Accept: 'application/json'
+            },
+            body: JSON.stringify(
+                {
+                  accType,
+                  userId
+                }
+                )
+          })
+          .then(res => res.json())
+          .then(userObj => {
+              this.props.history.push(`/account/${userObj.user.id}`)
+              if (userObj.signup_type === 'Checking'){
+                swal(`Thanks for signing up,`,
+                "$5000 signup bonus has been desposited into you checking account.",
+                "success")
+              }
+              else if (userObj.signup_type === 'Saving'){
+                swal(`Thanks for signing up,`,
+                "$5000 signup bonus has been desposited into you saving account.",
+                "success")
+              }
+              this.props.signUpAccount(userObj)
+
+          })
+    }
 
     // If checking acc exist, render 'Saving', wiseversa.
 
         checkingOrSaving = () => {
-          if (this.props.userState.checking){
-            return <option value = 'saving'>Saving</option>
+          if (this.props.user.checking || this.props.user.checking === null) {
+            return <option value = 'checking'>Checking</option>
           }
           else if (!this.props.userState.checking){
             return <option value = 'checking'>Checking</option>
@@ -73,35 +109,33 @@ export class MDBSignup extends Component {
             return <option value = 'checking'>Checking</option>
           }
           else if (!this.props.userState.saving){
-            return <option value = 'checking'>Saving</option>
+            return <option value = 'saving'>Saving</option>
           }
        }
 
-
     renderSignUp = () => {
         // console.log(this.props)
-
         // If existing user trying to signup, render different input.
-        if (this.props.userState){
+        if (this.props.user){
+          // console.log("yoo")
+          // console.log(this.props)
           return  <MDBContainer>
                     <MDBRow>
                       <MDBCol md="6">
-                        <form onSubmit ={this.handleSignupSubmit}>
-                          <p className="h5 text-center mb-4">Sign up</p>
+                        <form onSubmit ={this.handleExistingUserSignup}>
+                          <p className="h5 text-center mb-4">{this.props.user.username}, please confirm your info</p>
                           <div className="grey-text">
                             <MDBInput label="Username" icon="user" group type="text" validate error="wrong"
-                              success="right" name = 'username' onChange = {this.handleChange} />
+                              success="right" name = 'username' value ={this.props.user.username}/>
                             <MDBInput label="Your email" icon="envelope" group type="email" validate error="wrong"
-                              success="right" name = 'email' onChange = {this.handleChange} />
-                            <MDBInput label="Your password" icon="lock" group type="password" validate 
-                              name = 'password' onChange = {this.handleChange}/>
+                              success="right" name = 'email' value={this.props.user.email} />
                           </div>
                           <div className="text-center">
                             <select name="accountType" id="">
                                 {/* <option value="checking">Checking</option> */}
                                 {this.checkingOrSaving()}
                             </select>
-                            <MDBBtn type = 'submit' color="black">Register</MDBBtn>
+                            <MDBBtn type = 'submit' color="black">Register Account</MDBBtn>
                           </div>
                         </form>
                       </MDBCol>
@@ -109,6 +143,7 @@ export class MDBSignup extends Component {
                   </MDBContainer>
         }
         else {
+          // console.log(this.props)
          return  <MDBContainer>
             <MDBRow>
               <MDBCol md="6">
@@ -140,44 +175,19 @@ export class MDBSignup extends Component {
     
 render() {
         // console.log(this.props)
-
         return (
         <div id = 'signup-form'>
           {this.renderSignUp()}
-          {/* <MDBContainer>
-            <MDBRow>
-              <MDBCol md="6">
-                <form onSubmit ={this.handleSignupSubmit}>
-                  <p className="h5 text-center mb-4">Sign up</p>
-                  <div className="grey-text">
-                    <MDBInput label="Username" icon="user" group type="text" validate error="wrong"
-                      success="right" name = 'username' onChange = {this.handleChange} />
-                    <MDBInput label="Your email" icon="envelope" group type="email" validate error="wrong"
-                      success="right" name = 'email' onChange = {this.handleChange} />
-                    <MDBInput label="Your password" icon="lock" group type="password" validate 
-                      name = 'password' onChange = {this.handleChange}/>
-                  </div>
-                  <div className="text-center">
-                    <select name="accountType" id="">
-                        <option value="checking">Checking</option>
-                        <option value="saving">Saving</option>
-                        <option value="creditcard">Credit Card</option>
-                        <br/><br/>
-                    </select>
-                    <MDBBtn type = 'submit' color="black">Register</MDBBtn>
-                  </div>
-                </form>
-              </MDBCol>
-            </MDBRow>
-          </MDBContainer> */}
         </div>
         )
     }
 }
 
 const mstp = (appState) => {
-  // console.log(appState)
+ 
+  console.log(appState)
   return appState
 }
 
-export default connect(mstp, {signUpUser})(withRouter(MDBSignup))
+export default connect(mstp, {signUpUser, signUpAccount})(withRouter(MDBSignup))
+

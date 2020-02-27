@@ -10,11 +10,11 @@ import { Button } from 'semantic-ui-react'
 import swal from 'sweetalert';
 import ModalDeposit from './ModalDeposit'
 import ModalWithdrawal from './ModalWithdrawal'
-
+import MDBSignup from './MDBSignup'
 // Redux
 import {deleteAccount} from './Redux/actions'
 import { Modal } from 'semantic-ui-react'
-import { MDBSignup } from './MDBSignup'
+// import { MDBSignup } from './MDBSignup'
 
 export class Profile extends Component {
 
@@ -27,7 +27,7 @@ export class Profile extends Component {
     }}
 
     renderModalSignup = () => {
-
+        // console.log('here')
         this.props.history.push('/signup')
     }
 
@@ -87,6 +87,7 @@ export class Profile extends Component {
     }
 
     render() {
+        // console.log(this.props)
         const {user} = this.props
         // To avoid ashy issues, first render if user doesn't exist, just return null. To avoid errors.
         if (user) {
