@@ -20,10 +20,10 @@ export class MDBLogin extends Component {
       })
         .then(r => r.json())
         .then(responseFromServer => {
-
+            
             //responseFromServer.user.checkings[0].acc_num
             //responseFromServer.user.checkings[0].balance
-            // console.log(responseFromServer)
+            console.log(responseFromServer)
             localStorage.setItem('token',responseFromServer.token)
             this.props.saveUserToState(responseFromServer)
             this.props.history.push(`/account/${responseFromServer.user.id}`)

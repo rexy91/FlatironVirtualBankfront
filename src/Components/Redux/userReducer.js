@@ -1,5 +1,4 @@
 const initialState = {
-
 }
 
 const userReducer = (state = initialState, action) => {
@@ -28,7 +27,6 @@ const userReducer = (state = initialState, action) => {
                 return {...state, searchTerm: action.payload}
 
         // Deleting
-
         case 'DELETE_ACCOUNT':
                 // Payload has the id: 
                 // Keep {...state.user} , but set checking to be empty. 
@@ -39,19 +37,22 @@ const userReducer = (state = initialState, action) => {
                 })
                 .then(res =>res.json())
                 .then(console.log)
-                
                 return {user: {...state.user, checking: {}}}
                 
         case 'ONLINE_CHECKING_DEPOSIT':
-                
-               const updatedChecking = action.payload.checking
+               const updatedCheckingDeposit = action.payload.checking
                 // console.log(newCheckingTransArray)
                 // See the entire state in console:
                 // console.log(state) 
                 // define a new state here, ...state.user to keep the user. 
                 // Just update the checking state to be action.payload's checking state which got rendered after the deposit.
-                return {user: {...state.user, checking: updatedChecking}}
+                return {user: {...state.user, checking: updatedCheckingDeposit}}
 
+        case 'ONLINE_WITHDRAWAL':
+                console.log('here')
+                const updatedCheckingWithdrawl = action.payload.checking
+                return {user: {...state.user, checking: updatedCheckingWithdrawl}}
+                
         default:
             return state 
     }

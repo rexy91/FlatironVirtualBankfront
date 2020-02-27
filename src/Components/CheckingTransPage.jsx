@@ -13,6 +13,7 @@ export class CheckingTransPage extends Component {
         // This is how we render the checking trans, so return state inside reduer needs to match this when updating the DOM.
 
         const transactions = this.props.user.checking.transactions
+        
         // console.log(this.props)
         // Debugging
         // console.log(this.props.state.searchTerm)

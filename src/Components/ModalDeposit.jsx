@@ -48,7 +48,6 @@ export class ModalDeposit extends Component {
           const amount = e.target.amount.value
           // console.log(this.props.user.checking.id)
           const checkingId = this.props.user.checking.id
-          console.log('here')
           // Multiple of 20  , minium deposit is 20 
       if(amount < 20){
           swal('Please make a minimum deposit of $20')

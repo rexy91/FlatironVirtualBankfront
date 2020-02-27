@@ -9,6 +9,7 @@ import { Signup } from './Signup'
 import { Button } from 'semantic-ui-react'
 import swal from 'sweetalert';
 import ModalDeposit from './ModalDeposit'
+import ModalWithdrawal from './ModalWithdrawal'
 
 // Redux
 import {deleteAccount} from './Redux/actions'
@@ -41,7 +42,8 @@ export class Profile extends Component {
             <Link to={`${this.props.match.url}/checking/transactions`}>
             <Button color='black'>View Transactions</Button>
             </Link>
-            <Button color='black' onClick={this.handleDeposit}>Deposit</Button>
+            <br/>
+            <ModalWithdrawal />
             <br/>
             <Button color='black' onClick = {this.handleDeleteAcc} >Deactivate Account</Button>
             <ModalDeposit /> 
