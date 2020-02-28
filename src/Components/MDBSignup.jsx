@@ -64,7 +64,6 @@ class MDBSignup extends Component {
         e.preventDefault()
         const accType = e.target.accountType.value
         const userId = this.props.user.id
-        console.log(accType)
         fetch(`http://localhost:3000/users/${userId}/new_account`, {
             method: "POST",
             headers: {
@@ -99,18 +98,28 @@ class MDBSignup extends Component {
     // If checking acc exist, render 'Saving', wiseversa.
 
         checkingOrSaving = () => {
-          if (this.props.user.checking || this.props.user.checking === null) {
-            return <option value = 'checking'>Checking</option>
-          }
-          else if (!this.props.userState.checking){
-            return <option value = 'checking'>Checking</option>
-          }
-          else if (this.props.userState.saving){
-            return <option value = 'checking'>Checking</option>
-          }
-          else if (!this.props.userState.saving){
-            return <option value = 'saving'>Saving</option>
-          }
+      //     if (this.props.user.checking || this.props.user.checking === null) {
+      //       return <option value = 'saving'>Saving</option>
+      //     }
+      //     else if (!this.props.userState.checking){
+      //       return <option value = 'saving'>Saving</option>
+      //     }
+      //     else if (this.props.userState.saving){
+      //       return <option value = 'saving'>Saving</option>
+      //     }
+      //     else if (!this.props.userState.saving){
+      //       return <option value = 'saving'>Saving</option>
+      //     }
+
+            if (this.props.user){
+              console.log('existed')
+                if(this.props.user.checking){
+                    return <option value = 'saving' >Saving</option>
+                }
+                else {
+                    return <option value = 'checking' >Checking</option>
+                }
+            }
        }
 
     renderSignUp = () => {
@@ -161,7 +170,6 @@ class MDBSignup extends Component {
                     <select name="accountType" id="">
                         <option value="checking">Checking</option>
                         <option value="saving">Saving</option>
-                        <option value="creditcard">Credit Card</option>
                         <br/><br/>
                     </select>
                     <MDBBtn type = 'submit' color="black">Register</MDBBtn>
@@ -184,8 +192,7 @@ render() {
 }
 
 const mstp = (appState) => {
- 
-  console.log(appState)
+
   return appState
 }
 
