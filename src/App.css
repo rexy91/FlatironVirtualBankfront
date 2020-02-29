@@ -119,3 +119,23 @@ ul.nav li a:hover {
     position: absolute;
 
 }
+
+.ui.labeled.icon.button, .ui.labeled.icon.buttons .button {
+  position: relative;
+  padding-left: 4.07142857em!important;
+  padding-right: 1.5em!important;
+  background-color: black !important;
+  color: white !important;
+  
+}
+
+/* Chart.js  */
+/* #bar {
+  display: block;
+  height: 40vh;
+  width: auto;
+} */
+
+
+/* Clock  */
+

@@ -16,19 +16,26 @@ import {BrowserRouter} from 'react-router-dom'
 // Redux stuff
 import {createStore, applyMiddleware, compose, combineReducers} from 'redux'
 import {Provider} from 'react-redux'
-import userReducer from './Components/Redux/userReducer'
 
+// **** No curlys because being exported as default, not a name import from libraries. 
+
+import userReducer from './Components/Redux/userReducer'
+import newsReducer from './Components/Redux/newsReducer'
 
 // Will just define a const rootReducer if combining reducers.
-// `
+
 // const rootReducer = combineReducers(
 //     {
-//       snacks: snackReducer,
-//       userInfo: userReducer
+//      // This will be the whole state when mstp. 
+//       news: newsReducer,
+//       user: userReducer
 //     }
-//   )`
+
+//   )
+
 // Need to define (or import) reducer before creating
 // TO use Redux dev tool, need the 2nd argument.
+
 const store = createStore(userReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(

@@ -34,6 +34,7 @@ export class ModalWithdrawal extends Component {
           .then(res => res.json())
           // User obj here contains the new checking trans array. 
           .then(updatedUserObj => {
+            console.log('here')
             // Has to be called with this.props *** 
             this.props.onlineWithdrawal(updatedUserObj)
           })

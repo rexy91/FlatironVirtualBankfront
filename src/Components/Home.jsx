@@ -5,6 +5,7 @@ import BonusAd from './BonusAd'
 import Footer from './Footer'
 import Particles from './Particles'
 import MDBSignup from './MDBSignup'
+import News from './Newscontainer'
 export default function Home() {
     return (
             
@@ -15,6 +16,7 @@ export default function Home() {
             {/* <MDBSignup/> */}
             {/* <Particles /> */}
             <Footer />
+            <News />
         </div>
     )
 }

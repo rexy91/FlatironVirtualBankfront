@@ -14,6 +14,7 @@ import MDBSignup from './MDBSignup'
 // Redux
 import {deleteAccount} from './Redux/actions'
 import { Modal } from 'semantic-ui-react'
+import ProfileDropdown from './ProfileDropdown'
 // import { MDBSignup } from './MDBSignup'
 
 export class Profile extends Component {
@@ -76,7 +77,6 @@ export class Profile extends Component {
         </div>)
         }
         else{
-            
             {
             return <div>
             <p>You currently don't have a saving account.</p>
@@ -93,6 +93,7 @@ export class Profile extends Component {
         if (user) {
         return (
             <div>
+                <ProfileDropdown />
                 <div id='welcome-section'>
                 <h3>Welcome: {user.username}</h3>
                  <h4>Here are you accounts:</h4>

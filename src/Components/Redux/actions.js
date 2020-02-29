@@ -79,3 +79,11 @@ export const handleLogout = () => {
     type: 'HANDLE_LOGOUT',
   }
 }
+
+export const saveNewsToStore = (newsArray) => {
+    
+    return {
+      type: 'SAVE_NEWS_TO_STORE',
+      pyaload: newsArray
+    }
+}

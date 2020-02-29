@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import './App.css';
 
 import Header from './Components/Header'
-
+import Chart from './Components/Chart'
 //Redux
 import {saveUserToState} from './Components/Redux/actions'
+import {saveNewsToStore} from './Components/Redux/actions'
 import { connect } from 'react-redux';
 
 // Components:
@@ -38,7 +39,21 @@ class App extends Component {
         }
       })
     }
+    console.log('here')
+    
+    fetch('http://newsapi.org/v2/everything?q=finance&from=2020-01-28&sortBy=publishedAt&apiKey=b5b343b90e4d4f0e89f4da475f9e01d8&results=5')
+    .then(res => res.json())
+    .then(newsArray => { 
+        console.log('here')
+            saveNewsToStore(newsArray)
+        })
+        
   }
+
+  // componentDidMount(){
+  //   console.log('here')
+
+  //           }
   
   getCheckingTransactions = () =>{
       // console.log(this.props.user.checking.transactions)
@@ -53,10 +68,9 @@ class App extends Component {
         <Switch>
           <Route exact path = '/' render = { Home } />
           <Route exact path = '/login' render = { (routerProps) => <MDBLogin {...routerProps} />} />
-          <Route exact path = '/account/:id' component = { Profile } />
-                                                                                                {/* pass down current user state */}
+          <Route exact path = '/account/:id' component = { Profile } />                                                                      {/* pass down current user state */}
           <Route exact path = '/signup' render = { (routerProps) => <MDBSignup {...routerProps}/>} /> 
-          <Route exact path = '/account/:id/checking/transactions' 
+          <Route exact path = '/account/:id/checking/transactions'
               render = {(routerProps) =>
            <CheckingTransPage {...routerProps} 
            user = {this.props.user}
@@ -66,6 +80,7 @@ class App extends Component {
            <SavingTransPage {...routerProps} 
               user = {this.props.user}
            />} />
+           <Route exact path ='/account/:id/expense' render = {() => <Chart />} />
         </Switch>
       </div>
     )
@@ -78,4 +93,4 @@ const mstp = (appState) => {
     }
 }
 
-export default connect(mstp, {saveUserToState})(withRouter(App))
+export default connect(mstp, {saveUserToState, saveNewsToStore})(withRouter(App))

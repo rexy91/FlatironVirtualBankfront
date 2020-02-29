@@ -60,6 +60,10 @@ const userReducer = (state = initialState, action) => {
                 console.log('here')
                 const updatedCheckingWithdrawl = action.payload.checking
                 return {user: {...state.user, checking: updatedCheckingWithdrawl}}
+        
+         case 'SAVE_NEWS_TO_STORE':
+                // console.log('here')
+                return state 
                 
         default:
             return state 
