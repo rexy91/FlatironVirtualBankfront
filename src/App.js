@@ -39,12 +39,12 @@ class App extends Component {
         }
       })
     }
-    console.log('here')
+    // console.log('here')
     
     fetch('http://newsapi.org/v2/everything?q=finance&from=2020-01-28&sortBy=publishedAt&apiKey=b5b343b90e4d4f0e89f4da475f9e01d8&results=5')
     .then(res => res.json())
     .then(newsArray => { 
-        console.log('here')
+        // console.log('here')
             saveNewsToStore(newsArray)
         })
         

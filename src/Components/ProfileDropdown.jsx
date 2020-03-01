@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Dropdown, Input } from 'semantic-ui-react'
 import {withRouter} from 'react-router-dom'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 const tagOptions = [
     {
@@ -9,6 +9,12 @@ const tagOptions = [
         text: 'Profile',
         value: 'updateInfo',
         label: { color: 'black', empty: true, circular: true },
+    },
+    {
+        key: 'Expense Summary',
+        text: 'Expense Summary',
+        value: 'updateInfo',
+        label: { color: 'yellow', empty: true, circular: true },
     }
     ,
   {
@@ -24,22 +30,31 @@ const tagOptions = [
     label: { color: 'blue', empty: true, circular: true },
   }
 ]
-const handleDropdown = (e) => {
-        
-        console.log(e.target.innerText)
+
+
+    
+export class ProfileDropdown extends Component {
+
+    handleDropdown = (e) =>{
+
+        const id = this.props.appState.user.id
         if (e.target.innerText === 'Update Info')
         {
             // Render update form modal
         }
         else if (e.target.innerText === 'Profile'){
             // this.push.history.push(`/account/${}`)
-            console.log(this.props)
+    
+        }
+        else if (e.target.innerText === 'Expense Summary'){
+            
+            fetch(`http://localhost:3000/account/${id}/expense_summary`)
+            .then(res => res.json())
+            .then(console.log)
         }
     }
-    
-export class ProfileDropdown extends Component {
+
     render() {
-        // console.log(this.props)
         return (
             <div>
               <Dropdown
@@ -55,7 +70,7 @@ export class ProfileDropdown extends Component {
                     <Dropdown.Header icon='tags' content='Tag Label' />
                     <Dropdown.Menu scrolling>
                         {tagOptions.map((option) => (
-                        <Dropdown.Item onClick = {handleDropdown} key={option.value} {...option} />
+                        <Dropdown.Item onClick = {this.handleDropdown} key={option.value} {...option} />
                         ))}
                     </Dropdown.Menu>
                     </Dropdown.Menu>
@@ -66,6 +81,7 @@ export class ProfileDropdown extends Component {
 }
 
 const mstp = (appState) => {
+
     return {appState}
 }
 
