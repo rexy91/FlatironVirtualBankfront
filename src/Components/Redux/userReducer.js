@@ -65,6 +65,10 @@ const userReducer = (state = initialState, action) => {
                 // console.log('here')
                 return state 
                 
+        case 'UPDATE_USER_INFO':
+                // console.log(action.payload)
+                return {...state, user:action.payload}
+
         default:
             return state 
     }

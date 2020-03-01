@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Header, Image, Modal } from 'semantic-ui-react'
 import {connect} from 'react-redux'
+import {updateUserInfo} from './Redux/actions'
 export class Modalupdate extends Component {
 
     updateInfo = (e) => {
@@ -24,7 +25,9 @@ export class Modalupdate extends Component {
             })
         })
         .then (res => res.json())
-        .then (console.log)
+        .then (updatedUserObj => {
+            this.props.updateUserInfo(updatedUserObj)
+        })
 
     }
     render() {
@@ -61,4 +64,4 @@ const mstp = (appState) => {
     return {appState}
 }
 
-export default connect(mstp)(Modalupdate)
+export default connect(mstp, {updateUserInfo})(Modalupdate)

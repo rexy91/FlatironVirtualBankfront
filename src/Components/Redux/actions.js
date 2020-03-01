@@ -87,3 +87,13 @@ export const saveNewsToStore = (newsArray) => {
       pyaload: newsArray
     }
 }
+
+// No default export, it is name export, needs to import with {}
+
+export const updateUserInfo = (updatedUserObj) => {
+  // console.log('here')
+  return {
+    type: 'UPDATE_USER_INFO',
+    payload: updatedUserObj
+  }
+}
