@@ -20,6 +20,7 @@ import {withRouter} from 'react-router-dom'
 import CheckingTransPage from './Components/CheckingTransPage';
 import SavingTransPage from './Components/SavingTransPage'
 import MDBSignup from './Components/MDBSignup';
+import Personalinfo from './Components/Personalinfo'
 
 class App extends Component {
 
@@ -58,7 +59,7 @@ class App extends Component {
   getCheckingTransactions = () =>{
       // console.log(this.props.user.checking.transactions)
   }
-
+  
   render() {
     // console.log(this.props)
     return (    
@@ -67,6 +68,7 @@ class App extends Component {
         {/* routing */}
         <Switch>
           <Route exact path = '/' render = { Home } />
+          <Route exact path = '/account/:id/profile' component = { Personalinfo} />
           <Route exact path = '/login' render = { (routerProps) => <MDBLogin {...routerProps} />} />
           <Route exact path = '/account/:id' component = { Profile } />                                                                      {/* pass down current user state */}
           <Route exact path = '/signup' render = { (routerProps) => <MDBSignup {...routerProps}/>} /> 

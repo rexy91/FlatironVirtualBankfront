@@ -43,7 +43,8 @@ export class ProfileDropdown extends Component {
             // Render update form modal
         }
         else if (e.target.innerText === 'Profile'){
-            // this.push.history.push(`/account/${}`)
+            console.log('here')
+            this.props.history.push(`/account/${id}/profile`)
     
         }
         else if (e.target.innerText === 'Expense Summary'){
