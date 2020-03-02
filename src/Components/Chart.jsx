@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import {Bar, Line, Radar} from 'react-chartjs-2'
+import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
 export class Chart extends Component {
     
     state = {
@@ -8,14 +10,11 @@ export class Chart extends Component {
             datasets:[
                 {
                     label:'Expense for Feb, 2020',
-
-                    data:[
-                        20000,
-                        5000,
-                        6000,
-                        2000,
-                        1000
-                    ],
+                    // Get data from state :
+                    data:
+                        // console.log(this.state)
+                        // Pass in array we got from the back end. 
+                        this.props.chartData.chartData,
                     backgroundColor: [
                         'rgba(255,99,132,0.6)',
                         'rgba(54,162,200,0.6)',
@@ -29,8 +28,12 @@ export class Chart extends Component {
     }
 
     render() {
+        console.log(this.props.chartData.chartData)
+        // console.log(this.state.chartData.datasets[0].data.chartData)
+        // console.log('inside chart')
         return (
             <div className = 'chart'>
+                
                 <h2>Chart Component</h2>
                 <Line
                     data={this.state.chartData}
@@ -57,4 +60,9 @@ export class Chart extends Component {
     }
 }
 
-export default Chart
+const mstp = (appState) => {
+    // console.log(appState.chartData)
+    return {chartData:appState.chartData}
+}
+
+export default connect(mstp)(withRouter(Chart))

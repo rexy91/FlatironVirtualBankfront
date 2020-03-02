@@ -21,6 +21,8 @@ import CheckingTransPage from './Components/CheckingTransPage';
 import SavingTransPage from './Components/SavingTransPage'
 import MDBSignup from './Components/MDBSignup';
 import Personalinfo from './Components/Personalinfo'
+import Newscontainer from './Components/Newscontainer'
+// import { Newscontainer } from './Components/Newscontainer';
 
 class App extends Component {
 
@@ -39,17 +41,9 @@ class App extends Component {
           this.props.saveUserToState(resp);
         }
       })
-    }
+    }}
     // console.log('here')
     
-    fetch('http://newsapi.org/v2/everything?q=finance&from=2020-01-28&sortBy=publishedAt&apiKey=b5b343b90e4d4f0e89f4da475f9e01d8&results=5')
-    .then(res => res.json())
-    .then(newsArray => { 
-        // console.log('here')
-            saveNewsToStore(newsArray)
-        })
-        
-  }
 
   // componentDidMount(){
   //   console.log('here')
@@ -66,12 +60,14 @@ class App extends Component {
       <div className = 'app'>
         {localStorage.getItem ? null : <LoginSignupContainer />}
         {/* routing */}
+        <Newscontainer />
         <Switch>
           <Route exact path = '/' render = { Home } />
           <Route exact path = '/account/:id/profile' component = { Personalinfo} />
           <Route exact path = '/login' render = { (routerProps) => <MDBLogin {...routerProps} />} />
           <Route exact path = '/account/:id' component = { Profile } />                                                                      {/* pass down current user state */}
           <Route exact path = '/signup' render = { (routerProps) => <MDBSignup {...routerProps}/>} /> 
+          <Route exact path ='/account/:id/expense' render = {() => <Chart />} />
           <Route exact path = '/account/:id/checking/transactions'
               render = {(routerProps) =>
            <CheckingTransPage {...routerProps} 
@@ -82,7 +78,7 @@ class App extends Component {
            <SavingTransPage {...routerProps} 
               user = {this.props.user}
            />} />
-           <Route exact path ='/account/:id/expense' render = {() => <Chart />} />
+           
         </Switch>
       </div>
     )

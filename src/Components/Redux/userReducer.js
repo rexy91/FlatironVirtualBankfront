@@ -57,21 +57,29 @@ const userReducer = (state = initialState, action) => {
                 // Just update the checking state to be action.payload's checking state which got rendered after the deposit.
                 return {user: {...state.user, checking: updatedCheckingDeposit}}
         case 'ONLINE_WITHDRAWAL':
-                console.log('here')
                 const updatedCheckingWithdrawl = action.payload.checking
                 return {user: {...state.user, checking: updatedCheckingWithdrawl}}
         
          case 'SAVE_NEWS_TO_STORE':
-                // console.log('here')
-                return state 
+                // console.log(action.payload)
+                // return state will return the current state, not empty initial state, becaus state got updated from other actions. 
+                // Spread the state, and add newsArray.
+                return {newsArray: action.payload}
+                // return state
                 
         case 'UPDATE_USER_INFO':
                 // console.log(action.payload)
                 return {...state, user:action.payload}
 
+        case 'DISPATCH_CHART_DATA':
+                //This will only gets execute when the dispatch gets called inside profile dropdown. 
+                // console.log('here', action)
+                return {...state, chartData: action.payload}
+                
         default:
             return state 
     }
+
 }
 
 export default userReducer

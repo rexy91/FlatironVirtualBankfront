@@ -81,10 +81,10 @@ export const handleLogout = () => {
 }
 
 export const saveNewsToStore = (newsArray) => {
-    
+    console.log('insdieAction')
     return {
       type: 'SAVE_NEWS_TO_STORE',
-      pyaload: newsArray
+      payload: newsArray
     }
 }
 
@@ -96,4 +96,12 @@ export const updateUserInfo = (updatedUserObj) => {
     type: 'UPDATE_USER_INFO',
     payload: updatedUserObj
   }
+}
+
+export const dispatchChartData = (chartData) => {
+    // console.log(chartData)
+    return {
+      type: 'DISPATCH_CHART_DATA',
+      payload: chartData
+    }
 }
