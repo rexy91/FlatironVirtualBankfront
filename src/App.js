@@ -41,15 +41,23 @@ class App extends Component {
           this.props.saveUserToState(resp);
         }
       })
-    }}
-    // console.log('here')
+    }
     
+            // Convert inso yyyy--mm--dd format 
+            let todayDate = new Date
+            let newDate = todayDate.toISOString().slice(0,10)
+            fetch(`http://newsapi.org/v2/everything?from=${newDate}&sortBy=publishedAt&apiKey=b5b343b90e4d4f0e89f4da475f9e01d8&q=finance`)
+            .then(res => res.json())
+            .then(newsRes => { 
+                    console.log(newsRes.articles)
+                    // console.log('App.js', newsRes.articles)
+                    // Don't want all the articles 
+                    let filteredNews = newsRes.articles.splice(0,9)
+                    this.props.saveNewsToStore(filteredNews)
+    
+                })
+  }
 
-  // componentDidMount(){
-  //   console.log('here')
-
-  //           }
-  
   getCheckingTransactions = () =>{
       // console.log(this.props.user.checking.transactions)
   }
@@ -60,7 +68,7 @@ class App extends Component {
       <div className = 'app'>
         {localStorage.getItem ? null : <LoginSignupContainer />}
         {/* routing */}
-        <Newscontainer />
+        {/* <Newscontainer /> */}
         <Switch>
           <Route exact path = '/' render = { Home } />
           <Route exact path = '/account/:id/profile' component = { Personalinfo} />

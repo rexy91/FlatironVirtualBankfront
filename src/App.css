@@ -139,3 +139,13 @@ ul.nav li a:hover {
 
 /* Clock  */
 
+
+
+#news-card{
+  height: 30vw !important;
+  margin-bottom: 5vh !important;
+  /* border-radius: 12%; */
+  /* border: 1px solid; */
+  padding: 10px;
+  box-shadow: 5px 10px black;
+}

@@ -81,7 +81,7 @@ export const handleLogout = () => {
 }
 
 export const saveNewsToStore = (newsArray) => {
-    console.log('insdieAction')
+    // console.log('insdieAction')
     return {
       type: 'SAVE_NEWS_TO_STORE',
       payload: newsArray

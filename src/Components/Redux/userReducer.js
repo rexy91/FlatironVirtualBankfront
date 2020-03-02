@@ -61,10 +61,11 @@ const userReducer = (state = initialState, action) => {
                 return {user: {...state.user, checking: updatedCheckingWithdrawl}}
         
          case 'SAVE_NEWS_TO_STORE':
-                // console.log(action.payload)
                 // return state will return the current state, not empty initial state, becaus state got updated from other actions. 
                 // Spread the state, and add newsArray.
-                return {newsArray: action.payload}
+
+                // Spread state to keep the user, add newsArray to state. 
+                return {...state, newsArray: action.payload}
                 // return state
                 
         case 'UPDATE_USER_INFO':

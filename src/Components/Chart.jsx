@@ -14,7 +14,7 @@ export class Chart extends Component {
                     data:
                         // console.log(this.state)
                         // Pass in array we got from the back end. 
-                        this.props.chartData.chartData,
+                        this.props?.chartData?.chartData,
                     backgroundColor: [
                         'rgba(255,99,132,0.6)',
                         'rgba(54,162,200,0.6)',
@@ -26,16 +26,15 @@ export class Chart extends Component {
             ]
         }
     }
-
+    
     render() {
-        console.log(this.props.chartData.chartData)
+        // console.log(this.props.chartData.chartData)
         // console.log(this.state.chartData.datasets[0].data.chartData)
         // console.log('inside chart')
         return (
             <div className = 'chart'>
-                
-                <h2>Chart Component</h2>
-                <Line
+
+                <Bar
                     data={this.state.chartData}
                     options = {{
                         title:{
@@ -45,15 +44,23 @@ export class Chart extends Component {
                         },
                         layout:{
                             padding:{
-                                left: 70,
-                                right: 70
+                                left: 140,
+                                right:140
                             }
                         }
                     }}
                 />
-                <Bar id ='bar'
+                <Line id ='bar'
                      data={this.state.chartData}
-                     options = {{}}                   
+                     options = {{
+                         layout:{
+                             padding:{
+                            left: 140,
+                            right:140,
+                            bottom: 100
+                        },                         
+                     }
+                     }}                   
                 />
             </div>
         )

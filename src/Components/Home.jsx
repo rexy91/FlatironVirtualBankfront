@@ -15,8 +15,8 @@ export default function Home() {
             <BonusAd />
             {/* <MDBSignup/> */}
             {/* <Particles /> */}
-            <Footer />
             <News />
+            <Footer />
         </div>
     )
 }
