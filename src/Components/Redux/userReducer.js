@@ -9,7 +9,7 @@ const userReducer = (state = initialState, action) => {
             // Spread the state, add key value pairs.
             // console.log(action.payload)
                 return {...state, user:action.payload.user, token:action.payload.token}
-
+        
         case 'SIGN_UP_USER':
                  return {...state, user:action.payload.user, token:action.payload.token}
 

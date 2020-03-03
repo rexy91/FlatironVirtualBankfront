@@ -49,7 +49,7 @@ class App extends Component {
             fetch(`http://newsapi.org/v2/everything?from=${newDate}&sortBy=publishedAt&apiKey=b5b343b90e4d4f0e89f4da475f9e01d8&q=finance`)
             .then(res => res.json())
             .then(newsRes => { 
-                    console.log(newsRes.articles)
+                    // console.log(newsRes.articles)
                     // console.log('App.js', newsRes.articles)
                     // Don't want all the articles 
                     let filteredNews = newsRes.articles.splice(0,9)

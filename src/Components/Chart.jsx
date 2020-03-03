@@ -15,6 +15,7 @@ export class Chart extends Component {
                         // console.log(this.state)
                         // Pass in array we got from the back end. 
                         this.props?.chartData?.chartData,
+
                     backgroundColor: [
                         'rgba(255,99,132,0.6)',
                         'rgba(54,162,200,0.6)',
@@ -71,5 +72,4 @@ const mstp = (appState) => {
     // console.log(appState.chartData)
     return {chartData:appState.chartData}
 }
-
 export default connect(mstp)(withRouter(Chart))

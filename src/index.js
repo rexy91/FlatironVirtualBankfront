@@ -42,11 +42,10 @@ const store = createStore(userReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && wi
 ReactDOM.render(
 <Provider store = {store}>
     <BrowserRouter>
-        {/* <Particles/> */}
+        <Particles/>
         <Header/>
         <App /> 
         {/* <Footer /> */}
-        
     </BrowserRouter>
 </Provider>,
 document.getElementById('root'));

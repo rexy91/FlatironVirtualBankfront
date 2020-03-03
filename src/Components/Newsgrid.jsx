@@ -8,6 +8,7 @@ import uuid from 'react-uuid'
 
 export class Newsgrid extends Component {
     render() {
+        
         let newsMapper = this.props?.newsArray?.map(singleArticle => {
             
             return <MDBCol md ='4'><Newscard singleNews = {singleArticle} key = {uuid()}/></MDBCol>

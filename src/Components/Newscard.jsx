@@ -15,9 +15,9 @@ export class Newscard extends Component {
       }
 
     render() {
-        console.log(this.props.singleNews)
+        // console.log(this.props.singleNews)
         const {title, urlToImage,url} = this.props.singleNews
-        console.log(title, urlToImage,url)
+        // console.log(title, urlToImage,url)
         const imgStyle = {height:'15vw'}
 
         return (

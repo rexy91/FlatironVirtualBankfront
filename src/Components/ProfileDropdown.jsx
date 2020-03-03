@@ -3,10 +3,9 @@ import { Dropdown, Input, Modal } from 'semantic-ui-react'
 import {withRouter} from 'react-router-dom'
 import { connect } from 'react-redux'
 import {dispatchChartData} from './Redux/actions'
-
-
 import Chart from '../Components/Chart'
 import {Switch, Route} from 'react-router'
+
 const tagOptions = [
     {
         key: 'Profile',
@@ -55,19 +54,18 @@ export class ProfileDropdown extends Component {
     
         }
         else if (e.target.innerText === 'Expense Summary'){
-
             fetch(`http://localhost:3000/account/${id}/expense_summary`)
             .then(res => res.json())
             .then(chartDataArray => {
                 // console.log(chartDataArray)
-                
                 this.props.dispatchChartData(chartDataArray)
                 // Chart will only receive the props when url is hit after the dispatch, so need to push to the url after the aciton.
                 // Accessing the url directly brefore the dispatch won't have the chart data the first time. 
-                this.props.history.push(`/account/${id}/expense`)
-               
+                this.props.history.push(`/account/${id}/expense`)      
             })
-            
+        }
+        else if (e.target.innerText === 'Transfer'){
+                console.log('transfer')
         }
     }
 
