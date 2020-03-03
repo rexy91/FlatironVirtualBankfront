@@ -52,7 +52,7 @@ export class Newsgrid extends Component {
 
 const mstp = (appState) => {
     return {newsArray: appState.newsArray,
-            language: appState.language}
+            language: appState.languagerof}
 }
 
 export default connect(mstp)(Newsgrid)

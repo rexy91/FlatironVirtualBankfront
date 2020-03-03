@@ -17,12 +17,13 @@ export class CheckingTransGrid extends Component {
 
       return  '\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0'
     }
-    render() {
-        console.log(this.props.checkingOrSaving)
+
+    renderEnglish = () => {
+        // console.log(this.props.checkingOrSaving)
         // This is how we render the checking trans, so return state inside reduer needs to match this when updating the DOM.
 
         const transactions = this.props?.user?.checking.transactions
-        console.log(transactions)
+        // console.log(transactions)
         // console.log(this.props)
         // Debugging
         // console.log(this.props.state.searchTerm)
@@ -42,7 +43,6 @@ export class CheckingTransGrid extends Component {
                 <MDBCol md ='3' id='amount'>{this.whiteSpace()}{transaction.amount}</MDBCol>
                 </MDBRow></>
         )):null 
-
         return (
             <div id='checkingTransContainer'>
                 <h4>Transactions History:</h4>
@@ -61,18 +61,74 @@ export class CheckingTransGrid extends Component {
             </div>
         )
     }
+
+    renderChinese = () => {
+        // console.log(this.props.checkingOrSaving)
+        // This is how we render the checking trans, so return state inside reduer needs to match this when updating the DOM.
+        console.log('here')
+        const transactions = this.props?.user?.checking.transactions
+        // console.log(transactions)
+        // console.log(this.props)
+        // Debugging
+        // console.log(this.props.state.searchTerm)
+        // console.log(transation.trans_type.toLowerCase().includes(this.props.searchTerm)
+        // console.log(this.props.state.user.checking.transactions)
+        // Filter that here 
+              let arrayWeCareAbout = transactions?.filter(transaction => {
+              return transaction.trans_type.toLowerCase().includes(this.props.searchTerm)
+              })
+        // Map here :
+        let transactionMapper = this.props?.user?.checking ? arrayWeCareAbout.map( (transaction) => (
+        <>
+                <MDBRow>
+                <MDBCol md =''>{transaction.date}</MDBCol>
+                <MDBCol md ='3'>{transaction.trans_type}</MDBCol>
+                <MDBCol md ='3'>{transaction.description}</MDBCol>
+                <MDBCol md ='3' id='amount'>{this.whiteSpace()}{transaction.amount}</MDBCol>
+                </MDBRow></>
+        )):null 
+        return (
+            <div id='checkingTransContainer'>
+                <h4>查看您的交易记录:</h4>
+                <DynamicSearch />
+                <MDBContainer>
+                <MDBRow>
+                <MDBCol md ='3'><Button color='black'>日期</Button></MDBCol>
+                <MDBCol md ='3'><Button color='black'>交易类型</Button></MDBCol>
+                <MDBCol md ='3'><Button color='black'>交易细节</Button></MDBCol>
+                <MDBCol md ='3'><Button color='black'>交易金额</Button></MDBCol>
+                </MDBRow>
+                {/* Can refactor, conditional render checking trans and saving trans  */}
+                {transactionMapper}
+                </MDBContainer>   
+                <button onClick = {this.goback}>回退</button>             
+            </div>
+        )
+    }
+        
+    render() {
+        // console.log(this.props)
+            const languageTernery = this.props?.appState?.langauge === 'Chinese'? this.renderChinese() : this.renderEnglish()
+            // console.log(this.props)
+        return (
+                
+            <>
+                {languageTernery}
+            </>
+        )
+    }
 }
 
 const mstp = (appState) => {
-    // console.log(appState)
+    //appState will returns the current entire state.
+    console.log(appState)
     // This will return the whole state inside store. 
     // So searchTerm won't be undefined at first. 
     let x = '' 
     if (appState.searchTerm){
         x = appState.searchTerm
     }
-
-    return {searchTerm: x}
+    return {searchTerm: x,}
 }
 
 

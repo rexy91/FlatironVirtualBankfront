@@ -33,11 +33,11 @@ export class Profile extends Component {
         this.props.history.push('/signup')
     }
 
-    checkingAccount = () => {
+    renderEnglishcheckingAccount = () => {
         // if (this.props.user.checking){
 
         // const accountstatusTenery = this.props.user.checking.status ? 'Active' : 'Deactived'
-        if(this.props.user.checking){
+        if(this.props?.user?.checking){
             return (
             <div id='checkingSection'>
             <p>Checking Acc: {this.props.user.checking.acc_num}</p>
@@ -64,8 +64,41 @@ export class Profile extends Component {
         }
     }
 
-    savingAccount = () => {
-        if(this.props.user.saving){
+
+    renderChinesecheckingAccount = () => {
+        // if (this.props.user.checking){
+
+        // const accountstatusTenery = this.props.user.checking.status ? 'Active' : 'Deactived'
+        if(this.props?.user?.checking){
+            return (
+            <div id='checkingSection'>
+            <p>支票账户: {this.props.user.checking.acc_num}</p>
+            <p>当前余额: ${this.props.user.checking.balance}</p>
+            {/* <p>Status: {accountstatusTenery}</p> */}
+            <Link to={`${this.props.match.url}/checking/transactions`}>
+            <Button color='black'>查看你的交易记录</Button>
+            </Link>
+            <br/>
+            <ModalWithdrawal />
+            <br/>
+            <Button color='black' onClick = {this.handleDeleteAcc} >取消你的账户</Button>
+            <ModalDeposit /> 
+            </div>
+            )
+        }
+        else{
+            {
+                return <div>
+                <p>You currently don't have a checking account.</p>
+                <br></br>
+                <button onClick = {this.renderModalSignup}>Sign Up</button>
+                </div>}       
+        }
+    }
+
+    renderEnglishSavingAccount = () => {
+        // ? returns null if undefined.
+        if(this.props?.user?.saving){
             return (                    
             <div id='savingSection'>
             <p>Saving Acc: {this.props.user.saving.acc_num}</p>
@@ -77,7 +110,6 @@ export class Profile extends Component {
                 <Button color ='black'>Internal Transfer</Button>
             </Link>
                 <Button color ='black' onClick = {this.handleDeleteAcc}>Deactivate Account</Button>
-                
         </div>)
         }
         else{
@@ -90,10 +122,37 @@ export class Profile extends Component {
              }
     }
 
+    renderChineseSavingAccount = () => {
+        if(this.props.user.saving){
+            return (                    
+            <div id='savingSection'>
+            <p>储蓄账户: {this.props.user.saving.acc_num}</p>
+            <p>当前余额: ${this.props.user.saving.balance}</p>
+            <Link to={`${this.props.match.url}/saving/transactions`}>
+                <Button color ='black'>查看你的交易记录</Button>
+            </Link>
+            <Link to={`${this.props.match.url}/saving/transactions`}>
+                <Button color ='black'>进行内部转账</Button>
+            </Link>
+                <Button color ='black' onClick = {this.handleDeleteAcc}>取消你的账户</Button>
+        </div>)
+        }
+        else{
+            {
+            return <div>
+            <p>您现在并没有任何的储蓄账户</p>
+            <br></br>
+            <button onClick = {this.renderModalSignup}>申请储蓄账户</button>
+            </div>}
+             }
+    }
+
     render() {
         // console.log(this.props)
         const {user} = this.props
         // To avoid ashy issues, first render if user doesn't exist, just return null. To avoid errors.
+        const languageTernrySaving = this.props.language==='Chinese'? this.renderChineseSavingAccount(): this.renderEnglishSavingAccount()
+        const languageTernryChecking = this.props.language==='Chinese'? this.renderChinesecheckingAccount(): this.renderEnglishcheckingAccount()
         if (user) {
         return (
             <div>
@@ -103,10 +162,10 @@ export class Profile extends Component {
                  <h4>Here are you accounts:</h4>
                  </div>
                 <div className = 'accContainer'>
-                    {this.checkingAccount()}
+                    {languageTernryChecking}
                      <br/>
                      <br/>
-                    {this.savingAccount()}
+                    {languageTernrySaving}
                 </div>
                 <div id='profile-footer'>
                     <Footer />
@@ -121,6 +180,7 @@ export class Profile extends Component {
 // get states from reducer
 // Now this.props will give you the user state. 
 const mstp = (appState) => {
+    console.log(appState)
     return appState
 }
 export default connect (mstp, {deleteAccount})(withRouter(Profile))

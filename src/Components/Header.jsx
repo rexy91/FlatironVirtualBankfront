@@ -23,7 +23,7 @@ class FixedNavbarExample extends React.Component {
         collapse: !this.state.collapse,
       });
   }
-
+  
   toggleLanguage =(e) => {
       this.props.toggleLanguageState(e.target.innerText)
 
@@ -40,13 +40,11 @@ class FixedNavbarExample extends React.Component {
   renderLogout = () => {
     if(localStorage.getItem){
         if(this.props.lanuage === 'Chinese'){
-          console.log('fsdfsd')
           return <MDBNavItem active>
                   <MDBNavLink onClick = {this.handleLogout} to="/">登出</MDBNavLink>
                  </MDBNavItem>}
 
         else{
-          console.log('here')
           return <MDBNavItem active>
                   <MDBNavLink onClick = {this.handleLogout} to="/">Log Out</MDBNavLink>
                  </MDBNavItem>}
@@ -94,7 +92,7 @@ class FixedNavbarExample extends React.Component {
 
         <MDBContainer style={container} className="text-center mt-5 pt-5" >
           <img id = 'logo' style = {imgSize} src={logo} alt=""/>
-          <h2 id='title'>欢迎使用 #### Banking System</h2>
+          <h2 id='title'>欢迎使用虚拟银行系统</h2>
           <img id = '2ndlogo' style ={imgSize} src={anotherLogo} alt ='' /> 
         </MDBContainer>
       </div>
@@ -147,7 +145,7 @@ class FixedNavbarExample extends React.Component {
   }
 
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     const languageTernry = this.props.language==='Chinese'? this.renderChinese(): this.renderEnglish()
     return(
       <>

@@ -55,17 +55,21 @@ const userReducer = (state = initialState, action) => {
                 // console.log(state) 
                 // define a new state here, ...state.user to keep the user. 
                 // Just update the checking state to be action.payload's checking state which got rendered after the deposit.
-                return {user: {...state.user, checking: updatedCheckingDeposit}}
+                // Need to keep the state lanugage = 'Chinese' 
+                                // Here spreading user becausing reassigning into an object. 
+                                                                                //Here don't need to spread language because just assigning to be an updated object {}. 
+                return {user: {...state.user,checking: updatedCheckingDeposit}, language: state.language}
+
         case 'ONLINE_WITHDRAWAL':
                 const updatedCheckingWithdrawl = action.payload.checking
-                return {user: {...state.user, checking: updatedCheckingWithdrawl}}
+                return {user: {...state.user, checking: updatedCheckingWithdrawl},language: state.language}
         
          case 'SAVE_NEWS_TO_STORE':
                 // return state will return the current state, not empty initial state, becaus state got updated from other actions. 
                 // Spread the state, and add newsArray.
 
                 // Spread state to keep the user, add newsArray to state. 
-                return {...state, newsArray: action.payload}
+                return {...state, newsArray: action.payload,language: state.language}
                 // return state
                 
         case 'UPDATE_USER_INFO':

@@ -72,8 +72,8 @@ export class ModalDeposit extends Component {
           // this.props.history.push(`/account/${this.props.user.id}`)
           // this.props.history.goBack()
       }}
-      
-  render() {
+
+  renderEnglish = () => {
     return (
       <Modal trigger={<Button color='black'>Deposit</Button>} centered={false}>
       <Modal.Header>Select a Photo</Modal.Header>
@@ -93,6 +93,35 @@ export class ModalDeposit extends Component {
     </Modal>
     )
   }
+
+  renderChinese = () => {
+    return (
+      <Modal trigger={<Button color='black'>进行存款</Button>} centered={false}>
+      <Modal.Header>Select a Photo</Modal.Header>
+      <Modal.Content image>
+        <Modal.Description>
+          <Header>存款交易</Header>
+          <p>当前账户余额: ${this.props.user.checking.balance} </p>
+          <form onSubmit = {this.submitDeposit}>
+            <label htmlFor="">存款的金额</label>
+            <input type="number" name = 'amount' />
+            <br/>
+            <button type ='submit'> 提交 </button>
+          </form>
+          <p>Is it okay to use this photo?</p>
+        </Modal.Description>
+      </Modal.Content>
+    </Modal>
+    )
+  }
+      
+  render() {
+    const languageTernry = this.props?.language==='Chinese'? this.renderChinese(): this.renderEnglish()
+return(
+    <>
+      {languageTernry}
+    </>)
+}
 }
 
     const mstp = (appState) => {
