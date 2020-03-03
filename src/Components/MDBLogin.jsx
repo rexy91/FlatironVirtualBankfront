@@ -26,6 +26,7 @@ export class MDBLogin extends Component {
             localStorage.setItem('token',responseFromServer.token)
             this.props.saveUserToState(responseFromServer)
             this.props.history.push(`/account/${responseFromServer.user.id}`)
+            
         })
     }
 

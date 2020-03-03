@@ -22,7 +22,7 @@ export class Newscontainer extends Component {
       }
     render() {
         // First render is undefined.
-        console.log(this.props.newsArray)
+        // console.log(this.props.newsArray)
         return (
             <div id = 'newsCardContainer'>
                     <Newsgrid />

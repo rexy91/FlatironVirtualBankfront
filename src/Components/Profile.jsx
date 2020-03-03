@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import TransContainer from './TransContainer'
 import CheckingTransPage from './CheckingTransPage'
+import Footer from '../Components/Footer'
 import { NavLink, Link } from 'react-router-dom'
 import {Switch, Route} from 'react-router'
 import {withRouter} from 'react-router-dom'
@@ -72,6 +73,9 @@ export class Profile extends Component {
             <Link to={`${this.props.match.url}/saving/transactions`}>
                 <Button color ='black'>View Transactions</Button>
             </Link>
+            <Link to={`${this.props.match.url}/saving/transactions`}>
+                <Button color ='black'>Internal Transfer</Button>
+            </Link>
                 <Button color ='black' onClick = {this.handleDeleteAcc}>Deactivate Account</Button>
                 
         </div>)
@@ -103,6 +107,9 @@ export class Profile extends Component {
                      <br/>
                      <br/>
                     {this.savingAccount()}
+                </div>
+                <div id='profile-footer'>
+                    <Footer />
                 </div>
             </div>
         )

@@ -18,8 +18,10 @@ import {Switch, Route} from 'react-router'
 import LoginSignupContainer from './Components/LoginSignupContainer';
 import {withRouter} from 'react-router-dom'
 import CheckingTransPage from './Components/CheckingTransPage';
+import CheckingTransGrid from './Components/CheckingTransGrid'
 import SavingTransPage from './Components/SavingTransPage'
 import MDBSignup from './Components/MDBSignup';
+import HousingContainer from './Components/HousingContainer'
 import Personalinfo from './Components/Personalinfo'
 import Newscontainer from './Components/Newscontainer'
 // import { Newscontainer } from './Components/Newscontainer';
@@ -46,7 +48,7 @@ class App extends Component {
             // Convert inso yyyy--mm--dd format 
             let todayDate = new Date
             let newDate = todayDate.toISOString().slice(0,10)
-            fetch(`http://newsapi.org/v2/everything?from=${newDate}&sortBy=publishedAt&apiKey=b5b343b90e4d4f0e89f4da475f9e01d8&q=finance`)
+            fetch(`http://newsapi.org/v2/everything?from=${newDate}-&sortBy=publishedAt&apiKey=b5b343b90e4d4f0e89f4da475f9e01d8&q=finance`)
             .then(res => res.json())
             .then(newsRes => { 
                     // console.log(newsRes.articles)
@@ -67,6 +69,7 @@ class App extends Component {
     return (    
       <div className = 'app'>
         {localStorage.getItem ? null : <LoginSignupContainer />}
+        <HousingContainer /> 
         {/* routing */}
         {/* <Newscontainer /> */}
         <Switch>
@@ -76,11 +79,15 @@ class App extends Component {
           <Route exact path = '/account/:id' component = { Profile } />                                                                      {/* pass down current user state */}
           <Route exact path = '/signup' render = { (routerProps) => <MDBSignup {...routerProps}/>} /> 
           <Route exact path ='/account/:id/expense' render = {() => <Chart />} />
+
           <Route exact path = '/account/:id/checking/transactions'
               render = {(routerProps) =>
-           <CheckingTransPage {...routerProps} 
-           user = {this.props.user}
+           <CheckingTransGrid {...routerProps}
+          //  Pass user to this component through url
+           user = {this.props.user} 
+           checkingOrSaving = {"checking"}
            />} />
+           
           <Route exact path = '/account/:id/saving/transactions' 
               render = {(routerProps) =>
            <SavingTransPage {...routerProps} 

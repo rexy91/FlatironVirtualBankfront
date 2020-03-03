@@ -76,7 +76,10 @@ const userReducer = (state = initialState, action) => {
                 //This will only gets execute when the dispatch gets called inside profile dropdown. 
                 // console.log('here', action)
                 return {...state, chartData: action.payload}
-                
+
+
+        case 'TOGGLE_LANGUAGE':
+                return {...state, language: action.payload}
         default:
             return state 
     }

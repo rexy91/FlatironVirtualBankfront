@@ -1,33 +1,58 @@
 import React, { Component } from 'react'
-import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 import Newscard from './Newscard'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {saveNewsToStore} from './Redux/actions'
+import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 import uuid from 'react-uuid'
 
 export class Newsgrid extends Component {
-    render() {
-        
+    
+    renderChinese = () => {
         let newsMapper = this.props?.newsArray?.map(singleArticle => {
             
             return <MDBCol md ='4'><Newscard singleNews = {singleArticle} key = {uuid()}/></MDBCol>
-        })
-        return (
-            <div>
+        })       
+    return  <div>
+                <MDBContainer>
+                    <h1>现况头条新闻</h1>
+                <MDBRow>
+                    {newsMapper}
+                </MDBRow>
+                </MDBContainer>                
+            </div>
+    }
+
+    renderEnglish =() => {
+        let newsMapper = this.props?.newsArray?.map(singleArticle => {
+            
+            return <MDBCol md ='4'><Newscard singleNews = {singleArticle} key = {uuid()}/></MDBCol>
+        })   
+
+    return  <div>
                 <MDBContainer>
                     <h1>Trending News</h1>
                 <MDBRow>
                     {newsMapper}
                 </MDBRow>
                 </MDBContainer>                
-            </div>
+            </div>        
+    }
+
+    render() {
+        const languageTernry = this.props.language==='Chinese'? this.renderChinese(): this.renderEnglish()
+        
+        return (
+            <>
+                {languageTernry}
+            </>
         )
     }
 }
 
 const mstp = (appState) => {
-    return {newsArray: appState.newsArray}
+    return {newsArray: appState.newsArray,
+            language: appState.language}
 }
 
 export default connect(mstp)(Newsgrid)

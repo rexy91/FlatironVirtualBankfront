@@ -105,3 +105,10 @@ export const dispatchChartData = (chartData) => {
       payload: chartData
     }
 }
+
+export const toggleLanguageState = (language) => {
+    return {
+      type: 'TOGGLE_LANGUAGE',
+      payload: language
+    }
+}

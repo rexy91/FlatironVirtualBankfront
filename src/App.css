@@ -146,3 +146,16 @@ ul.nav li a:hover {
   padding: 5% !important; 
   /* box-shadow: 5px 10px black; */
 }
+
+.app{
+  /* margin: 5vh; */
+  /* background-color: black; */
+}
+
+#checkingTransContainer{
+  border: solid 1px;
+}
+
+#amount{
+    
+}

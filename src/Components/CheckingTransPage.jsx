@@ -9,35 +9,15 @@ export class CheckingTransPage extends Component {
     }
 
     render() {
-        // console.log(this.props)
-        // This is how we render the checking trans, so return state inside reduer needs to match this when updating the DOM.
 
-        const transactions = this.props.user.checking.transactions
-        
-        // console.log(this.props)
-        // Debugging
-        // console.log(this.props.state.searchTerm)
-        // console.log(transation.trans_type.toLowerCase().includes(this.props.searchTerm)
-        // console.log(this.props.state.user.checking.transactions)
-        // Filter that here 
-              let arrayWeCareAbout = transactions.filter(transaction => {
-              return transaction.trans_type.toLowerCase().includes(this.props.searchTerm)
-              })
-              
-        // Map here :
-        let transactionMapper = this.props.user.checking ? arrayWeCareAbout.map( (transaction) => (
-        <>
-            <li>AmountTypeDescription</li>
-        <li>${transaction.amount} {transaction.trans_type}{transaction.description}</li> </>
-        )) : null
         
         return (
             <div>
                 <h4>Transactions History:</h4>
                 <DynamicSearch />
-                <ul>
-                   {transactionMapper}
-                </ul>
+                <div id = 'checkingTransContainer'>
+                    
+                </div>
                 <button onClick = {this.goback}>Back</button>
             </div>
         )
