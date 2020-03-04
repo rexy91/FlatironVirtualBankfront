@@ -34,7 +34,7 @@ export class ModalWithdrawal extends Component {
           .then(res => res.json())
           // User obj here contains the new checking trans array. 
           .then(updatedUserObj => {
-            console.log('here')
+            // console.log('here')
             // Has to be called with this.props *** 
             this.props.onlineWithdrawal(updatedUserObj)
           })
@@ -82,6 +82,7 @@ renderEnglish = () => {
         )}
 
   render() {
+      // {console.log(this.props)}
       const languageTernry = this.props?.language==='Chinese'? this.renderChinese(): this.renderEnglish()
   return(
       <>
@@ -92,7 +93,7 @@ renderEnglish = () => {
 
 // Need to get current user state.
 const mstp = (appState) => {
-    console.log(appState)
+    // console.log(appState)
     return appState
   }
 

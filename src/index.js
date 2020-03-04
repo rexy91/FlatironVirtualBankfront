@@ -45,7 +45,7 @@ ReactDOM.render(
         <Particles/>
         <Header/>
         <App /> 
-        {/* <Footer /> */}
+        <Footer />
     </BrowserRouter>
 </Provider>,
 document.getElementById('root'));

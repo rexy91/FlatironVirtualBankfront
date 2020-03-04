@@ -34,9 +34,10 @@ export class CheckingTransGrid extends Component {
               return transaction.trans_type.toLowerCase().includes(this.props.searchTerm)
               })
         // Map here :
+
         let transactionMapper = this.props?.user?.checking ? arrayWeCareAbout.map( (transaction) => (
         <>
-                <MDBRow>
+                <MDBRow id ='singleCheckingTrans'>
                 <MDBCol md =''>{transaction.date}</MDBCol>
                 <MDBCol md ='3'>{transaction.trans_type}</MDBCol>
                 <MDBCol md ='3'>{transaction.description}</MDBCol>
@@ -44,28 +45,31 @@ export class CheckingTransGrid extends Component {
                 </MDBRow></>
         )):null 
         return (
-            <div id='checkingTransContainer'>
-                <h4>Transactions History:</h4>
-                <DynamicSearch />
-                <MDBContainer>
+            <>
+            <h4>Transactions History:</h4>
+            <DynamicSearch />
+            <MDBContainer>
                 <MDBRow>
                 <MDBCol md ='3'><Button color='black'>Date</Button></MDBCol>
                 <MDBCol md ='3'><Button color='black'>Type</Button></MDBCol>
                 <MDBCol md ='3'><Button color='black'>Descritption</Button></MDBCol>
                 <MDBCol md ='3'><Button color='black'>Amount</Button></MDBCol>
                 </MDBRow>
+            </MDBContainer>
+            <div id='checkingTransContainer'>
+                <MDBContainer>
                 {/* Can refactor, conditional render checking trans and saving trans  */}
                 {transactionMapper}
                 </MDBContainer>   
                 <button onClick = {this.goback}>Back</button>             
             </div>
+            </>
         )
     }
 
     renderChinese = () => {
         // console.log(this.props.checkingOrSaving)
         // This is how we render the checking trans, so return state inside reduer needs to match this when updating the DOM.
-        console.log('here')
         const transactions = this.props?.user?.checking.transactions
         // console.log(transactions)
         // console.log(this.props)
@@ -80,35 +84,41 @@ export class CheckingTransGrid extends Component {
         // Map here :
         let transactionMapper = this.props?.user?.checking ? arrayWeCareAbout.map( (transaction) => (
         <>
-                <MDBRow>
-                <MDBCol md =''>{transaction.date}</MDBCol>
+                <MDBRow id ='singleCheckingTrans'>
+                <MDBCol md ='3'>{transaction.date}</MDBCol>
                 <MDBCol md ='3'>{transaction.trans_type}</MDBCol>
                 <MDBCol md ='3'>{transaction.description}</MDBCol>
                 <MDBCol md ='3' id='amount'>{this.whiteSpace()}{transaction.amount}</MDBCol>
                 </MDBRow></>
         )):null 
         return (
-            <div id='checkingTransContainer'>
-                <h4>查看您的交易记录:</h4>
-                <DynamicSearch />
-                <MDBContainer>
+             <>
+            <h4>查看您的交易记录:</h4>
+            <DynamicSearch />
+            <MDBContainer>
                 <MDBRow>
                 <MDBCol md ='3'><Button color='black'>日期</Button></MDBCol>
                 <MDBCol md ='3'><Button color='black'>交易类型</Button></MDBCol>
                 <MDBCol md ='3'><Button color='black'>交易细节</Button></MDBCol>
                 <MDBCol md ='3'><Button color='black'>交易金额</Button></MDBCol>
                 </MDBRow>
+            </MDBContainer>
+
+            <div id='checkingTransContainer'>
+                <MDBContainer>
                 {/* Can refactor, conditional render checking trans and saving trans  */}
                 {transactionMapper}
                 </MDBContainer>   
                 <button onClick = {this.goback}>回退</button>             
             </div>
+            </>
         )
     }
         
     render() {
-        // console.log(this.props)
-            const languageTernery = this.props?.appState?.langauge === 'Chinese'? this.renderChinese() : this.renderEnglish()
+            // console.log(this.props?.langauge === 'Chinese')
+            // const languageTernry = this.props.language==='Chinese'? this.renderChinese(): this.renderEnglish()
+            const languageTernery = this.props.language === 'Chinese' ? this.renderChinese() : this.renderEnglish()
             // console.log(this.props)
         return (
                 
@@ -121,14 +131,15 @@ export class CheckingTransGrid extends Component {
 
 const mstp = (appState) => {
     //appState will returns the current entire state.
-    console.log(appState)
+    // console.log(appState)
     // This will return the whole state inside store. 
     // So searchTerm won't be undefined at first. 
     let x = '' 
     if (appState.searchTerm){
         x = appState.searchTerm
     }
-    return {searchTerm: x,}
+    return {searchTerm: x,
+            language: appState.language}
 }
 
 

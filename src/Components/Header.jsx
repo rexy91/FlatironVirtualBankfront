@@ -1,5 +1,5 @@
 import React from 'react';
-import { MDBContainer, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink, MDBIcon } from 'mdbreact';
+import { MDBContainer, MDBNavbar, MDBCol, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink, MDBIcon, MDBRow } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
 import {withRouter} from 'react-router-dom'
 import { NavLink, Link } from 'react-router-dom'
@@ -93,7 +93,7 @@ class FixedNavbarExample extends React.Component {
         <MDBContainer style={container} className="text-center mt-5 pt-5" >
           <img id = 'logo' style = {imgSize} src={logo} alt=""/>
           <h2 id='title'>欢迎使用虚拟银行系统</h2>
-          <img id = '2ndlogo' style ={imgSize} src={anotherLogo} alt ='' /> 
+          {/* <img id = 'secondlogo' style ={imgSize} src={anotherLogo} alt ='' />  */}
         </MDBContainer>
       </div>
   }
@@ -137,9 +137,15 @@ class FixedNavbarExample extends React.Component {
                 </header>
 
                     <MDBContainer style={container} className="text-center mt-5 pt-5" >
+                    <MDBRow>
+                      <MDBCol md='3'>
                       <img id = 'logo' style = {imgSize} src={logo} alt=""/>
+                      </MDBCol>
+                      <MDBCol md='9'>
                       <h2 id='title'>Welcome to the #### Banking System</h2>
-                      <img id = '2ndlogo' style ={imgSize} src={anotherLogo} alt ='' /> 
+                      </MDBCol>
+                    </MDBRow>
+                      {/* <img id = 'secondlogo' style ={imgSize} src={anotherLogo} alt ='' />  */}
                     </MDBContainer>
                   </div>
   }

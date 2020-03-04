@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import DynamicSearch from '../Components/TransactionPage/DynamicSearch'
 export class CheckingTransPage extends Component {
 
-
     goback = () => {
         this.props.history.goBack();
     }

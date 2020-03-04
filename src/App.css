@@ -58,10 +58,20 @@ ul.nav li a:hover {
   margin-bottom: 1px;
 }
 
-#title {
+/* #title {
   font-weight: bolder;
   font-size:180%;
 }
+
+#logo {
+  margin-left: 20vh;
+  height: 50px;
+  width: 100px;
+  padding: initial;
+  position: absolute;
+
+} */
+
 #login-form{
   margin-left: 32vw;
 }
@@ -84,12 +94,6 @@ ul.nav li a:hover {
   margin-bottom: 0.5%;
 }
 
-#checkingSection{
-  border: solid 1px;
-  margin-top: 2vh;
-  margin-bottom: -3.3vh;
-}
-
 #savingSection{
   border: solid 1px;
   /* margin-top:h; */
@@ -109,16 +113,6 @@ ul.nav li a:hover {
   font-weight: bolder !important;
 }
 
-#logo {
-
-    height: 50px;
-    width: 100px;
-    margin-bottom: 5vh;
-    display: inherit;
-    padding: initial;
-    position: absolute;
-
-}
 
 .ui.labeled.icon.button, .ui.labeled.icon.buttons .button {
   position: relative;
@@ -153,9 +147,35 @@ ul.nav li a:hover {
 }
 
 #checkingTransContainer{
-  border: solid 1px;
-}
+        height: 70vh;
+        overflow-y: scroll;
+        margin-top: 2%;
+       
+  }
 
 #amount{
     
+}
+
+#secondlogo{
+  height: 80px;
+  width: 20px;
+  position: absolute;
+  margin-left: 65vh;
+}
+
+#labels{
+  position: fixed;
+}
+
+#singleCheckingTrans{
+  border: solid 1px ;
+  background-color: #F0FFFF;
+  padding: 1%;
+}
+
+#checkingSection{
+  border: solid 1px;
+  margin-top: 2vh;
+  margin-bottom: -3.3vh;
 }

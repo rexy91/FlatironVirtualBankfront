@@ -16,7 +16,7 @@ export default function Home() {
             {/* <MDBSignup/> */}
             {/* <Particles /> */}
             <News />
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }

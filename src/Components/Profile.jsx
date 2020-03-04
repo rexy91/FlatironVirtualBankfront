@@ -168,7 +168,7 @@ export class Profile extends Component {
                     {languageTernrySaving}
                 </div>
                 <div id='profile-footer'>
-                    <Footer />
+                    {/* <Footer /> */}
                 </div>
             </div>
         )

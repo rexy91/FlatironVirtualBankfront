@@ -11,7 +11,7 @@ export class Modalupdate extends Component {
         const email = e.target.email.value
         const billing_address = e.target.billing_address.value
 
-        fetch(`http://localhost:3000/account/${this.props.appState.user.id}/profile/update`, {
+        fetch(`http://localhost:3000/account/${this.props?.appState?.user.id}/profile/update`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -28,9 +28,9 @@ export class Modalupdate extends Component {
         .then (updatedUserObj => {
             this.props.updateUserInfo(updatedUserObj)
         })
-
     }
-    render() {
+
+    renderEnglish =() => {
         return (
             <Modal trigger={<Button color='black'>Update Info</Button>} centered={false}>
             <Modal.Header>Select a Photo</Modal.Header>
@@ -56,6 +56,44 @@ export class Modalupdate extends Component {
               </Modal.Description>
             </Modal.Content>
           </Modal>
+          )
+    }
+
+    renderChinese =() => {
+        return (
+            <Modal trigger={<Button color='black'>更新资料</Button>} centered={false}>
+            <Modal.Header>Select a Photo</Modal.Header>
+            <Modal.Content image>
+              <Modal.Description>
+                <Header>跟信你的资料</Header>
+                {/* <p>Available balance: </p> */}
+                <form onSubmit = {this.updateInfo}>
+                  <label htmlFor="">名字:</label>
+                  <input type="text" name = 'first_name' />
+                  <br/>
+                  <label htmlFor="">姓氏:</label>
+                  <input type="text" name = 'last_name' />
+                  <br/>
+                  <label htmlFor="">电子邮箱:</label>
+                  <input type="text" name = 'email' />
+                  <br/>
+                  <label htmlFor="">信箱地址:</label>
+                  <textarea type="text" name = 'billing_address' />
+                  <button type ='submit'> 提交 </button>
+                </form>
+                <p>Is it okay to use this photo?</p>
+              </Modal.Description>
+            </Modal.Content>
+          </Modal>
+          )
+    }
+    
+    render() {
+        const languageTernery = this.props?.appState?.language? this.renderChinese(): this.renderEnglish()
+        return (
+            <>
+                {languageTernery}
+            </>
           )
     }
 }
