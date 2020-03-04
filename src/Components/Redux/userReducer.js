@@ -84,6 +84,14 @@ const userReducer = (state = initialState, action) => {
 
         case 'TOGGLE_LANGUAGE':
                 return {...state, language: action.payload}
+
+
+        case 'SAVE_ALL_USERS':
+                // console.log(action.payload.users)
+                //Create new state object, spread state to keep all its keys/values, add users. 
+                return {...state,users: action.payload}
+                
+
         default:
             return state 
     }

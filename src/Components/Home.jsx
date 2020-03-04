@@ -9,7 +9,7 @@ import News from './Newscontainer'
 export default function Home() {
     return (
             
-        <div>
+        <div id='home-wrapper'>
             {/* <img id ='logo' src="https://image.shutterstock.com/image-vector/dots-letter-c-logo-design-260nw-551769190.jpg" alt="logo"/> */}
             <LoginSignupContainer />
             <BonusAd />

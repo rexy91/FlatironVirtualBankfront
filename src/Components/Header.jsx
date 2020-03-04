@@ -144,7 +144,7 @@ class FixedNavbarExample extends React.Component {
                   </MDBNavbar>
                 </header>
 
-                    <MDBContainer style={container} className="text-center mt-5 pt-5" >
+                    {/* <MDBContainer style={container} className="text-center mt-5 pt-5" >
                     <MDBRow>
                       <MDBCol md='3'>
                       <img id = 'logo' style = {imgSize} src={logo} alt=""/>
@@ -153,8 +153,8 @@ class FixedNavbarExample extends React.Component {
                       <h2 id='title'>Welcome to the #### Banking System</h2>
                       </MDBCol>
                     </MDBRow>
-                      {/* <img id = 'secondlogo' style ={imgSize} src={anotherLogo} alt ='' />  */}
-                    </MDBContainer>
+                      <img id = 'secondlogo' style ={imgSize} src={anotherLogo} alt ='' /> 
+                    </MDBContainer> */}
                   </div>
   }
 

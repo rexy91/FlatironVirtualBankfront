@@ -1,3 +1,5 @@
+import { useStore } from "react-redux"
+
 export const signUpUser = (newUserState) => {
   return {
       
@@ -110,5 +112,11 @@ export const toggleLanguageState = (language) => {
     return {
       type: 'TOGGLE_LANGUAGE',
       payload: language
+    }
+}
+export const saveAllUsersToStore = (users) => {
+    return{
+      type: 'SAVE_ALL_USERS',
+      payload: users
     }
 }

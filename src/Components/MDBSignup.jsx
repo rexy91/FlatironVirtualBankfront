@@ -4,6 +4,7 @@ import {withRouter} from 'react-router-dom'
 import {signUpUser} from './Redux/actions'
 import {signUpAccount} from './Redux/actions'
 import {connect} from 'react-redux'
+import SignupCode from '../Components/SignupCode'
 import swal from 'sweetalert';
 
 class MDBSignup extends Component {
@@ -18,6 +19,10 @@ class MDBSignup extends Component {
             [e.target.name]: e.target.value
         })
     }
+    handleSignupGenCode = (e) => {
+        
+    }
+
     handleSignupSubmit = (e) => {
         e.preventDefault()
         fetch('http://localhost:3000/users', {
@@ -37,11 +42,10 @@ class MDBSignup extends Component {
                 // console.log(responseFromServer)
                 // console.log(responseFromServer.user)
                 // console.log(responseFromServer.user.signup_type === 'Checking')
-
           if (!responseFromServer.errors) {
                 this.props.history.push(`/account/${responseFromServer.user.id}`)
                 localStorage.setItem('token',responseFromServer.token)
-                this.props.signUpUser(responseFromServer)
+                this.props.signUpUser(responseFromServer) 
                 if (responseFromServer.signup_type === 'Checking'){
                     swal(`Welcome, ${responseFromServer.user.username}`,
                     "$5000 signup bonus has been desposited into you checking account.",
@@ -173,6 +177,7 @@ class MDBSignup extends Component {
                         <br/><br/>
                     </select>
                     <MDBBtn type = 'submit' color="black">Register</MDBBtn>
+                    {/* <SignupCode /> */}
                   </div>
                 </form>
               </MDBCol>

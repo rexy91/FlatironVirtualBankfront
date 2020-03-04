@@ -44,7 +44,9 @@ ReactDOM.render(
     <BrowserRouter>
         <Particles/>
         <Header/>
+    <div id='wrapper'>
         <App /> 
+    </div>
         <Footer />
     </BrowserRouter>
 </Provider>,

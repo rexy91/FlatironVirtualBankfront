@@ -23,6 +23,7 @@ import SavingTransPage from './Components/SavingTransPage'
 import MDBSignup from './Components/MDBSignup';
 import HousingContainer from './Components/HousingContainer'
 import Personalinfo from './Components/Personalinfo'
+import InstantTransfer from './Components/AccountActions/InstantTransfer'
 import Newscontainer from './Components/Newscontainer'
 // import { Newscontainer } from './Components/Newscontainer';
 
@@ -79,7 +80,7 @@ class App extends Component {
           <Route exact path = '/account/:id' component = { Profile } />                                                                      {/* pass down current user state */}
           <Route exact path = '/signup' render = { (routerProps) => <MDBSignup {...routerProps}/>} /> 
           <Route exact path ='/account/:id/expense' render = {() => <Chart />} />
-
+          <Route exact path ='/account/:id/instant_transfer' render = {() => <InstantTransfer />}/> 
           <Route exact path = '/account/:id/checking/transactions'
               render = {(routerProps) =>
            <CheckingTransGrid {...routerProps}
@@ -93,6 +94,7 @@ class App extends Component {
            <SavingTransPage {...routerProps} 
               user = {this.props.user}
            />} />
+
            
         </Switch>
       </div>

@@ -12,6 +12,7 @@ import swal from 'sweetalert';
 import ModalDeposit from './ModalDeposit'
 import ModalWithdrawal from './ModalWithdrawal'
 import MDBSignup from './MDBSignup'
+import Title from './Title'
 // Redux
 import {deleteAccount} from './Redux/actions'
 import { Modal } from 'semantic-ui-react'
@@ -156,6 +157,7 @@ export class Profile extends Component {
         if (user) {
         return (
             <div>
+                <Title/>
                 <ProfileDropdown />
                 <div id='welcome-section'>
                 <h3>Welcome: {user.username}</h3>
@@ -180,7 +182,7 @@ export class Profile extends Component {
 // get states from reducer
 // Now this.props will give you the user state. 
 const mstp = (appState) => {
-    console.log(appState)
+    // console.log(appState)
     return appState
 }
 export default connect (mstp, {deleteAccount})(withRouter(Profile))
