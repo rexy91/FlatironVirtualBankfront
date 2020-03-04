@@ -52,6 +52,15 @@ export class ModalDeposit extends Component {
       if(amount < 20){
           swal('Please make a minimum deposit of $20')
       }
+      
+      else if (amount > 5000){
+
+          swal(
+            'Alert!!',
+            'Deposit Amount is too large, please visit one of our five thousands branches.',
+            'error')
+      }
+
       else{
           fetch(`http://localhost:3000/checkings/deposit/${checkingId}`, {
               method:'PATCH',

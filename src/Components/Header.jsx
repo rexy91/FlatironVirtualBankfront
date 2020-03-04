@@ -17,7 +17,7 @@ class FixedNavbarExample extends React.Component {
       };
       this.onClick = this.onClick.bind(this);
   }
-
+  
   onClick() {
     this.setState({
         collapse: !this.state.collapse,
@@ -25,8 +25,9 @@ class FixedNavbarExample extends React.Component {
   }
   
   toggleLanguage =(e) => {
+      // if (e.target.innerText ==='中文'){
+      // const language = 'Chinese'
       this.props.toggleLanguageState(e.target.innerText)
-
   }
 
   handleLogout = (e) => {
@@ -67,11 +68,14 @@ class FixedNavbarExample extends React.Component {
                     <MDBNavItem active>
                         <MDBNavLink exact to="/">主页</MDBNavLink>
                     </MDBNavItem>
+                    <MDBNavItem active>
+                        <MDBNavLink exact to="/">贷款</MDBNavLink>
+                    </MDBNavItem>
                     <MDBNavItem>
                         <MDBNavLink onClick = {this.toggleLanguage} to="#">中文</MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink to="#">英文</MDBNavLink>
+                      <MDBNavLink to="#">English</MDBNavLink>
                     </MDBNavItem>
                     {this.renderLogout()}
                   </MDBNavbarNav>
@@ -97,6 +101,7 @@ class FixedNavbarExample extends React.Component {
         </MDBContainer>
       </div>
   }
+
   renderEnglish = () => {
     const bgPink = {backgroundColor: 'black'}
     const container = {height: 100}
@@ -113,6 +118,9 @@ class FixedNavbarExample extends React.Component {
                         <MDBNavItem active>
                             <MDBNavLink exact to="/">Home</MDBNavLink>
                         </MDBNavItem>
+                        <MDBNavItem active>
+                        <MDBNavLink exact to="/">Loans</MDBNavLink>
+                    </MDBNavItem>
                         <MDBNavItem>
                             <MDBNavLink onClick = {this.toggleLanguage} to="#">Chinese</MDBNavLink>
                         </MDBNavItem>
