@@ -8,7 +8,6 @@ export class CheckingTransPage extends Component {
     }
 
     render() {
-
         
         return (
             <div>

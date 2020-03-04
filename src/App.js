@@ -77,10 +77,11 @@ class App extends Component {
           <Route exact path = '/' render = { Home } />
           <Route exact path = '/account/:id/profile' component = { Personalinfo} />
           <Route exact path = '/login' render = { (routerProps) => <MDBLogin {...routerProps} />} />
-          <Route exact path = '/account/:id' component = { Profile } />                                                                      {/* pass down current user state */}
+          <Route exact path = '/account/:id' component = { Profile } />                                                  {/* pass down current user state */}
           <Route exact path = '/signup' render = { (routerProps) => <MDBSignup {...routerProps}/>} /> 
           <Route exact path ='/account/:id/expense' render = {() => <Chart />} />
           <Route exact path ='/account/:id/instant_transfer' render = {() => <InstantTransfer />}/> 
+
           <Route exact path = '/account/:id/checking/transactions'
               render = {(routerProps) =>
            <CheckingTransGrid {...routerProps}
@@ -89,10 +90,7 @@ class App extends Component {
            checkingOrSaving = {"checking"}
            />} />
            
-          <Route exact path = '/account/:id/saving/transactions' 
-              render = {(routerProps) =>
-           <SavingTransPage {...routerProps} 
-              user = {this.props.user}
+          <Route exact path = '/account/:id/saving/transactions' render = {() => <SavingTransPage user = {this.props.user}
            />} />
 
            

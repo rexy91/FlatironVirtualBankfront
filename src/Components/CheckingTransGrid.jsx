@@ -4,11 +4,45 @@ import {connect} from 'react-redux'
 import DynamicSearch from '../Components/TransactionPage/DynamicSearch'
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 import { Button } from 'semantic-ui-react'
+import {sortTransAmount} from '../Components/Redux/actions'
 import {withRouter} from 'react-router-dom'
 import uuid from 'react-uuid'
 
 export class CheckingTransGrid extends Component {
+    // Sort and unsort based on clicked.
+    state = {
+        sortAmount: false
+    }
 
+    sortByAmount =() =>{
+        // Get array here, sort it and update the state inside the store.
+        //arr.sort((a, b) => a[prop] - b[prop]
+        // this.setState({
+        //     sortAmount: !this.state.sortAmount 
+        // })
+
+        this.setState(prevState => {
+            return {sortAmount: !prevState.sortAmount}
+        })
+        
+        // console.log(this.state.sortAmount)
+        const oldTransactions = this.props?.user?.checking.transactions
+        const copyArray = [...oldTransactions]
+        const sortedTransctions = this.props?.user?.checking.transactions.sort((a,b)=> a.amount - b.amount)
+        
+        // If sortAmount is false, update with old trans array. Else update with sorted array. 
+        // this.state.sortAmount? this.props.sortTransAmount(sortedTransctions): this.props.sortTransAmount(oldTransactions)
+
+        if (this.state.sortAmount === true){
+                console.log('here')
+                this.props.sortTransAmount(sortedTransctions)
+        }
+        else if (this.state.sortAmount === false){
+                //oldTransactions will be mutaetd, need to spread.
+                console.log(copyArray)
+                this.props.sortTransAmount(oldTransactions)
+        }
+    }
     goback = () => {
         this.props.history.goBack();
     }
@@ -31,7 +65,7 @@ export class CheckingTransGrid extends Component {
         // console.log(this.props.state.user.checking.transactions)
         // Filter that here 
               let arrayWeCareAbout = transactions?.filter(transaction => {
-              return transaction.trans_type.toLowerCase().includes(this.props.searchTerm)
+              return transaction.trans_type.toLowerCase().includes(this.props.searchTerm) || transaction.amount.toString().includes(this.props.searchTerm)
               })
         // Map here :
 
@@ -53,7 +87,7 @@ export class CheckingTransGrid extends Component {
                 <MDBCol md ='3'><Button color='black'>Date</Button></MDBCol>
                 <MDBCol md ='3'><Button color='black'>Type</Button></MDBCol>
                 <MDBCol md ='3'><Button color='black'>Descritption</Button></MDBCol>
-                <MDBCol md ='3'><Button color='black'>Amount</Button></MDBCol>
+                <MDBCol md ='3'><Button onClick = {this.sortByAmount} color='black'>Amount</Button></MDBCol>
                 </MDBRow>
             </MDBContainer>
             <div id='checkingTransContainer'>
@@ -100,7 +134,7 @@ export class CheckingTransGrid extends Component {
                 <MDBCol md ='3'><Button color='black'>日期</Button></MDBCol>
                 <MDBCol md ='3'><Button color='black'>交易类型</Button></MDBCol>
                 <MDBCol md ='3'><Button color='black'>交易细节</Button></MDBCol>
-                <MDBCol md ='3'><Button color='black'>交易金额</Button></MDBCol>
+                <MDBCol md ='3'><Button onClick={this.sortByAmount} color='black'>交易金额</Button></MDBCol>
                 </MDBRow>
             </MDBContainer>
 
@@ -143,6 +177,6 @@ const mstp = (appState) => {
 }
 
 
-export default connect(mstp)(CheckingTransGrid)
+export default connect(mstp, {sortTransAmount})(CheckingTransGrid)
 
 

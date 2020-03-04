@@ -80,8 +80,7 @@ const userReducer = (state = initialState, action) => {
                 //This will only gets execute when the dispatch gets called inside profile dropdown. 
                 // console.log('here', action)
                 return {...state, chartData: action.payload}
-
-
+                
         case 'TOGGLE_LANGUAGE':
                 return {...state, language: action.payload}
 
@@ -97,6 +96,16 @@ const userReducer = (state = initialState, action) => {
                 // Update the user object, its checking trans will be updated too. 
                 return {...state, user: action.payload}
 
+
+        case 'SORT_CHECKING_TRANS':
+        // Refactor:   
+        // Combine reducers later. 
+        // Now ths payload is not the user, so can't just update the user.
+
+                //  console.log(action.payload)
+                //  return {user: {...state.user, checking:action.payload}}
+
+                
         default:
             return state 
     }

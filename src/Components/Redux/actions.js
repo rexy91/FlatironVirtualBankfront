@@ -127,3 +127,11 @@ export const updateSendinguserBalance = (user) => {
     payload: user
   }
 }
+
+export const sortTransAmount = (array) => {
+
+  return{
+    type: 'SORT_CHECKING_TRANS',
+    payload: array
+  }
+}

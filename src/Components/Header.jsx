@@ -94,11 +94,11 @@ class FixedNavbarExample extends React.Component {
               </MDBNavbar>
         </header>
 
-        <MDBContainer style={container} className="text-center mt-5 pt-5" >
+        {/* <MDBContainer style={container} className="text-center mt-5 pt-5" >
           <img id = 'logo' style = {imgSize} src={logo} alt=""/>
           <h2 id='title'>欢迎使用虚拟银行系统</h2>
-          {/* <img id = 'secondlogo' style ={imgSize} src={anotherLogo} alt ='' />  */}
-        </MDBContainer>
+          <img id = 'secondlogo' style ={imgSize} src={anotherLogo} alt ='' /> 
+        </MDBContainer> */}
       </div>
   }
 

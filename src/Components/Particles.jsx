@@ -18,7 +18,7 @@ export class Particles extends Component {
     render() {
         return (
             <div>
-            <ParticlesBg  type="cobweb" num={13} bg={true} />
+            <ParticlesBg  type="cobweb" num={15} bg={true} />
             </div>
         )
     }
