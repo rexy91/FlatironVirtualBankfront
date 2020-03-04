@@ -210,3 +210,6 @@ ul.nav li a:hover {
     /* margin-top: 5%; */
     margin: 5%;
 }
+#mainFooter{
+  position: fixed;
+}

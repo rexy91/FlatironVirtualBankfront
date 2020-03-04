@@ -90,7 +90,12 @@ const userReducer = (state = initialState, action) => {
                 // console.log(action.payload.users)
                 //Create new state object, spread state to keep all its keys/values, add users. 
                 return {...state,users: action.payload}
-                
+        
+        case 'UPDATE_SENDINGUSER_BALANCE':
+                // THis is how checking trans getting rendered: this.props?.user?.checking.transactions
+                // console.log(action.payload)
+                // Update the user object, its checking trans will be updated too. 
+                return {...state, user: action.payload}
 
         default:
             return state 

@@ -120,3 +120,10 @@ export const saveAllUsersToStore = (users) => {
       payload: users
     }
 }
+
+export const updateSendinguserBalance = (user) => {
+  return{
+    type: 'UPDATE_SENDINGUSER_BALANCE',
+    payload: user
+  }
+}

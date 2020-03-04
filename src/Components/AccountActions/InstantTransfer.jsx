@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBInput } from 'mdbreact';
 import {saveAllUsersToStore} from '../Redux/actions'
+import {updateSendinguserBalance} from '../Redux/actions'
+
+import Newscard from '../Newscard'
+import News from '../Newscontainer'
 export class InstantTransfer extends Component {
 
 
@@ -17,7 +21,36 @@ export class InstantTransfer extends Component {
         })
     }
 
+    toggleTransfer =(e) => {
+      e.preventDefault()
+      const amount = e.target.instant_transfer_amount.value
+      const id_from = this.props?.appState?.user?.id
+      //Value from the drop down is the id of the receiving user. 
+      const id_to = e.target.transfer_to.value
+      
+        fetch(`http://localhost:3000/checkings/${this.props?.appState?.user?.id}/instant_transfer`, {
+          method:'PATCH',
+          headers:{
+            'Content-Type': 'application/json',
+            Accept: 'application/json'
+          },
+          body:JSON.stringify({
+                amount,
+                id_from,
+                id_to
+          })
+        })
+        // Get back the current user, that s all we need to update for the DOM, the checking balance after transfering out.
+        .then(res => res.json())
+        .then(updatedUser => {
+            this.props.updateSendinguserBalance(updatedUser)
+        })
+    }
+
     render() {
+        const mapAllUsers = this.props?.appState?.users?.map(user => {
+              return <option value={`${user.id}`}>{user.username} , {user.email} </option>
+        })
         return (
             <div id='instant-transfer'>
                 <h2 id='instant-transfer-header'  >Transfer your funds in seconds</h2>
@@ -41,57 +74,32 @@ export class InstantTransfer extends Component {
                   </a>
                 </h3>
               </div>
-              {/* <MDBInput
-                label='Your email'
-                group
-                type='text'
-                validate
-                labelClass='white-text'
-              /> */}
               <h4>Your Email</h4>
               <p>{this.props?.appState?.user?.email}</p>
-              <br/>
+              <p>Checking Acc Balance: ${this.props?.appState?.user?.checking?.balance}</p>
+              <form onSubmit = {this.toggleTransfer}>
               <label> Transfer Amount:</label>
               <br/>
-              <input type="number"/>
-              {/* <MDBInput
-                label='Your password'
-                group
-                type='password'
-                validate
-                labelClass='white-text'
-              /> */}
+              <input name ='instant_transfer_amount' type="number"/>
+              <br/>
               <label htmlFor="">Transfer To</label>
-              <select name="" id="">
-                    <option value="">{this.props?.appState?.user?.first_name}</option>
+              <select name="transfer_to" id="">
+                    {mapAllUsers}
               </select>
-              <div className='md-form pb-3'>
-                <MDBInput
-                //   label={
-                //     <>
-                //       Accept the&nbsp;
-                //       <a href='#!' className='green-text font-weight-bold'>
-                //         Terms and Conditions
-                //       </a>
-                //     </>
-                //   }
-                //   type='checkbox'
-                //   id='checkbox1'
-                //   labelClass='white-text'
-                />
-              </div>
-              <MDBRow className='d-flex align-items-center mb-4'>
-                <div className='text-center mb-3 col-md-12'>
-                  <MDBBtn
+              <br/>
+              <br/>
+              <MDBBtn
+                    type ='submit'
                     color='black'
                     rounded
-                    type='button'
                     className='btn-block z-depth-1'
                   >
                     Transfer
                   </MDBBtn>
-                </div>
-              </MDBRow>
+              </form>
+              <div className='md-form pb-3'>
+              </div>
+
               <MDBCol md='12'>
                 <p className='font-small white-text d-flex justify-content-end'>
                   Thank You for Using
@@ -105,7 +113,7 @@ export class InstantTransfer extends Component {
         </MDBCol>
       </MDBRow>
     </MDBContainer>
-                
+              <News/>
             </div>
         )
     }
@@ -114,4 +122,4 @@ export class InstantTransfer extends Component {
 const mstp = (appState) => {
     return {appState}
 }
-export default connect(mstp, {saveAllUsersToStore})(InstantTransfer)
+export default connect(mstp, {saveAllUsersToStore, updateSendinguserBalance})(InstantTransfer)

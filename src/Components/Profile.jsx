@@ -64,8 +64,7 @@ export class Profile extends Component {
                 </div>}       
         }
     }
-
-
+    
     renderChinesecheckingAccount = () => {
         // if (this.props.user.checking){
 
