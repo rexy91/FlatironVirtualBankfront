@@ -15,7 +15,7 @@ export class Newsgrid extends Component {
         })       
     return  <div>
                 <MDBContainer>
-                    <h1>现况头条新闻</h1>
+                    <h1 style={{color:'white'}}>现况头条新闻</h1>
                 <MDBRow>
                     {newsMapper}
                 </MDBRow>
@@ -31,7 +31,7 @@ export class Newsgrid extends Component {
 
     return  <div>
                 <MDBContainer>
-                    <h1>Trending News</h1>
+                    <h1 style={{color:'white'}}>Trending News</h1>
                 <MDBRow>
                     {newsMapper}
                 </MDBRow>

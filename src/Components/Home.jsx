@@ -5,14 +5,15 @@ import BonusAd from './BonusAd'
 import Footer from './Footer'
 import Particles from './Particles'
 import MDBSignup from './MDBSignup'
+import Title from './Title'
 import News from './Newscontainer'
 export default function Home() {
     return (
             
         <div id='home-wrapper'>
             {/* <img id ='logo' src="https://image.shutterstock.com/image-vector/dots-letter-c-logo-design-260nw-551769190.jpg" alt="logo"/> */}
+            <Title/>
             <LoginSignupContainer />
-            <BonusAd />
             {/* <MDBSignup/> */}
             {/* <Particles /> */}
             <News />

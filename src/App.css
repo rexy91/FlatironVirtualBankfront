@@ -74,27 +74,32 @@ ul.nav li a:hover {
 
 #login-form{
   margin-left: 32vw;
+  color: aliceblue;
 }
 
 #login-button{
   background-color: black !important;
 }
-
+/* 
 .login-signup-toggle{
   margin-left: 32vw;
   margin-bottom: 10vh;
-}
+} */
 
 #signup-form{
   margin-left: 32vw;
+  color: aliceblue;
 }
 
 #welcome-section{
   border: solid 1px;
+  padding: 1%;
   margin-bottom: 0.5%;
+  margin-top: 1%;
 }
 
 #savingSection{
+  padding: 1%;
   border: solid 1px;
   /* margin-top:h; */
 }
@@ -176,6 +181,7 @@ ul.nav li a:hover {
 
 #checkingSection{
   border: solid 1px;
+  padding: 1%;
   margin-top: 2vh;
   margin-bottom: -3.3vh;
 }
@@ -212,4 +218,18 @@ ul.nav li a:hover {
 }
 #mainFooter{
   /* position: fixed; */
+}
+
+#home-wrapper{
+  background-image: url('https://www.itl.cat/pngfile/big/0-7755_nature-pier-bridge-d-river-water-sunset-night.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#title{
+  color: aliceblue;
+}
+
+#loginSignupForms{
+  color: aliceblue;
 }

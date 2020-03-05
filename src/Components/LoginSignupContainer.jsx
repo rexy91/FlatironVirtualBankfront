@@ -33,7 +33,7 @@ class LoginSignupContainer extends Component {
         : <button class='login-signup-toggle' onClick = {this.toggleSignup}>Sign Up </button>
         // console.log(this.props.appState.language)
         return (
-            <div >
+            <div className='loginSignupForms'>
                 {/* <button class='login-signup-toggle' onClick = {this.toggleLogin}> Login </button> */}
                 {toggleSigninLanguage}
                 {toggleSignupLanguage}

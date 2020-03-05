@@ -111,7 +111,6 @@ export class InstantTransfer extends Component {
   </MDBCol>
 </MDBRow>
 </MDBContainer>
-        <News/>
       </div>
   )
     }

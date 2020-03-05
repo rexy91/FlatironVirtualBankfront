@@ -39,17 +39,26 @@ class FixedNavbarExample extends React.Component {
   }
 
   renderLogout = () => {
-    if(localStorage.getItem){
-        if(this.props.lanuage === 'Chinese'){
-          return <MDBNavItem active>
-                  <MDBNavLink onClick = {this.handleLogout} to="/">登出</MDBNavLink>
-                 </MDBNavItem>}
+    // if(localStorage!== 0){
+    //     if(this.props.lanuage === 'Chinese'){
+    //       return <MDBNavItem active>
+    //               <MDBNavLink onClick = {this.handleLogout} to="/">登出</MDBNavLink>
+    //              </MDBNavItem>}
+    //     else{
+    //       console.log('here')
+    //       return <MDBNavItem active>
+    //               <MDBNavLink onClick = {this.handleLogout} to="/">Log Out</MDBNavLink>
+    //              </MDBNavItem>}
+    //     }
 
-        else{
-          return <MDBNavItem active>
+    if(localStorage.length !== 0){
+          {return <MDBNavItem active>
                   <MDBNavLink onClick = {this.handleLogout} to="/">Log Out</MDBNavLink>
                  </MDBNavItem>}
-        }
+    }
+    else{
+        console.log('there')
+    }
     }
 
   renderChinese = () => {
@@ -60,7 +69,7 @@ class FixedNavbarExample extends React.Component {
             <header>
               <MDBNavbar style={bgPink} dark expand="md" scrolling fixed="top">
                 <MDBNavbarBrand href="/">
-                    <strong>### Virtual</strong>
+                    <strong>Flatiron</strong>
                 </MDBNavbarBrand>
                 <MDBNavbarToggler onClick={ this.onClick } />
                 <MDBCollapse isOpen = { this.state.collapse } navbar>
@@ -110,7 +119,7 @@ class FixedNavbarExample extends React.Component {
                 <header>
                   <MDBNavbar style={bgPink} dark expand="md" scrolling fixed="top">
                     <MDBNavbarBrand href="/">
-                        <strong>### Virtual</strong>
+                        <strong>Flatiron</strong>
                     </MDBNavbarBrand>
                     <MDBNavbarToggler onClick={ this.onClick } />
                     <MDBCollapse isOpen = { this.state.collapse } navbar>

@@ -129,6 +129,7 @@ class MDBSignup extends Component {
     renderSignUp = () => {
         // console.log(this.props)
         // If existing user trying to signup, render different input.
+        
         if (this.props.user){
           // console.log("yoo")
           // console.log(this.props)
