@@ -48,7 +48,7 @@ class FixedNavbarExample extends React.Component {
                  </MDBNavItem>}
     }
     else{
-        console.log('there')
+        // console.log('there')
     }
     }
     renderChineseProfile = () => {
@@ -58,7 +58,7 @@ class FixedNavbarExample extends React.Component {
                </MDBNavItem>}
   }
   else{
-      console.log('there')
+      // console.log('there')
   }
     }
 
@@ -90,7 +90,7 @@ class FixedNavbarExample extends React.Component {
                  </MDBNavItem>}
     }
     else{
-        console.log('there')
+        // console.log('there')
     }
     }
     renderChineseLogout = () => {
@@ -100,7 +100,7 @@ class FixedNavbarExample extends React.Component {
                    </MDBNavItem>}
       }
       else{
-          console.log('there')
+          // console.log('there')
       }
       }
 
@@ -172,7 +172,7 @@ class FixedNavbarExample extends React.Component {
                             <MDBNavLink exact to="/">Home</MDBNavLink>
                         </MDBNavItem>
                         <MDBNavItem active>
-                        <MDBNavLink onClick ={this.handleLoans()}exact to="/">Loans</MDBNavLink>
+                        <MDBNavLink exact onClick ={this.handleLoans} to="/">Loans</MDBNavLink>
                     </MDBNavItem>
                         <MDBNavItem>
                             <MDBNavLink onClick = {this.toggleLanguage} to="#">Chinese</MDBNavLink>
@@ -213,7 +213,7 @@ class FixedNavbarExample extends React.Component {
   }
 
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     const languageTernry = this.props.appState.language==='Chinese'? this.renderChinese(): this.renderEnglish()
     return(
       <>

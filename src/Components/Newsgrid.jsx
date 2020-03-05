@@ -26,10 +26,14 @@ export class Newsgrid extends Component {
     }
 
     renderEnglish =() => {
-        let newsMapper = this.props?.newsArray?.map(singleArticle => {
+        let oldArray = this.props.newsArray
+        let newArray = this.props?.newsArray?.slice(0,6)
+
+        // console.log(newArray)
+
+        let newsMapper = newArray?.map(singleArticle => {
             
-            for(let i=0; i<6; i++){
-                return <MDBCol md ='4'><Newscard singleNews = {singleArticle} key = {uuid()}/></MDBCol>}
+                return <MDBCol md ='4'><Newscard singleNews = {singleArticle} key = {uuid()}/></MDBCol>
         })   
 
     return  <div>

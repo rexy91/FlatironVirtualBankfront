@@ -20,6 +20,7 @@ import {withRouter} from 'react-router-dom'
 import CheckingTransPage from './Components/CheckingTransPage';
 import CheckingTransGrid from './Components/CheckingTransGrid'
 import SavingTransPage from './Components/SavingTransPage'
+import Verify from './Components/Verify'
 import MDBSignup from './Components/MDBSignup';
 import HousingContainer from './Components/HousingContainer'
 import Personalinfo from './Components/Personalinfo'
@@ -81,8 +82,8 @@ class App extends Component {
           <Route exact path = '/signup' render = { (routerProps) => <MDBSignup {...routerProps}/>} /> 
           <Route exact path ='/account/:id/expense' render = {() => <Chart />} />
           <Route exact path ='/account/:id/instant_transfer' render = {() => <InstantTransfer />}/> 
-          <Route exact path = 'signup/verify_account/:id' />
-
+          <Route exact path = '/signup/verify_account'  component = { Verify }/>
+          
           <Route exact path = '/account/:id/checking/transactions'
               render = {(routerProps) =>
            <CheckingTransGrid {...routerProps}

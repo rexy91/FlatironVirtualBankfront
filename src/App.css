@@ -72,6 +72,9 @@ ul.nav li a:hover {
 
 } */
 
+#verify-section{
+    margin-top: 7%;
+}
 #login-form{
   margin-top: 5%;
   margin-left: 32vw;
@@ -82,11 +85,16 @@ ul.nav li a:hover {
 #login-button{
   background-color: black !important;
 }
-/* 
-.login-signup-toggle{
-  margin-left: 32vw;
-  margin-bottom: 10vh;
-} */
+
+#login-toggle{
+    margin-left: 7vw;
+}
+.login-signup-toggle{ 
+  /* text-align: center; */ 
+    opacity: 50%;
+    color:white;
+    background-color: rgba(57, 76, 94, 0.15)
+}
 
 #signup-form{
   margin-top: 5%;
@@ -233,10 +241,16 @@ ul.nav li a:hover {
 }
 
 #title{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 230%;
+  font-weight: bolder;
+  margin-right: 43%;
+  text-align: center;
   color: aliceblue;
 }
 
 #loginSignupForms{
+  /* opacity: 50%; */
   margin-top: 5%;
   color: aliceblue;
 }

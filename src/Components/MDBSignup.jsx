@@ -37,25 +37,29 @@ class MDBSignup extends Component {
           })
             .then(r => r.json())
             .then(responseFromServer => {
+              
                 // console.log(!responseFromServer.errors)
                 // debugging
                 // console.log(responseFromServer)
                 // console.log(responseFromServer.user)
                 // console.log(responseFromServer.user.signup_type === 'Checking')
           if (!responseFromServer.errors) {
+                console.log(responseFromServer)
                 console.log('here')
-                this.props.history.push('/')
-                this.props.history.push(`/account/${responseFromServer.user.id}`)
-                localStorage.setItem('token',responseFromServer.token)
                 this.props.signUpUser(responseFromServer) 
+                this.props.history.push(`/signup/verify_account`)
+                // this.props.history.push(`/account/${responseFromServer.user.id}`) 
+
+              // localStorage.setItem('token',responseFromServer.token)
+                
                 if (responseFromServer.signup_type === 'Checking'){
-                    swal(`Welcome, ${responseFromServer.user.username}`,
-                    "$5000 signup bonus has been desposited into you checking account.",
-                    "success");     
+                    // swal(`Welcome, ${responseFromServer.user.username}`,
+                    // "$5000 signup bonus has been desposited into you checking account.",
+                    // "success");     
                 } else if (responseFromServer.signup_type === 'Saving'){
-                    swal(`Welcome, ${responseFromServer.user.username}`,
-                    "$5000 signup bonus has been desposited into you saving account.",
-                    "success"); 
+                    // swal(`Welcome, ${responseFromServer.user.username}`,
+                    // "$5000 signup bonus has been desposited into you saving account.",
+                    // "success"); 
                 }}
             else {
                 //    console.log('fjsdjfsdjfjdsf')
@@ -63,7 +67,7 @@ class MDBSignup extends Component {
                 `${responseFromServer.errors}`,
                 "error")
             }
-            }) 
+            })
     }
 
     handleExistingUserSignup = (e) => {
