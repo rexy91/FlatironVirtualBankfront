@@ -21,7 +21,9 @@ import {Provider} from 'react-redux'
 
 import userReducer from './Components/Redux/userReducer'
 import newsReducer from './Components/Redux/newsReducer'
+import News from './Components/Newscontainer'
 import Particles from './Components/Particles';
+// import Particles from 'react-particles-js'
 
 // Will just define a const rootReducer if combining reducers.
 
@@ -42,11 +44,10 @@ const store = createStore(userReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && wi
 ReactDOM.render(
 <Provider store = {store}>
     <BrowserRouter>
-        <Particles/>
         <Header/>
-    <div id='wrapper'>
         <App /> 
-    </div>
+        <Particles />
+        {/* <News/> */}
         <Footer />
     </BrowserRouter>
 </Provider>,

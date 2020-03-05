@@ -9,6 +9,7 @@ import logo from '../image/mylogo.jpg'
 import anotherLogo from '../image/anotherlogo.jpg'
 import {toggleLanguageState} from './Redux/actions' 
 
+
 class FixedNavbarExample extends React.Component {
   constructor(props) {
       super(props);
@@ -136,6 +137,7 @@ class FixedNavbarExample extends React.Component {
                         <MDBNavItem>
                           <MDBNavLink to="#">English</MDBNavLink>
                         </MDBNavItem>
+                        
                         {this.renderLogout()}
                       </MDBNavbarNav>
                       <MDBNavbarNav right>

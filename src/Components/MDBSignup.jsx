@@ -172,12 +172,13 @@ class MDBSignup extends Component {
                       name = 'password' onChange = {this.handleChange}/>
                   </div>
                   <div className="text-center">
+                    <b><label>Account Type</label></b>
                     <select name="accountType" id="">
                         <option value="checking">Checking</option>
                         <option value="saving">Saving</option>
                         <br/><br/>
                     </select>
-                    <MDBBtn type = 'submit' color="black">Register</MDBBtn>
+                    <MDBBtn type = 'submit' id='register-button' >Register</MDBBtn>
                     {/* <SignupCode /> */}
                   </div>
                 </form>

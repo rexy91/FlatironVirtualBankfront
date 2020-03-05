@@ -9,10 +9,12 @@ import uuid from 'react-uuid'
 export class Newsgrid extends Component {
     
     renderChinese = () => {
+    
         let newsMapper = this.props?.newsArray?.map(singleArticle => {
-            
-            return <MDBCol md ='4'><Newscard singleNews = {singleArticle} key = {uuid()}/></MDBCol>
+            for(let i=0; i<6; i++){
+                return <MDBCol md ='4'><Newscard singleNews = {singleArticle} key = {uuid()}/></MDBCol>}
         })       
+
     return  <div>
                 <MDBContainer>
                     <h1 style={{color:'white'}}>现况头条新闻</h1>
@@ -26,7 +28,8 @@ export class Newsgrid extends Component {
     renderEnglish =() => {
         let newsMapper = this.props?.newsArray?.map(singleArticle => {
             
-            return <MDBCol md ='4'><Newscard singleNews = {singleArticle} key = {uuid()}/></MDBCol>
+            for(let i=0; i<6; i++){
+                return <MDBCol md ='4'><Newscard singleNews = {singleArticle} key = {uuid()}/></MDBCol>}
         })   
 
     return  <div>

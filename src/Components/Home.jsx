@@ -9,15 +9,15 @@ import Title from './Title'
 import News from './Newscontainer'
 export default function Home() {
     return (
-            
+        <>
         <div id='home-wrapper'>
             {/* <img id ='logo' src="https://image.shutterstock.com/image-vector/dots-letter-c-logo-design-260nw-551769190.jpg" alt="logo"/> */}
             <Title/>
+            <Particles />
             <LoginSignupContainer />
-            {/* <MDBSignup/> */}
-            {/* <Particles /> */}
-            <News />
-            {/* <Footer /> */}
+            <News/>
         </div>
+
+        </>
     )
 }

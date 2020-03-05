@@ -73,8 +73,10 @@ ul.nav li a:hover {
 } */
 
 #login-form{
+  margin-top: 5%;
   margin-left: 32vw;
-  color: aliceblue;
+  /* color: aliceblue; */
+  color: white;
 }
 
 #login-button{
@@ -87,6 +89,7 @@ ul.nav li a:hover {
 } */
 
 #signup-form{
+  margin-top: 5%;
   margin-left: 32vw;
   color: aliceblue;
 }
@@ -190,13 +193,15 @@ ul.nav li a:hover {
       /* background: url('./Components/mod5backgroundImgs/photo-1487715433499-93acdc0bd7c3.jpeg'); */
       background-repeat: no-repeat;
       background-size:cover;
+
 }
 
 #newsCardContainer{
-
-    /* background-image: url('https://thehill.com/sites/default/files/styles/article_full/public/cybersecurity_getty.jpg?itok=s8po3Keo');
+  
+    margin-top: 35%;
+    background-image: url('https://images.unsplash.com/photo-1553387789-2b36a3f5de14?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
     background-repeat: no-repeat;
-    background-size: cover; */
+    background-size: 100%; 
 }
 
 #instant-transfer{
@@ -222,8 +227,9 @@ ul.nav li a:hover {
 
 #home-wrapper{
   background-image: url('https://www.itl.cat/pngfile/big/0-7755_nature-pier-bridge-d-river-water-sunset-night.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-size: 100%;
+  background-repeat: 1;
+  opacity: 85%;
 }
 
 #title{
@@ -231,5 +237,11 @@ ul.nav li a:hover {
 }
 
 #loginSignupForms{
+  margin-top: 5%;
+  color: aliceblue;
+}
+
+#register-button{
+  opacity: 85%;
   color: aliceblue;
 }
