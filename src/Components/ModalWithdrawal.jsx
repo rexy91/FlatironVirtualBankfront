@@ -20,6 +20,10 @@ export class ModalWithdrawal extends Component {
         swal('','insufficient funds', 'error')
       }
       else {
+        swal(``,
+        "Withdrawal Made",
+        "success");
+      
           fetch(`http://localhost:3000/checkings/withdrawal/${checkingId}`, {
               method:'PATCH',
               headers: {

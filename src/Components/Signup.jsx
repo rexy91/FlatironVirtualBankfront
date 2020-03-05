@@ -35,6 +35,7 @@ export class Signup extends Component {
                 // console.log(responseFromServer)
                 // console.log(responseFromServer.user)
                 // console.log(responseFromServer.user.signup_type === 'Checking')
+                
             if (!responseFromServer.errors) {
                 this.props.history.push(`/account/${responseFromServer.user.id}`)
                 localStorage.setItem('token',responseFromServer.token)

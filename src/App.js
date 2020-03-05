@@ -81,6 +81,7 @@ class App extends Component {
           <Route exact path = '/signup' render = { (routerProps) => <MDBSignup {...routerProps}/>} /> 
           <Route exact path ='/account/:id/expense' render = {() => <Chart />} />
           <Route exact path ='/account/:id/instant_transfer' render = {() => <InstantTransfer />}/> 
+          <Route exact path = 'signup/verify_account/:id' />
 
           <Route exact path = '/account/:id/checking/transactions'
               render = {(routerProps) =>

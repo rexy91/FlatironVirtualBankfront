@@ -31,7 +31,7 @@ export class Title extends Component {
                   <img id = 'logo'  alt=""/>
                   </MDBCol>
                   <MDBCol md='9'>
-                  <h2 id='title'>Welcome To The Flatiron Virtual Banking</h2>
+                  <h2 id='title'>Flatiron Virtual Bank</h2>
                   </MDBCol>
                 </MDBRow>
                 </MDBContainer>

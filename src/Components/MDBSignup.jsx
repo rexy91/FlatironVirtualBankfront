@@ -43,6 +43,8 @@ class MDBSignup extends Component {
                 // console.log(responseFromServer.user)
                 // console.log(responseFromServer.user.signup_type === 'Checking')
           if (!responseFromServer.errors) {
+                console.log('here')
+                this.props.history.push('/')
                 this.props.history.push(`/account/${responseFromServer.user.id}`)
                 localStorage.setItem('token',responseFromServer.token)
                 this.props.signUpUser(responseFromServer) 

@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBInput } from 'mdbreact';
 import {saveAllUsersToStore} from '../Redux/actions'
 import {updateSendinguserBalance} from '../Redux/actions'
-
+import swal from 'sweetalert';
 import Newscard from '../Newscard'
 import News from '../Newscontainer'
 export class InstantTransfer extends Component {
@@ -23,9 +23,20 @@ export class InstantTransfer extends Component {
       e.preventDefault()
       const amount = e.target.instant_transfer_amount.value
       const id_from = this.props?.appState?.user?.id
+
       //Value from the drop down is the id of the receiving user. 
       const id_to = e.target.transfer_to.value
-      
+      if(amount <= 0){
+        swal(``,
+        "Invalid Transfer Amount",
+        "error");
+      }
+      else if(amount > this.props?.appState?.user?.checking?.balance){
+        swal(``,
+        "You don't have enough funds",
+        "error");
+      }
+      else{
         fetch(`http://localhost:3000/checkings/${this.props?.appState?.user?.id}/instant_transfer`, {
           method:'PATCH',
           headers:{
@@ -41,9 +52,12 @@ export class InstantTransfer extends Component {
         // Get back the current user, that s all we need to update for the DOM, the checking balance after transfering out.
         .then(res => res.json())
         .then(updatedUser => {
+          swal(``,
+          "Transfer was made successfully",
+          "success");
             this.props.updateSendinguserBalance(updatedUser)
         })
-    }
+    }}
 
     renderEnglish =() => {
       const mapAllUsers = this.props?.appState?.users?.map(user => {

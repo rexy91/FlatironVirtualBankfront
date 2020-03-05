@@ -62,6 +62,10 @@ export class ModalDeposit extends Component {
       }
 
       else{
+        swal(``,
+        "Deposit Made",
+        "success");
+      
           fetch(`http://localhost:3000/checkings/deposit/${checkingId}`, {
               method:'PATCH',
               headers: {
