@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBInput } from 'mdbreact';
 import {saveAllUsersToStore} from '../Redux/actions'
 import {updateSendinguserBalance} from '../Redux/actions'
+import {updateInternalTransfer} from'../Redux/actions'
 import swal from 'sweetalert';
 import Newscard from '../Newscard'
 import News from '../Newscontainer'
@@ -52,6 +53,7 @@ export class InstantTransfer extends Component {
         // Get back the current user, that s all we need to update for the DOM, the checking balance after transfering out.
         .then(res => res.json())
         .then(updatedUser => {
+          console.log(updatedUser)
           swal(``,
           "Transfer was made successfully",
           "success");
@@ -60,7 +62,11 @@ export class InstantTransfer extends Component {
     }}
 
     renderEnglish =() => {
-      const mapAllUsers = this.props?.appState?.users?.map(user => {
+      const currentId = this.props?.appState?.user?.id 
+      // console.log(this.props?.appState?.users)
+      const filterOutCurrentUserDropdown = this.props?.appState?.users?.filter(user=> (currentId !== user.id))
+      
+      const mapAllUsers = filterOutCurrentUserDropdown?.map(user => {
         return <option value={`${user.id}`}>{user.username} , {user.email} </option>
   })
   return (
@@ -202,6 +208,7 @@ export class InstantTransfer extends Component {
     }
 
     render() {
+        // console.log(this.props)
           const languageTernery = this.props?.appState?.language ==='Chinese'? this.renderChinese(): this.renderEnglish()
       return(
       <>
@@ -214,4 +221,4 @@ export class InstantTransfer extends Component {
 const mstp = (appState) => {
     return {appState}
 }
-export default connect(mstp, {saveAllUsersToStore, updateSendinguserBalance})(InstantTransfer)
+export default connect(mstp, {saveAllUsersToStore, updateInternalTransfer, updateSendinguserBalance})(InstantTransfer)

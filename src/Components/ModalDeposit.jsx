@@ -100,7 +100,6 @@ export class ModalDeposit extends Component {
             <br/>
             <input type="submit"/>
           </form>
-          <p>Is it okay to use this photo?</p>
         </Modal.Description>
       </Modal.Content>
     </Modal>
@@ -121,7 +120,6 @@ export class ModalDeposit extends Component {
             <br/>
             <button type ='submit'> 提交 </button>
           </form>
-          <p>Is it okay to use this photo?</p>
         </Modal.Description>
       </Modal.Content>
     </Modal>

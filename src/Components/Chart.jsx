@@ -9,7 +9,7 @@ export class Chart extends Component {
             labels: ['Deposit', 'Withdrawal', 'Transfer', 'Food', 'Gas'],
             datasets:[
                 {
-                    label:'Expense for Feb, 2020',
+                    label:'Account Expense Summary',
                     // Get data from state :
                     data:
                         // console.log(this.state)

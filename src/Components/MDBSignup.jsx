@@ -170,10 +170,12 @@ class MDBSignup extends Component {
                 <form onSubmit ={this.handleSignupSubmit}>
                   <p className="h5 text-center mb-4">Sign up</p>
                   <div className="grey-text">
+                    <p>Username length: between 5-10</p>
                     <MDBInput label="Username" icon="user" group type="text" validate error="wrong"
                       success="right" name = 'username' onChange = {this.handleChange} />
                     <MDBInput label="Your email" icon="envelope" group type="email" validate error="wrong"
                       success="right" name = 'email' onChange = {this.handleChange} />
+                      <p>Password length: between 7-20</p>
                     <MDBInput label="Your password" icon="lock" group type="password" validate 
                       name = 'password' onChange = {this.handleChange}/>
                   </div>

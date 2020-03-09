@@ -52,7 +52,6 @@ export class Modalupdate extends Component {
                   <textarea type="text" name = 'billing_address' />
                   <input type="submit"/>
                 </form>
-                <p>Is it okay to use this photo?</p>
               </Modal.Description>
             </Modal.Content>
           </Modal>
@@ -81,7 +80,6 @@ export class Modalupdate extends Component {
                   <textarea type="text" name = 'billing_address' />
                   <button type ='submit'> 提交 </button>
                 </form>
-                <p>Is it okay to use this photo?</p>
               </Modal.Description>
             </Modal.Content>
           </Modal>

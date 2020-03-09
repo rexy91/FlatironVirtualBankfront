@@ -79,7 +79,7 @@ export class Footer extends Component {
               </p>
             </MDBCol>
             <MDBCol md="6">
-              <h5 className="title">Links</h5>
+              {/* <h5 className="title">Links</h5>
               <ul>
                 <li className="list-unstyled">
                   <a onClick = {this.emailSupport}href="#!">Email Us</a>
@@ -93,7 +93,7 @@ export class Footer extends Component {
                 <li className="list-unstyled">
                   <a href="#!">Link 4</a>
                 </li>
-              </ul>
+              </ul> */}
             </MDBCol>
           </MDBRow>
         </MDBContainer>

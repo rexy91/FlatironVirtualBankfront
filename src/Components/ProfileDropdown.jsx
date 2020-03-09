@@ -20,12 +20,7 @@ const tagOptions = [
         label: { color: 'yellow', empty: true, circular: true },
     }
     ,
-  {
-    key: 'UpdateInfo',
-    text: 'Update Info',
-    value: 'updateInfo',
-    label: { color: 'grey', empty: true, circular: true },
-  },
+
   {
     key: 'Announcement',
     text: 'Transfer',
@@ -47,13 +42,7 @@ const ChinesetagOptions = [
         value: 'updateInfo',
         label: { color: 'yellow', empty: true, circular: true },
     }
-    ,
-  {
-    key: 'UpdateInfo',
-    text: 'Update Info',
-    value: 'updateInfo',
-    label: { color: 'grey', empty: true, circular: true },
-  },
+,
   {
     key: 'Transfer',
     text: '进行转账',
@@ -105,7 +94,7 @@ export class ProfileDropdown extends Component {
                     <Route exact path ='/account/:id/expense' render = {() => <Chart />} />
               </Switch> */}
               <Dropdown
-                    text='Update'
+                    text='Actions'
                     icon='info'
                     floating
                     labeled

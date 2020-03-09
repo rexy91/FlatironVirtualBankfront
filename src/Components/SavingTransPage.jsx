@@ -8,7 +8,7 @@ export class SavingTransPage extends Component {
     }
     render() {
 
-        let transactionMapper = this.props.user.saving ? this.props.user.saving.transactions.map( (transaction) => (
+        let transactionMapper = this.props?.user?.saving ? this.props?.user?.saving?.transactions.map( (transaction) => (
         <li>{transaction.amount} {transaction.trans_type}</li>
         )) : null
 

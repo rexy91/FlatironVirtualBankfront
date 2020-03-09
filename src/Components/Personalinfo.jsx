@@ -61,9 +61,9 @@ export class Personalinfo extends Component {
 
         const languageTernry = this.props?.appState?.language ==='Chinese'? this.renderChinese(): this.renderEnglish()
         return (
-            <>
+            <div id='personalInfo'>
             {languageTernry}
-            </>
+            </div>
         )
     }
 }

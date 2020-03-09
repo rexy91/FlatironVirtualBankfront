@@ -24,11 +24,11 @@ export class CheckingTransGrid extends Component {
         this.setState(prevState => {
             return {sortAmount: !prevState.sortAmount}
         })
-        
+
         // console.log(this.state.sortAmount)
-        const oldTransactions = this.props?.user?.checking.transactions
+        const oldTransactions = this.props.user.checking.transactions
         const copyArray = [...oldTransactions]
-        const sortedTransctions = this.props?.user?.checking.transactions.sort((a,b)=> a.amount - b.amount)
+        const sortedTransctions = this.props.user.checking.transactions.sort((a,b)=> a.amount - b.amount)
         
         // If sortAmount is false, update with old trans array. Else update with sorted array. 
         // this.state.sortAmount? this.props.sortTransAmount(sortedTransctions): this.props.sortTransAmount(oldTransactions)
@@ -56,7 +56,7 @@ export class CheckingTransGrid extends Component {
         // console.log(this.props.checkingOrSaving)
         // This is how we render the checking trans, so return state inside reduer needs to match this when updating the DOM.
 
-        const transactions = this.props?.user?.checking.transactions
+        const transactions = this.props?.user?.checking?.transactions
         // console.log(transactions)
         // console.log(this.props)
         // Debugging
@@ -79,7 +79,7 @@ export class CheckingTransGrid extends Component {
                 </MDBRow></>
         )):null 
         return (
-            <>
+            <div id='checking-trans-page'>
             <h4>Transactions History:</h4>
             <DynamicSearch />
             <MDBContainer>
@@ -97,7 +97,7 @@ export class CheckingTransGrid extends Component {
                 </MDBContainer>   
                 <button onClick = {this.goback}>Back</button>             
             </div>
-            </>
+            </div>
         )
     }
 
@@ -156,9 +156,9 @@ export class CheckingTransGrid extends Component {
             // console.log(this.props)
         return (
                 
-            <>
+            <div id='checkingTransPagee'>
                 {languageTernery}
-            </>
+            </div>
         )
     }
 }

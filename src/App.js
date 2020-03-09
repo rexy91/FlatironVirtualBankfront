@@ -26,6 +26,7 @@ import HousingContainer from './Components/HousingContainer'
 import Personalinfo from './Components/Personalinfo'
 import InstantTransfer from './Components/AccountActions/InstantTransfer'
 import Newscontainer from './Components/Newscontainer'
+import  InternalTransfer  from './Components/InternalTransfer';
 // import { Newscontainer } from './Components/Newscontainer';
 
 class App extends Component {
@@ -83,7 +84,7 @@ class App extends Component {
           <Route exact path ='/account/:id/expense' render = {() => <Chart />} />
           <Route exact path ='/account/:id/instant_transfer' render = {() => <InstantTransfer />}/> 
           <Route exact path = '/signup/verify_account'  component = { Verify }/>
-          
+          <Route exapt path ='/account/:id/saving/internal_transfer' render ={ () => <InternalTransfer user={this.props.user} />}/>
           <Route exact path = '/account/:id/checking/transactions'
               render = {(routerProps) =>
            <CheckingTransGrid {...routerProps}

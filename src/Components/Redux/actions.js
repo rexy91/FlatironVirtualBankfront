@@ -15,13 +15,20 @@ export const signUpAccount = (newUserState) => {
     }
 }
 
-export const deleteAccount = (accountId) => {
+export const deleteCheckingAccount = (account) => {
    
         return {
-          type: "DELETE_ACCOUNT",
-          payload: accountId
+          type: "DELETE_CHECKING_ACCOUNT",
+          payload: account
         }
 } 
+
+export const deleteSavingAccount = (account) => {
+  return {
+    type: "DELETE_SAVING_ACCOUNT",
+    payload: account
+  }
+}
 
 export const saveUserToState = (userInfoFromBackEnd) => {
     // When this action is called, it will then look into reducer to match the switch statement. 
@@ -134,4 +141,13 @@ export const sortTransAmount = (array) => {
     type: 'SORT_CHECKING_TRANS',
     payload: array
   }
+}
+
+export const updateInternalTransfer = (user) => {
+  
+  return{
+    type: 'UPDATE_INTERNAL_TRANSFER',
+    payload: user
+  }
+
 }

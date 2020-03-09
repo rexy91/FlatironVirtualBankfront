@@ -20,13 +20,16 @@ export class MDBLogin extends Component {
       })
         .then(r => r.json())
         .then(responseFromServer => {
-            
+            if(responseFromServer.user.id){
             //responseFromServer.user.checkings[0].acc_num
             //responseFromServer.user.checkings[0].balance
             localStorage.setItem('token',responseFromServer.token)
             this.props.saveUserToState(responseFromServer)
             this.props.history.push(`/account/${responseFromServer.user.id}`)
-            
+            }
+            else {
+              alert('invalid')
+            }
         })
     }
 
@@ -38,18 +41,52 @@ export class MDBLogin extends Component {
       })
   }
 
+renderLogin =() => {
+  if(localStorage.length === 0){
+    {return <div id='login-form'>
+    <MDBContainer>
+      <MDBRow>
+        <MDBCol md="6">
+          <form onSubmit ={this.handleLoginSubmit}>
+            <p className="h5 text-center mb-4">Sign in</p>
+            <div className="grey-text">
+              <p>Username length: between 5-10</p>
+              <MDBInput name = 'username' label="Type your username" icon="user-alt" group type="username" 
+               onChange = {this.handleChange} value = {this.state.username} />
+               <p>Password length: between 7-20</p>
+              <MDBInput name = 'password' label="Type your password" icon="lock" group type="password"
+               onChange = {this.handleChange} value = {this.state.password} />
+            </div>
+            <div className="text-center">
+              <MDBBtn id='login-button' type = 'submit'>Login</MDBBtn>
+            </div>
+          </form>
+        </MDBCol>
+      </MDBRow>
+    </MDBContainer>
+    </div>}
+}
+else{
+  // console.log('there')
+}
+}
     render() {
       // console.log(this.state)
         return (
-<div id='login-form'>
+            <>
+              {this.renderLogin()}
+            </>
+/* <div id='login-form'>
 <MDBContainer>
   <MDBRow>
     <MDBCol md="6">
       <form onSubmit ={this.handleLoginSubmit}>
         <p className="h5 text-center mb-4">Sign in</p>
         <div className="grey-text">
+          <p>Username length: between 5-10</p>
           <MDBInput name = 'username' label="Type your username" icon="user-alt" group type="username" 
            onChange = {this.handleChange} value = {this.state.username} />
+           <p>Password length: between 7-20</p>
           <MDBInput name = 'password' label="Type your password" icon="lock" group type="password"
            onChange = {this.handleChange} value = {this.state.password} />
         </div>
@@ -60,7 +97,7 @@ export class MDBLogin extends Component {
     </MDBCol>
   </MDBRow>
 </MDBContainer>
-</div>
+</div> */
         )
     }
 }

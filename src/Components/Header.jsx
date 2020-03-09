@@ -29,9 +29,12 @@ class FixedNavbarExample extends React.Component {
   toggleLanguage =(e) => {
       // if (e.target.innerText ==='中文'){
       // const language = 'Chinese'
-      this.props.toggleLanguageState(e.target.innerText)
+      this.props.toggleLanguageState('Chinese')
   }
 
+  toggleNonChinese = (e) => {
+    this.props.toggleLanguageState('')
+  }
   handleLogout = (e) => {
       e.preventDefault()
       localStorage.clear()
@@ -62,7 +65,8 @@ class FixedNavbarExample extends React.Component {
   }
     }
 
-    handleLoans =() => {
+    handleLoans =(e) => {
+   e.preventDefault()
       swal('Feature coming soon')
     }
 
@@ -127,7 +131,7 @@ class FixedNavbarExample extends React.Component {
                         <MDBNavLink onClick = {this.toggleLanguage} to="#">中文</MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink to="#">English</MDBNavLink>
+                      <MDBNavLink onClick = {this.toggleNonChinese}to="#">English</MDBNavLink>
                     </MDBNavItem>
                     {this.props.appState.language==='Chinese'? this.renderChineseProfile():this.renderEnglishProfile()}
                     {this.props.appState.language==='Chinese'? this.renderChineseLogout():this.renderEnglishLogout()}
@@ -178,7 +182,7 @@ class FixedNavbarExample extends React.Component {
                             <MDBNavLink onClick = {this.toggleLanguage} to="#">Chinese</MDBNavLink>
                         </MDBNavItem>
                         <MDBNavItem>
-                          <MDBNavLink to="#">English</MDBNavLink>
+                          <MDBNavLink onClick = {this.toggleNonChinese} to="#">English</MDBNavLink>
                         </MDBNavItem>
                         {this.props.appState.language==='Chinese'? this.renderChineseProfile():this.renderEnglishProfile()}
                         {this.props.appState.language==='Chinese'? this.renderChineseLogout():this.renderEnglishLogout()}

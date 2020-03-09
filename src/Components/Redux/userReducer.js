@@ -36,17 +36,17 @@ const userReducer = (state = initialState, action) => {
                 return {...state, searchTerm: action.payload}
 
         // Deleting
-        case 'DELETE_ACCOUNT':
+        case 'DELETE_CHECKING_ACCOUNT':
                 // Payload has the id: 
                 // Keep {...state.user} , but set checking to be empty. 
                 // If don't keep state, user will be gone too.
                 // Then persist to the backend. 
-                fetch(`http://localhost:3000/checkings/${action.payload}`,{
-                    method:'DELETE'
-                })
-                .then(res =>res.json())
-                .then(console.log)
-                return {user: {...state.user, checking: {}}}
+
+                return {user: {...state.user, checking: null}}
+        
+        case 'DELETE_SAVING_ACCOUNT':
+                
+                return {user: {...state.user, saving: null}}
                 
         case 'ONLINE_CHECKING_DEPOSIT':
                const updatedCheckingDeposit = action.payload.checking
@@ -91,12 +91,12 @@ const userReducer = (state = initialState, action) => {
                 return {...state,users: action.payload}
         
         case 'UPDATE_SENDINGUSER_BALANCE':
+                console.log(action.payload)
                 // THis is how checking trans getting rendered: this.props?.user?.checking.transactions
                 // console.log(action.payload)
                 // Update the user object, its checking trans will be updated too. 
                 return {...state, user: action.payload}
-
-
+                
         case 'SORT_CHECKING_TRANS':
         // Refactor:   
         // Combine reducers later. 
@@ -105,7 +105,9 @@ const userReducer = (state = initialState, action) => {
                 //  console.log(action.payload)
                 //  return {user: {...state.user, checking:action.payload}}
 
-                
+        case 'UPDATE_INTERNAL_TRANSFER':
+                console.log('here')
+                return {user: action.payload}
         default:
             return state 
     }

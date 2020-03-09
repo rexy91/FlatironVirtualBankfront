@@ -25,6 +25,9 @@ class LoginSignupContainer extends Component {
 
     toggleForm  = () =>  this.state.login ? <MDBLogin /> : <MDBSignup />
 
+
+    
+
     render() {
 
         const toggleSigninLanguage = this.props.appState.language==='Chinese'? <button id ='login-toggle'class='login-signup-toggle' onClick = {this.toggleLogin}> 登入 </button>

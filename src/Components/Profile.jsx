@@ -14,20 +14,50 @@ import ModalWithdrawal from './ModalWithdrawal'
 import MDBSignup from './MDBSignup'
 import Title from './Title'
 // Redux
-import {deleteAccount} from './Redux/actions'
+
+import {deleteCheckingAccount} from './Redux/actions'
+import {deleteSavingAccount} from '../Components/Redux/actions'
 import { Modal } from 'semantic-ui-react'
 import ProfileDropdown from './ProfileDropdown'
 // import { MDBSignup } from './MDBSignup'
 
 export class Profile extends Component {
 
-    handleDeleteAcc = (e) => {
-        if(this.props.user.checking.balance !== 0){
-            swal('Please transfer out your funds before deactivating.')
-        }
+    handleDeleteCheckingAcc = (e) => {
+         
+        if(this.props?.user?.checking?.balance !== 0){
+            swal('','Please transfer out your funds before deactivting.','error')}
         else{
-        this.props.deleteAccount(this.props.user.checking.id)
-    }}
+            fetch(`http://localhost:3000/checkings/${this.props?.user?.checking?.id}`, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(deletedObj => {
+                this.props.deleteCheckingAccount(deletedObj)
+            })}
+    }
+
+    handleDeleteSavingAcc = (e) => {
+         
+        if(this.props?.user?.saving?.balance !== 0){
+            swal('','Please transfer out your funds before deactivting.','error')}
+        else{
+            fetch(`http://localhost:3000/savings/${this.props?.user?.saving?.id}`, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(deletedObj => {
+                this.props.deleteSavingAccount(deletedObj)
+            })}
+    }
+    
+    renderInternalTransfer =(e) => {
+        // prevents default needed even for onclick, because of the button css library.
+        e.preventDefault()
+        this.props.history.push(`/account/${this.props?.user?.saving?.id}/saving/internal_transfer`)
+                
+    }
+    
 
     renderModalSignup = () => {
         // console.log('here')
@@ -50,7 +80,7 @@ export class Profile extends Component {
             <br/>
             <ModalWithdrawal />
             <br/>
-            <Button color='black' onClick = {this.handleDeleteAcc} >Deactivate Account</Button>
+            <Button color='black' onClick = {this.handleDeleteCheckingAcc} >Deactivate Account</Button>
             <ModalDeposit /> 
             </div>
             )
@@ -81,7 +111,7 @@ export class Profile extends Component {
             <br/>
             <ModalWithdrawal />
             <br/>
-            <Button color='black' onClick = {this.handleDeleteAcc} >取消你的账户</Button>
+            <Button color='black' onClick = {this.handleDeleteCheckingAcc} >取消你的账户</Button>
             <ModalDeposit /> 
             </div>
             )
@@ -104,12 +134,12 @@ export class Profile extends Component {
             <p>Saving Acc: {this.props.user.saving.acc_num}</p>
             <p>Available Balance: ${this.props.user.saving.balance}</p>
             <Link to={`${this.props.match.url}/saving/transactions`}>
-                <Button color ='black'>View Transactions</Button>
+                {/* <Button color ='black'>View Transactions</Button> */}
             </Link>
             <Link to={`${this.props.match.url}/saving/transactions`}>
-                <Button color ='black'>Internal Transfer</Button>
+                <Button color ='black' onClick = {this.renderInternalTransfer}>Internal Transfer</Button>
             </Link>
-                <Button color ='black' onClick = {this.handleDeleteAcc}>Deactivate Account</Button>
+                <Button color ='black' onClick = {this.handleDeleteSavingAcc}>Deactivate Account</Button>
         </div>)
         }
         else{
@@ -129,12 +159,12 @@ export class Profile extends Component {
             <p>储蓄账户: {this.props.user.saving.acc_num}</p>
             <p>当前余额: ${this.props.user.saving.balance}</p>
             <Link to={`${this.props.match.url}/saving/transactions`}>
-                <Button color ='black'>查看你的交易记录</Button>
+                {/* <Button color ='black'>查看你的交易记录</Button> */}
             </Link>
             <Link to={`${this.props.match.url}/saving/transactions`}>
-                <Button color ='black'>进行内部转账</Button>
+                <Button color ='black' onClick = {this.renderInternalTransfer} >进行内部转账</Button>
             </Link>
-                <Button color ='black' onClick = {this.handleDeleteAcc}>取消你的账户</Button>
+                <Button color ='black' onClick = {this.handleDeleteSavingAcc}>取消你的账户</Button>
         </div>)
         }
         else{
@@ -184,5 +214,5 @@ const mstp = (appState) => {
     // console.log(appState)
     return appState
 }
-export default connect (mstp, {deleteAccount})(withRouter(Profile))
+export default connect (mstp, {deleteCheckingAccount, deleteSavingAccount})(withRouter(Profile))
 
