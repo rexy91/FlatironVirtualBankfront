@@ -103,7 +103,7 @@ const userReducer = (state = initialState, action) => {
         // Now ths payload is not the user, so can't just update the user.
 
                 //  console.log(action.payload)
-                //  return {user: {...state.user, checking:action.payload}}
+                 return {user: {...state.user, checking:action.payload}}
 
         case 'UPDATE_INTERNAL_TRANSFER':
                 console.log('here')
