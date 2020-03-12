@@ -32,8 +32,7 @@ export class MDBLogin extends Component {
             }
         })
     }
-
-
+    
     handleChange = (e) => {
       this.setState({
           // This will make it work for any name, as long as name matches.

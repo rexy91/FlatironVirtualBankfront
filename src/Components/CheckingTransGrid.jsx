@@ -28,19 +28,25 @@ export class CheckingTransGrid extends Component {
         // console.log(this.state.sortAmount)
         const oldTransactions = this.props.user.checking.transactions
         const copyArray = [...oldTransactions]
-        const sortedTransctions = this.props.user.checking.transactions.sort((a,b)=> a.amount - b.amount)
-        
+        const sortedTransctions = copyArray.sort((a,b)=> a.amount - b.amount)
+
         // If sortAmount is false, update with old trans array. Else update with sorted array. 
         // this.state.sortAmount? this.props.sortTransAmount(sortedTransctions): this.props.sortTransAmount(oldTransactions)
-
+        
         if (this.state.sortAmount === true){
                 console.log('here')
-                this.props.sortTransAmount(sortedTransctions)
+                console.log(oldTransactions,sortedTransctions)
+                // this.props.sortTransAmount(oldTransactions)
+                
         }
         else if (this.state.sortAmount === false){
                 //oldTransactions will be mutaetd, need to spread.
-                console.log(copyArray)
-                this.props.sortTransAmount(oldTransactions)
+                console.log('there')
+                // console.log(sortedTransctions)
+                //If we want to unsort, then we will need a way to store the unsorted trans state,
+                //Once its sorted, we can not convert it back to the original order, we can only change between
+                //ascending, and descending order. 
+                this.props.sortTransAmount(sortedTransctions)
         }
     }
     goback = () => {

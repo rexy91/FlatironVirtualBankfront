@@ -25,7 +25,7 @@ const userReducer = (state = initialState, action) => {
 
         case 'DYNAMIC_SEARCH_TRANS':
               //  console.log(state)
-              // With react, we didnt want allthe arrays. 
+              // With react, we didnt want all the arrays. 
             //   let arrayWeCareAbout = state.user.checking.transactions.filter(transation => {
             //       return transation.trans_type.toLowerCase().includes(action.payload.search)
             //   })
@@ -49,6 +49,7 @@ const userReducer = (state = initialState, action) => {
                 return {user: {...state.user, saving: null}}
                 
         case 'ONLINE_CHECKING_DEPOSIT':
+                
                const updatedCheckingDeposit = action.payload.checking
                 // console.log(newCheckingTransArray)
                 // See the entire state in console:
@@ -61,6 +62,7 @@ const userReducer = (state = initialState, action) => {
                 return {user: {...state.user,checking: updatedCheckingDeposit}, language: state.language}
 
         case 'ONLINE_WITHDRAWAL':
+                console.log(action.payload.checking)
                 const updatedCheckingWithdrawl = action.payload.checking
                 return {user: {...state.user, checking: updatedCheckingWithdrawl},language: state.language}
         
@@ -95,21 +97,50 @@ const userReducer = (state = initialState, action) => {
                 // THis is how checking trans getting rendered: this.props?.user?.checking.transactions
                 // console.log(action.payload)
                 // Update the user object, its checking trans will be updated too. 
+
+                // THis will spread state,(makes copy of the whole object), then update the key user. 
+                // Because action.pay load is the whole user object, so can just update it.
+                // Already have key 'user', so this will update, not create. 
+
                 return {...state, user: action.payload}
-                
+
         case 'SORT_CHECKING_TRANS':
         // Refactor:   
         // Combine reducers later. 
         // Now ths payload is not the user, so can't just update the user.
 
                 //  console.log(action.payload)
-                 return {user: {...state.user, checking:action.payload}}
+                return {
+                        user:{...state.user, checking:{...state.user.checking, transactions:action.payload}}
+                }
+                // Keep the key/value pairs inside user object, keep the key/value pairs inside checking but updated transactions key value 
+                // which belongs to user.checking.transcations
+                // New state will become: 
+                                // user {
+                                //         id:6,
+                                //         first_Name: null,
+                                //         last_Name:null,
+                                //         username:'rexye',
+                                //         email:'rexye1991@gmail.com',
+                                //         billing_address: null,
+
+                                //         checking:{
+                                //                 id,
+                                //                 balance,
+                                //                 transactions: [updatedTransaction] //*** This is what we want to update. 
+                                //                 acc_num
+                                //         },
+                                //         saving:{
+                                //                 remains same 
+                                //         }
+                                //  }
 
         case 'UPDATE_INTERNAL_TRANSFER':
                 console.log('here')
-                return {user: action.payload}
+                 return {user: action.payload}
+
         default:
-            return state 
+                 return state 
     }
 
 }
