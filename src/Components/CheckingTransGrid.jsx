@@ -26,17 +26,22 @@ export class CheckingTransGrid extends Component {
         })
 
         // console.log(this.state.sortAmount)
-        const oldTransactions = this.props.user.checking.transactions
-        const copyArray = [...oldTransactions]
-        const sortedTransctions = copyArray.sort((a,b)=> a.amount - b.amount)
+        // Old trans will be lost, once state is upon sorting. 
+            // This solution won't work, we need to get the unsortedArray which was saved seperately when user login.
+        // const oldTransactions = this.props.user.checking.transactions
+        // const copyArray = [...oldTransactions]
+
+        const unsortedTrans = this.props.unsortedTrans
+        const sortedTransctions = this.props.user.checking.transactions.sort((a,b)=> a.amount - b.amount)
 
         // If sortAmount is false, update with old trans array. Else update with sorted array. 
         // this.state.sortAmount? this.props.sortTransAmount(sortedTransctions): this.props.sortTransAmount(oldTransactions)
         
         if (this.state.sortAmount === true){
-                console.log('here')
-                console.log(oldTransactions,sortedTransctions)
-                // this.props.sortTransAmount(oldTransactions)
+                console.log(this.props)
+                console.log(unsortedTrans)
+
+                // this.props.sortTransAmount(unsortedTrans)
                 
         }
         else if (this.state.sortAmount === false){
@@ -75,7 +80,7 @@ export class CheckingTransGrid extends Component {
               })
         // Map here :
 
-        let transactionMapper = this.props?.user?.checking ? arrayWeCareAbout.map( (transaction) => (
+        let transactionMapper = this.props?.user?.checking?arrayWeCareAbout.map( (transaction) => (
         <>
                 <MDBRow id ='singleCheckingTrans'>
                 <MDBCol md =''>{transaction.date}</MDBCol>
@@ -83,6 +88,7 @@ export class CheckingTransGrid extends Component {
                 <MDBCol md ='3'>{transaction.description}</MDBCol>
                 <MDBCol md ='3' id='amount'>{this.whiteSpace()}{transaction.amount}</MDBCol>
                 </MDBRow></>
+
         )):null 
         return (
             <div id='checking-trans-page'>
@@ -154,8 +160,9 @@ export class CheckingTransGrid extends Component {
             </>
         )
     }
-        
+
     render() {
+            console.log(this.props) 
             // console.log(this.props?.langauge === 'Chinese')
             // const languageTernry = this.props.language==='Chinese'? this.renderChinese(): this.renderEnglish()
             const languageTernery = this.props.language === 'Chinese' ? this.renderChinese() : this.renderEnglish()
@@ -179,7 +186,8 @@ const mstp = (appState) => {
         x = appState.searchTerm
     }
     return {searchTerm: x,
-            language: appState.language}
+            language: appState.language,
+            unsortedTrans: appState.unsortedTrans}
 }
 
 
