@@ -20,12 +20,13 @@ class MDBSignup extends Component {
         })
     }
     handleSignupGenCode = (e) => {
-        
+      
     }
 
     handleSignupSubmit = (e) => {
         e.preventDefault()
-        fetch('http://localhost:3000/users', {
+        fetch('https://flatironbankapi.herokuapp.com/users', {
+        // fetch('http://localhost:3000/users', {
             method: "POST",
             headers: {
               "content-type": "application/json",

@@ -239,8 +239,8 @@ ul.nav li a:hover {
 }
 
 #home-wrapper{
-  /* background-image: url('https://www.itl.cat/pngfile/big/0-7755_nature-pier-bridge-d-river-water-sunset-night.jpg'); */
-  background-color:royalblue;
+  background-image: url('https://www.itl.cat/pngfile/big/0-7755_nature-pier-bridge-d-river-water-sunset-night.jpg');
+  
   background-size: 100%;
   background-repeat: 1;
   opacity: 85%;
