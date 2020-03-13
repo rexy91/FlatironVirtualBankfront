@@ -173,7 +173,7 @@ class FixedNavbarExample extends React.Component {
                     <MDBCollapse isOpen = { this.state.collapse } navbar>
                       <MDBNavbarNav left>
                         <MDBNavItem active>
-                            <MDBNavLink exact to="/">Home</MDBNavLink>
+                            <MDBNavLink exact to="/">testing</MDBNavLink>
                         </MDBNavItem>
                         <MDBNavItem active>
                         <MDBNavLink exact onClick ={this.handleLoans} to="/">Loans</MDBNavLink>
