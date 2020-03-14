@@ -72,7 +72,6 @@ class App extends Component {
     return (    
       <div className = 'app'>
         {localStorage.getItem ? null : <LoginSignupContainer />}
-        <HousingContainer /> 
         {/* routing */}
         {/* <Newscontainer /> */}
         <Switch>

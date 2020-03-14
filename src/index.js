@@ -47,7 +47,7 @@ ReactDOM.render(
     <BrowserRouter>
         {/* <Container> */}
         <Header/>
-        <App /> 
+        {/* <App />  */}
         <Particles />
         {/* <News/> */}
         <Footer />
