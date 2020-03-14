@@ -256,7 +256,8 @@ ul.nav li a:hover {
   font-weight: bolder;
   margin-right: 38%;
   text-align: center;
-  color: aliceblue;
+  /* color: aliceblue; */
+  color: red;
 }
 
 #loginSignupForms{
