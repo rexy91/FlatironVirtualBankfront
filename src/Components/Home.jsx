@@ -11,12 +11,17 @@ export default function Home() {
     return (
         <>
         <div id='home-wrapper'>
-            {/* <img id ='logo' src="https://image.shutterstock.com/image-vector/dots-letter-c-logo-design-260nw-551769190.jpg" alt="logo"/> */}
-            <Title/>
-            
-            <LoginSignupContainer />
+            {/* <Title/> */}
+            <h1>fjjfjsfjdf</h1>
+            <h1>fjjfjsfjdf</h1>
+            <h1>fjjfjsfjdf</h1>
+            <h1>fjjfjsfjdf</h1>
+            <h1>fjjfjsfjdf</h1>
+            <h1>fjjfjsfjdf</h1>
+            <h1>fjjfjsfjdf</h1>
+            {/* <LoginSignupContainer /> */}
             {/* <Particles /> */}
-            <News/>
+            {/* <News/> */}
         </div>
 
         </>
