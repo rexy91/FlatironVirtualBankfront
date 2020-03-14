@@ -11,17 +11,9 @@ export default function Home() {
     return (
         <>
         <div id='home-wrapper'>
-            {/* <Title/> */}
-            <h1>fjjfjsfjdf</h1>
-            <h1>fjjfjsfjdf</h1>
-            <h1>fjjfjsfjdf</h1>
-            <h1>fjjfjsfjdf</h1>
-            <h1>fjjfjsfjdf</h1>
-            <h1>fjjfjsfjdf</h1>
-            <h1>fjjfjsfjdf</h1>
-            {/* <LoginSignupContainer /> */}
-            {/* <Particles /> */}
-            {/* <News/> */}
+            <Title/>
+            <LoginSignupContainer />
+            <News/>
         </div>
 
         </>

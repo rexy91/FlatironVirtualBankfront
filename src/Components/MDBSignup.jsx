@@ -25,8 +25,8 @@ class MDBSignup extends Component {
 
     handleSignupSubmit = (e) => {
         e.preventDefault()
-        fetch('https://flatironbankapi.herokuapp.com/users', {
-        // fetch('http://localhost:3000/users', {
+        // fetch('https://flatironbankapi.herokuapp.com/users', {
+        fetch('http://localhost:3000/users', {
             method: "POST",
             headers: {
               "content-type": "application/json",

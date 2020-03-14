@@ -48,12 +48,9 @@ ReactDOM.render(
     <BrowserRouter>
         {/* <Container> */}
         <Header/>
-        <Home />
-        {/* <App />  */}
-        {/* <Particles /> */}
-        {/* <News/> */}
+        <App /> 
+        <Particles />
         <Footer />
-        {/* </Container> */}
     </BrowserRouter>
 </Provider>,
 document.getElementById('root'));
