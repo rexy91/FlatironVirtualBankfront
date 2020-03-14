@@ -72,6 +72,7 @@ class App extends Component {
     return (    
       <div className = 'app'>
         <InstantTransfer /> 
+        <MDBLogin />
         <Home/>
         {localStorage.getItem ? null : <LoginSignupContainer />}
         {/* routing */}
