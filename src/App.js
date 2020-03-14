@@ -21,6 +21,7 @@ import CheckingTransPage from './Components/CheckingTransPage';
 import CheckingTransGrid from './Components/CheckingTransGrid'
 import SavingTransPage from './Components/SavingTransPage'
 import Verify from './Components/Verify'
+import News from './Components/Newscontainer'
 import MDBSignup from './Components/MDBSignup';
 import HousingContainer from './Components/HousingContainer'
 import Personalinfo from './Components/Personalinfo'
@@ -74,7 +75,7 @@ class App extends Component {
         <InstantTransfer /> 
         <MDBLogin />
         <LoginSignupContainer/>
-        
+        <News/>
         {/* <Home/> */}
 
 
