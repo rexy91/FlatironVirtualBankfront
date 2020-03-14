@@ -73,7 +73,10 @@ class App extends Component {
       <div className = 'app'>
         <InstantTransfer /> 
         <MDBLogin />
+        <LoginSignupContainer/>
         <Home/>
+
+
         {localStorage.getItem ? null : <LoginSignupContainer />}
         {/* routing */}
         {/* <Newscontainer /> */}
