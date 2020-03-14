@@ -50,7 +50,7 @@ ReactDOM.render(
         <Header/>
         <Home />
         {/* <App />  */}
-        <Particles />
+        {/* <Particles /> */}
         {/* <News/> */}
         <Footer />
         {/* </Container> */}
