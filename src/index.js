@@ -24,6 +24,7 @@ import newsReducer from './Components/Redux/newsReducer'
 import News from './Components/Newscontainer'
 import Particles from './Components/Particles';
 import { Container } from 'semantic-ui-react';
+import Home from './Components/Home';
 // import Particles from 'react-particles-js'
 
 // Will just define a const rootReducer if combining reducers.
@@ -47,9 +48,10 @@ ReactDOM.render(
     <BrowserRouter>
         {/* <Container> */}
         <Header/>
+        <Home />
         {/* <App />  */}
         <Particles />
-        <News/>
+        {/* <News/> */}
         <Footer />
         {/* </Container> */}
     </BrowserRouter>
