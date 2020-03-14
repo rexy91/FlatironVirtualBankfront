@@ -20,7 +20,7 @@ class MDBSignup extends Component {
         })
     }
     handleSignupGenCode = (e) => {
-      
+
     }
 
     handleSignupSubmit = (e) => {
