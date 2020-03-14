@@ -50,8 +50,8 @@ ReactDOM.render(
     <BrowserRouter>
         {/* <Container> */}
         <Header/>
-        {/* <App />  */}
-        <InstantTransfer/>
+        <App /> 
+        {/* <InstantTransfer/> */}
         {/* <Particles /> */}
         <Footer />
     </BrowserRouter>
