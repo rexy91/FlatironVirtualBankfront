@@ -114,10 +114,8 @@ const userReducer = (state = initialState, action) => {
                 //  console.log(action.payload)
                 console.log('here')
 
-                return {
-                        ...state.user
-                }
-                
+                return {user:{...state.user, checking:{...state.user.checking, transactions:action.payload}}}
+
                 // Keep the key/value pairs inside user object, keep the key/value pairs inside checking but updated transactions key value 
                 // which belongs to user.checking.transcations
                 // New state will become: 
