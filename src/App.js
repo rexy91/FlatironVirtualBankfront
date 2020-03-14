@@ -71,6 +71,7 @@ class App extends Component {
     // console.log(this.props)
     return (    
       <div className = 'app'>
+        <Home />
         {localStorage.getItem ? null : <LoginSignupContainer />}
         {/* routing */}
         {/* <Newscontainer /> */}
