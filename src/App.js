@@ -72,6 +72,7 @@ class App extends Component {
     return (    
       <div className = 'app'>
         <InstantTransfer /> 
+        <Home/>
         {localStorage.getItem ? null : <LoginSignupContainer />}
         {/* routing */}
         {/* <Newscontainer /> */}
