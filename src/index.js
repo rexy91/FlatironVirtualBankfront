@@ -25,6 +25,7 @@ import News from './Components/Newscontainer'
 import Particles from './Components/Particles';
 import { Container } from 'semantic-ui-react';
 import Home from './Components/Home';
+import { InstantTransfer } from './Components/AccountActions/InstantTransfer';
 // import Particles from 'react-particles-js'
 
 // Will just define a const rootReducer if combining reducers.
@@ -48,7 +49,8 @@ ReactDOM.render(
     <BrowserRouter>
         {/* <Container> */}
         <Header/>
-        <App /> 
+        {/* <App />  */}
+        <InstantTransfer/>
         <Particles />
         <Footer />
     </BrowserRouter>
