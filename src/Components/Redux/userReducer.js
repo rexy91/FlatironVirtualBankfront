@@ -113,6 +113,7 @@ const userReducer = (state = initialState, action) => {
 
                 //  console.log(action.payload)
                 console.log('here')
+
                 return {
                         ...state.user
                 }
