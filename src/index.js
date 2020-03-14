@@ -49,7 +49,7 @@ ReactDOM.render(
         <Header/>
         {/* <App />  */}
         <Particles />
-        {/* <News/> */}
+        <News/>
         <Footer />
         {/* </Container> */}
     </BrowserRouter>
