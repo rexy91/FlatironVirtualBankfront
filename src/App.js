@@ -74,7 +74,8 @@ class App extends Component {
         <InstantTransfer /> 
         <MDBLogin />
         <LoginSignupContainer/>
-        <Home/>
+        
+        {/* <Home/> */}
 
 
         {localStorage.getItem ? null : <LoginSignupContainer />}
