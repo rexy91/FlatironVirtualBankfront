@@ -10,7 +10,6 @@ import anotherLogo from '../image/anotherlogo.jpg'
 import {toggleLanguageState} from './Redux/actions' 
 import swal from 'sweetalert';
 
-
 class FixedNavbarExample extends React.Component {
   constructor(props) {
       super(props);
@@ -173,7 +172,7 @@ class FixedNavbarExample extends React.Component {
                     <MDBCollapse isOpen = { this.state.collapse } navbar>
                       <MDBNavbarNav left>
                         <MDBNavItem active>
-                            <MDBNavLink exact to="/">Home</MDBNavLink>
+                            <MDBNavLink exact to="/">NNNNNN</MDBNavLink>
                         </MDBNavItem>
                         <MDBNavItem active>
                         <MDBNavLink exact onClick ={this.handleLoans} to="/">Loans</MDBNavLink>
