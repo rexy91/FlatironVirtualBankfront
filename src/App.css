@@ -118,6 +118,7 @@ ul.nav li a:hover {
 #savingSection{
   padding: 1%;
   border: solid 1px;
+  margin-bottom: 14vh;
   /* margin-top:h; */
 }
 .modals.dimmer .ui.scrolling.modal {
@@ -233,7 +234,7 @@ ul.nav li a:hover {
 }
 #mainFooter{
   /* position: fixed; */
-  color: red;
+  /* color: red; */
   
 }
 
