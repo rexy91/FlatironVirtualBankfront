@@ -71,7 +71,7 @@ export class ProfileDropdown extends Component {
     
         }
         else if (e.target.innerText === 'Expense Summary' || e.target.innerText ==='消费总结'){
-            fetch(`http://localhost:3000/account/${id}/expense_summary`)
+            fetch(`https://flatironbankapi.herokuapp.com/account/${id}/expense_summary`)
             .then(res => res.json())
             .then(chartDataArray => {
                 // console.log(chartDataArray)

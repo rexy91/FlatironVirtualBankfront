@@ -66,7 +66,7 @@ export class ModalDeposit extends Component {
         "Deposit Made",
         "success");
       
-          fetch(`http://localhost:3000/checkings/deposit/${checkingId}`, {
+          fetch(`https://flatironbankapi.herokuapp.com/checkings/deposit/${checkingId}`, {
               method:'PATCH',
               headers: {
                 'Content-Type': 'application/json',

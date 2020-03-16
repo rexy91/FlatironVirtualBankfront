@@ -24,7 +24,7 @@ export class ModalWithdrawal extends Component {
         "Withdrawal Made",
         "success");
       
-          fetch(`http://localhost:3000/checkings/withdrawal/${checkingId}`, {
+          fetch(`https://flatironbankapi.herokuapp.com/checkings/withdrawal/${checkingId}`, {
               method:'PATCH',
               headers: {
                 'Content-Type': 'application/json',

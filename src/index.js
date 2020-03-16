@@ -52,7 +52,7 @@ ReactDOM.render(
         <Header/>
         <App /> 
         {/* <InstantTransfer/> */}
-        {/* <Particles /> */}
+        <Particles />
         <Footer />
     </BrowserRouter>
 </Provider>,

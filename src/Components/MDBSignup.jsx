@@ -26,7 +26,7 @@ class MDBSignup extends Component {
     handleSignupSubmit = (e) => {
         e.preventDefault()
         // fetch('https://flatironbankapi.herokuapp.com/users', {
-        fetch('http://localhost:3000/users', {
+        fetch('https://flatironbankapi.herokuapp.com/users', {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -75,7 +75,7 @@ class MDBSignup extends Component {
         e.preventDefault()
         const accType = e.target.accountType.value
         const userId = this.props.user.id
-        fetch(`http://localhost:3000/users/${userId}/new_account`, {
+        fetch(`https://flatironbankapi.herokuapp.com/users/${userId}/new_account`, {
             method: "POST",
             headers: {
               "content-type": "application/json",

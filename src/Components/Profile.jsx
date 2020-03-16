@@ -28,7 +28,7 @@ export class Profile extends Component {
         if(this.props?.user?.checking?.balance !== 0){
             swal('','Please transfer out your funds before deactivting.','error')}
         else{
-            fetch(`http://localhost:3000/checkings/${this.props?.user?.checking?.id}`, {
+            fetch(`https://flatironbankapi.herokuapp.com/checkings/${this.props?.user?.checking?.id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())
@@ -42,7 +42,7 @@ export class Profile extends Component {
         if(this.props?.user?.saving?.balance !== 0){
             swal('','Please transfer out your funds before deactivting.','error')}
         else{
-            fetch(`http://localhost:3000/savings/${this.props?.user?.saving?.id}`, {
+            fetch(`https://flatironbankapi.herokuapp.com/savings/${this.props?.user?.saving?.id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())

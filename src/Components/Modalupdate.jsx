@@ -11,7 +11,7 @@ export class Modalupdate extends Component {
         const email = e.target.email.value
         const billing_address = e.target.billing_address.value
 
-        fetch(`http://localhost:3000/account/${this.props?.appState?.user.id}/profile/update`, {
+        fetch(`https://flatironbankapi.herokuapp.com/account/${this.props?.appState?.user.id}/profile/update`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

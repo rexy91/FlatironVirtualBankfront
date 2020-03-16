@@ -8,7 +8,7 @@ export class Footer extends Component {
         const userId = this.props?.appState?.user?.id
         console.log(userId)
         let message = 'This website can be improved, I have a hard time on user interface. '
-        fetch('http://localhost:3000/customer_support/complaint', {
+        fetch('https://flatironbankapi.herokuapp.com/customer_support/complaint', {
           method: "POST",
           headers: {
             "content-type": "application/json"

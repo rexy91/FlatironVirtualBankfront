@@ -18,7 +18,7 @@ export class Signup extends Component {
 
     handleSignupSubmit = (e) => {
         e.preventDefault()
-        fetch('http://localhost:3000/users', {
+        fetch('https://flatironbankapi.herokuapp.com/users', {
             method: "POST",
             headers: {
               "content-type": "application/json",

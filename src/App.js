@@ -35,7 +35,7 @@ class App extends Component {
   componentDidMount(){
     if (localStorage.getItem("token")) {
       let token = localStorage.getItem('token')
-      fetch("http://localhost:3000/persist", {
+      fetch("https://flatironbankapi.herokuapp.com/persist", {
         headers: {
           "Authorization": `bearer ${token}`
         }
@@ -72,13 +72,11 @@ class App extends Component {
     // console.log(this.props)
     return (    
       <div className = 'app'>
-        <InstantTransfer /> 
+        {/* <InstantTransfer /> 
         <MDBLogin />
         <LoginSignupContainer/>
         <News/>
-        <Home/>
-
-
+        <Home/> */}
         {localStorage.getItem ? null : <LoginSignupContainer />}
         {/* routing */}
         {/* <Newscontainer /> */}
