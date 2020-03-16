@@ -1,7 +1,8 @@
 /* .app{
   margin: 5vh;
-}
 
+} */
+/*
 #header{
   display: inline-block;
   color: dodgerblue;
@@ -204,18 +205,11 @@ ul.nav li a:hover {
 
 #home-wrapper{
       /* background: url('./Components/mod5backgroundImgs/photo-1487715433499-93acdc0bd7c3.jpeg'); */
-      background-repeat: no-repeat;
-      background-size:cover;
+      /* background-repeat: no-repeat;
+      background-size:cover; */
 
 }
 
-#newsCardContainer{
-  
-    margin-top: 35%;
-    background-image: url('https://images.unsplash.com/photo-1553387789-2b36a3f5de14?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-    background-repeat: no-repeat;
-    background-size: 100%; 
-}
 
 #instant-transfer{
 
@@ -228,6 +222,7 @@ ul.nav li a:hover {
     background-size: cover;
   
 }
+
 #instant-transfer-header{
     font-size: bolder;
     text-align: center;
@@ -238,13 +233,29 @@ ul.nav li a:hover {
 }
 #mainFooter{
   /* position: fixed; */
+  color: red;
+  
+}
+
+#newsCardContainer{
+  height: 125vh;
+  /* margin-top: 30%;
+  margin-bottom: 0%; */
+  background-image: url('https://images.unsplash.com/photo-1553387789-2b36a3f5de14?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-position: center center;
+  background-repeat: 1;
 }
 
 #home-wrapper{
   background-image: url('./image/homepagepic.jpg');
   background-size: 100%;
+  background-size: cover;
+  background-position: center center;
   background-repeat: 1;
   opacity: 85%;
+  height: 94vh;
 }
 
 .chart{

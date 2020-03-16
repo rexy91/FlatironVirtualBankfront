@@ -33,13 +33,16 @@ export class Footer extends Component {
           <MDBRow>
             <MDBCol md="6">
               <h5 className="title">谢谢你使用我们的网站! 💎💛💓</h5>
-              <p>
+              {/* <p>
                   史蒂夫绝对是见风使舵见风使舵距福建省地方就绝对是放假的时间风刀霜剑飞机上的风景大煞风景
-              </p>
+              </p> */}
             </MDBCol>
             <MDBCol md="6">
               <h5 className="title">Links</h5>
-              <ul>
+              <li className="list-unstyled">
+                  <a onClick = {this.emailSupport}href="#!">联系我们</a>
+                </li>
+              {/* <ul>
                 <li className="list-unstyled">
                   <a onClick = {this.emailSupport}href="#!">联系我们</a>
                 </li>
@@ -52,7 +55,7 @@ export class Footer extends Component {
                 <li className="list-unstyled">
                   <a href="#!">Link 4</a>
                 </li>
-              </ul>
+              </ul> */}
             </MDBCol>
           </MDBRow>
         </MDBContainer>
@@ -68,7 +71,7 @@ export class Footer extends Component {
     renderEnglish = () => {
 
       return (
-        <MDBFooter color="black" className="font-small pt-4 mt-4">
+        <MDBFooter id ='mainFooter' color="black" className="font-small pt-4 mt-4">
         <MDBContainer fluid className="text-center text-md-left">
           <MDBRow>
             <MDBCol md="6">
@@ -79,11 +82,12 @@ export class Footer extends Component {
               </p>
             </MDBCol>
             <MDBCol md="6">
-              {/* <h5 className="title">Links</h5>
-              <ul>
-                <li className="list-unstyled">
+
+            <li className="list-unstyled">
                   <a onClick = {this.emailSupport}href="#!">Email Us</a>
                 </li>
+              {/* <h5 className="title">Links</h5>
+              <ul>
                 <li className="list-unstyled">
                   <a href="#!">Link 2</a>
                 </li>
