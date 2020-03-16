@@ -251,11 +251,11 @@ ul.nav li a:hover {
 #home-wrapper{
   background-image: url('./image/homepagepic.jpg');
   /* background-size: 100%; */
-  /* height: 95vh; */
+  height: 95vh;
   /* background-size: cover; */
   /* background-position: center center; */
   /* background-repeat: 1; */
-  /* opacity: 88%; */
+  opacity: 88%;
   /*
   background-size: cover;
   background-position: center center;
