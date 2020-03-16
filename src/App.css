@@ -250,12 +250,12 @@ ul.nav li a:hover {
 
 #home-wrapper{
   /* background-image: url('./image/homepagepic.jpg'); */
-  background-size: 100%;
+  /* background-size: 100%;
   background-size: cover;
   background-position: center center;
   background-repeat: 1;
   opacity: 85%;
-  height: 94vh;
+  height: 94vh; */
 }
 
 .chart{
