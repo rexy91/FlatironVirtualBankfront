@@ -11,14 +11,13 @@ export default function Home() {
     return (
         <>
         {/* <div id='home-wrapper'> */}
-        <div>
+        
             <div id='home-wrapper'>
             <Title/>
             <LoginSignupContainer />
             </div>
             <News/>
-        </div>
-
+ 
         </>
     )
 }
