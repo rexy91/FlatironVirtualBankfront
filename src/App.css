@@ -313,3 +313,10 @@ ul.nav li a:hover {
     /* to override semantic class css  */
     font-size: 20px !important;
 }
+
+.chart-container{
+  margin-top: 10vh;
+  margin-bottom: 26vh;
+  padding: 5%;
+  /* font-size: 130%; */
+}
