@@ -12,7 +12,7 @@ export default function Home() {
         <>
         {/* <div id='home-wrapper'> */}
         
-            <div id='home-wrapper'>
+            <div>
             <Title/>
             <LoginSignupContainer />
             </div>
