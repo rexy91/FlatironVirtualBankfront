@@ -72,6 +72,7 @@ export class InstantTransfer extends Component {
   return (
       <div id='instant-transfer'>
           <h2 id='instant-transfer-header'  >Transfer your funds in seconds</h2>
+          
 <MDBContainer>
 <MDBRow>
   <MDBCol md='6'>

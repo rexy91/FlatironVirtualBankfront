@@ -76,7 +76,7 @@ class App extends Component {
         <MDBLogin />
         <LoginSignupContainer/>
         <News/>
-        {/* <Home/> */}
+        <Home/>
 
 
         {localStorage.getItem ? null : <LoginSignupContainer />}
