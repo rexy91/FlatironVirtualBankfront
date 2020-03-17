@@ -321,3 +321,13 @@ ul.nav li a:hover {
   padding: 5%;
   /* font-size: 130%; */
 }
+
+.signin-instructions{
+    color: white;
+    font-weight: bolder;
+}
+
+#username-instructions{
+  color: white;
+
+}

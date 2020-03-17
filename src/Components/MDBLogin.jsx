@@ -50,11 +50,11 @@ renderLogin =() => {
           <form onSubmit ={this.handleLoginSubmit}>
             <p className="h5 text-center mb-4">Sign in</p>
             <div className="grey-text">
-              <p>Username length: between 5-10</p>
-              <MDBInput name = 'username' label="Type your username" icon="user-alt" group type="username" 
+              <p id='username-instructions' >Username length: between 5-10</p>
+              <MDBInput id = 'username-input' name = 'username' icon="user-alt" group type="username" 
                onChange = {this.handleChange} value = {this.state.username} />
-               <p>Password length: between 7-20</p>
-              <MDBInput name = 'password' label="Type your password" icon="lock" group type="password"
+               <p className = 'signin-instructions' >Password length: between 7-20</p>
+              <MDBInput name = 'password' icon="lock" group type="password"
                onChange = {this.handleChange} value = {this.state.password} />
             </div>
             <div className="text-center">

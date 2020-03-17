@@ -44,17 +44,16 @@ import { MDBLogin } from './Components/MDBLogin';
 // TO use Redux dev tool, need the 2nd argument.
 
 const store = createStore(userReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-
 ReactDOM.render(
 <Provider store = {store}>
+    
     <BrowserRouter>
-        {/* <Container> */}
         <Header/>
         <App /> 
-        {/* <InstantTransfer/> */}
         <Particles />
         <Footer />
     </BrowserRouter>
 </Provider>,
+
 document.getElementById('root'));
 
