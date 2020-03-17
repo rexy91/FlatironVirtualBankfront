@@ -40,7 +40,7 @@ export class Footer extends Component {
             <MDBCol md="6">
               <h5 className="title">Links</h5>
               <li className="list-unstyled">
-                  <a onClick = {this.emailSupport}href="#!">联系我们</a>
+                  {/* <a onClick = {this.emailSupport}href="#!">联系我们</a> */}
                 </li>
               {/* <ul>
                 <li className="list-unstyled">
@@ -76,15 +76,12 @@ export class Footer extends Component {
           <MDBRow>
             <MDBCol md="6">
               <h5 className="title">Thank you for visiting our site! 💎💛💓</h5>
-              <p>
-                Here you can use rows and columns here to organize your footer
-                content.
-              </p>
+
             </MDBCol>
             <MDBCol md="6">
 
             <li className="list-unstyled">
-                  <a onClick = {this.emailSupport}href="#!">Email Us</a>
+                  {/* <a onClick = {this.emailSupport}href="#!">Email Us</a> */}
                 </li>
               {/* <h5 className="title">Links</h5>
               <ul>
