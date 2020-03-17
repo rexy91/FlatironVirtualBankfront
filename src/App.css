@@ -96,7 +96,7 @@ ul.nav li a:hover {
 }
 .login-signup-toggle{ 
   /* text-align: center; */ 
-    opacity: 50%;
+    /* opacity: 50%; */
     color:white;
     background-color: rgba(57, 76, 94, 0.15)
 }
