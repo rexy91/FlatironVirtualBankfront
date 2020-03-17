@@ -25,6 +25,8 @@ import News from './Components/Newscontainer'
 import Particles from './Components/Particles';
 import { Container } from 'semantic-ui-react';
 import Home from './Components/Home';
+import { InstantTransfer } from './Components/AccountActions/InstantTransfer';
+import { MDBLogin } from './Components/MDBLogin';
 // import Particles from 'react-particles-js'
 
 // Will just define a const rootReducer if combining reducers.
@@ -42,16 +44,16 @@ import Home from './Components/Home';
 // TO use Redux dev tool, need the 2nd argument.
 
 const store = createStore(userReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-
 ReactDOM.render(
 <Provider store = {store}>
+    
     <BrowserRouter>
-        {/* <Container> */}
         <Header/>
         <App /> 
         <Particles />
         <Footer />
     </BrowserRouter>
 </Provider>,
+
 document.getElementById('root'));
 

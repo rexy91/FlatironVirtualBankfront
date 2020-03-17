@@ -32,10 +32,12 @@ export class Chart extends Component {
         // console.log(this.props.chartData.chartData)
         // console.log(this.state.chartData.datasets[0].data.chartData)
         // console.log('inside chart')
+        // const chartStyle = { height:'80vh', width:'100vw'}
         return (
-            <div className = 'chart'>
 
-                <Bar
+            <div className = 'chart-container '>
+
+                <Bar id='bar'
                     data={this.state.chartData}
                     options = {{
                         title:{
@@ -44,22 +46,19 @@ export class Chart extends Component {
                             position:'right'
                         },
                         layout:{
-                            padding:{
-                                left: 140,
-                                right:140
-                            }
+          
                         }
                     }}
                 />
-                <Line id ='bar'
+                <Line id ='line'
                      data={this.state.chartData}
                      options = {{
                          layout:{
-                             padding:{
-                            left: 140,
-                            right:140,
-                            bottom: 100
-                        },                         
+                        //      padding:{
+                        //     left: 140,
+                        //     right:140,
+                        //     bottom: 100
+                        // },                         
                      }
                      }}                   
                 />

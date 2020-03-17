@@ -28,7 +28,7 @@ export class Profile extends Component {
         if(this.props?.user?.checking?.balance !== 0){
             swal('','Please transfer out your funds before deactivting.','error')}
         else{
-            fetch(`http://localhost:3000/checkings/${this.props?.user?.checking?.id}`, {
+            fetch(`https://flatironbankapi.herokuapp.com/checkings/${this.props?.user?.checking?.id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())
@@ -42,7 +42,7 @@ export class Profile extends Component {
         if(this.props?.user?.saving?.balance !== 0){
             swal('','Please transfer out your funds before deactivting.','error')}
         else{
-            fetch(`http://localhost:3000/savings/${this.props?.user?.saving?.id}`, {
+            fetch(`https://flatironbankapi.herokuapp.com/savings/${this.props?.user?.saving?.id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())
@@ -57,16 +57,16 @@ export class Profile extends Component {
         this.props.history.push(`/account/${this.props?.user?.saving?.id}/saving/internal_transfer`)
                 
     }
-    
 
     renderModalSignup = () => {
+
         // console.log('here')
         this.props.history.push('/signup')
     }
 
     renderEnglishcheckingAccount = () => {
-        // if (this.props.user.checking){
 
+        // if (this.props.user.checking){
         // const accountstatusTenery = this.props.user.checking.status ? 'Active' : 'Deactived'
         if(this.props?.user?.checking){
             return (
@@ -167,6 +167,7 @@ export class Profile extends Component {
                 <Button color ='black' onClick = {this.handleDeleteSavingAcc}>取消你的账户</Button>
         </div>)
         }
+
         else{
             {
             return <div>
@@ -178,7 +179,11 @@ export class Profile extends Component {
     }
 
     render() {
-        // console.log(this.props)
+
+        // changeHeaderColor = () => {
+        // if(this.props.match.path === '/account/:id'){
+            
+        // }}
         const {user} = this.props
         // To avoid ashy issues, first render if user doesn't exist, just return null. To avoid errors.
         const languageTernrySaving = this.props.language==='Chinese'? this.renderChineseSavingAccount(): this.renderEnglishSavingAccount()

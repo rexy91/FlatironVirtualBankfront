@@ -13,7 +13,7 @@ export class InstantTransfer extends Component {
     //Strech goal: Filter out the current user, can't transfer to yourself. 
 
     componentDidMount(){
-        fetch('http://localhost:3000/users')
+        fetch('https://flatironbankapi.herokuapp.com/users')
         .then(res => res.json())
         .then(allUsers => {
             this.props.saveAllUsersToStore(allUsers)
@@ -38,7 +38,7 @@ export class InstantTransfer extends Component {
         "error");
       }
       else{
-        fetch(`http://localhost:3000/checkings/${this.props?.appState?.user?.id}/instant_transfer`, {
+        fetch(`https://flatironbankapi.herokuapp.com/checkings/${this.props?.appState?.user?.id}/instant_transfer`, {
           method:'PATCH',
           headers:{
             'Content-Type': 'application/json',
@@ -72,6 +72,7 @@ export class InstantTransfer extends Component {
   return (
       <div id='instant-transfer'>
           <h2 id='instant-transfer-header'  >Transfer your funds in seconds</h2>
+          
 <MDBContainer>
 <MDBRow>
   <MDBCol md='6'>

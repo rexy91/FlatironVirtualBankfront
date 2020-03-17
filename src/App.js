@@ -21,6 +21,7 @@ import CheckingTransPage from './Components/CheckingTransPage';
 import CheckingTransGrid from './Components/CheckingTransGrid'
 import SavingTransPage from './Components/SavingTransPage'
 import Verify from './Components/Verify'
+import News from './Components/Newscontainer'
 import MDBSignup from './Components/MDBSignup';
 import HousingContainer from './Components/HousingContainer'
 import Personalinfo from './Components/Personalinfo'
@@ -34,7 +35,7 @@ class App extends Component {
   componentDidMount(){
     if (localStorage.getItem("token")) {
       let token = localStorage.getItem('token')
-      fetch("http://localhost:3000/persist", {
+      fetch("https://flatironbankapi.herokuapp.com/persist", {
         headers: {
           "Authorization": `bearer ${token}`
         }
@@ -71,6 +72,11 @@ class App extends Component {
     // console.log(this.props)
     return (    
       <div className = 'app'>
+        {/* <InstantTransfer /> 
+        <MDBLogin />
+        <LoginSignupContainer/>
+        <News/>
+        <Home/> */}
         {localStorage.getItem ? null : <LoginSignupContainer />}
         {/* routing */}
         {/* <Newscontainer /> */}
