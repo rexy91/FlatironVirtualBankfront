@@ -156,11 +156,10 @@ ul.nav li a:hover {
 
 /* Clock  */
 #news-card{
-  height: 10% !important;
+  /* height: 5% !important; */
   margin-bottom: 5vh !important;
-  /* border-radius: 12%; */
-  /* border: 1px solid; */
-  padding: 5% !important; 
+  height: 45vh;
+  padding: 1% !important; 
   /* box-shadow: 5px 10px black; */
 }
 
@@ -239,7 +238,7 @@ ul.nav li a:hover {
 }
 
 #newsCardContainer{
-  height: 125vh;
+  /* height: 125vh; */
   /* margin-top: 30%;
   margin-bottom: 0%; */
   background-image: url('https://images.unsplash.com/photo-1553387789-2b36a3f5de14?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
@@ -329,5 +328,13 @@ ul.nav li a:hover {
 
 #username-instructions{
   color: white;
+
+}
+
+.news-title{
+  color: white;
+  font-weight: bolder;
+  padding: 3%;
+  text-align: center;
 
 }
