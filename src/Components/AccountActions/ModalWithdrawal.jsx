@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Header, Image, Modal } from 'semantic-ui-react'
 import {connect} from 'react-redux'
-import {onlineWithdrawal} from './Redux/actions'
+import {onlineWithdrawal} from '../Redux/actions'
 import swal from 'sweetalert';
 import {withRouter} from 'react-router-dom'
 export class ModalWithdrawal extends Component {
