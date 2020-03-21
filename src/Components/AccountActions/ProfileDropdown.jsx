@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { Dropdown, Input, Modal } from 'semantic-ui-react'
 import {withRouter} from 'react-router-dom'
 import { connect } from 'react-redux'
-import {dispatchChartData} from './Redux/actions'
-import Chart from '../Components/Chart'
+import {dispatchChartData} from '../Redux/actions'
+import Chart from '../AccountActions/Chart'
 import {Switch, Route} from 'react-router'
 
 const tagOptions = [

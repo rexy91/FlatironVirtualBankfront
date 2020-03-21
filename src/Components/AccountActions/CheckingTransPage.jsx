@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import DynamicSearch from '../Components/TransactionPage/DynamicSearch'
+import DynamicSearch from '../TransactionPage/DynamicSearch'
 export class CheckingTransPage extends Component {
 
     goback = () => {

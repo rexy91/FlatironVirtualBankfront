@@ -2,32 +2,32 @@ import React, { Component } from 'react'
 import './App.css';
 
 import Header from './Components/Header'
-import Chart from './Components/Chart'
+import Chart from './Components/AccountActions/Chart'
 //Redux
 import {saveUserToState} from './Components/Redux/actions'
 import {saveNewsToStore} from './Components/Redux/actions'
 import { connect } from 'react-redux';
 
 // Components:
-import MDBLogin from './Components/MDBLogin'
+import MDBLogin from './Components/AccountActions/MDBLogin'
 import Home from './Components/Home'
 import Profile from './Components/Profile'
 
 // React Routing:
 import {Switch, Route} from 'react-router'
-import LoginSignupContainer from './Components/LoginSignupContainer';
+import LoginSignupContainer from './Components/AccountActions/LoginSignupContainer'
 import {withRouter} from 'react-router-dom'
-import CheckingTransPage from './Components/CheckingTransPage';
-import CheckingTransGrid from './Components/CheckingTransGrid'
+import CheckingTransPage from './Components/AccountActions/CheckingTransPage';
+import CheckingTransGrid from './Components/AccountActions/CheckingTransGrid'
 import SavingTransPage from './Components/SavingTransPage'
 import Verify from './Components/Verify'
 import News from './Components/Newscontainer'
-import MDBSignup from './Components/MDBSignup';
+import MDBSignup from './Components/AccountActions/MDBSignup'
 import HousingContainer from './Components/HousingContainer'
-import Personalinfo from './Components/Personalinfo'
+import Personalinfo from './Components/AccountActions/Personalinfo'
 import InstantTransfer from './Components/AccountActions/InstantTransfer'
 import Newscontainer from './Components/Newscontainer'
-import  InternalTransfer  from './Components/InternalTransfer';
+import  InternalTransfer  from './Components/AccountActions/InternalTransfer'
 // import { Newscontainer } from './Components/Newscontainer';
 
 class App extends Component {

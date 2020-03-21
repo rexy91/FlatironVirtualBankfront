@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from 'mdbreact';
 import {withRouter} from 'react-router-dom'
-import {signUpUser} from './Redux/actions'
-import {signUpAccount} from './Redux/actions'
+import {signUpUser} from '../Redux/actions'
+import {signUpAccount} from '../Redux/actions'
 import {connect} from 'react-redux'
-import SignupCode from '../Components/SignupCode'
+import SignupCode from './SignupCode'
 import swal from 'sweetalert';
 
 class MDBSignup extends Component {

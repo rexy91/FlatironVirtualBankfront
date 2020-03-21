@@ -5,7 +5,7 @@ import {onlineWithdrawal} from '../Redux/actions'
 import swal from 'sweetalert';
 import {withRouter} from 'react-router-dom'
 export class ModalWithdrawal extends Component {
-
+  
         // Refactor later : 
     handleWithdrawal = (e) => {
         e.preventDefault()

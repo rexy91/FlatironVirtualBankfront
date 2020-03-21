@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import {updateInternalTransfer} from './Redux/actions'
+import {updateInternalTransfer} from '../Redux/actions'
 import swal from 'sweetalert';
 class InternalTransfer extends Component {
 
