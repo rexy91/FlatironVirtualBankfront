@@ -9,5 +9,5 @@ Implemented deposit,withdrawal and instant transfer features.
 Added dynamic search on the transaction page to allow the user to search for any transaction.
 Generated chart with ChartJs to show expense summary for a particular account.
 
-# Link to website: https://flatironvirtualbank.netlify.com/
-# Backend repo can be found here: https://github.com/rexy91/FlatironVirtualBankbackend
+### Link to website: https://flatironvirtualbank.netlify.com/
+### Backend repo can be found here: https://github.com/rexy91/FlatironVirtualBankbackend
