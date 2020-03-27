@@ -4,9 +4,13 @@ A full-stack web based banking application using React and Rails, allows users t
 
 key features:
 Utilized JSON Web Tokens and localStorage to store encrypted user information client-side.
+
 Fetched external news API to show trending finance news on the home page.
+
 Implemented deposit,withdrawal and instant transfer features.
+
 Added dynamic search on the transaction page to allow the user to search for any transaction.
+
 Generated chart with ChartJs to show expense summary for a particular account.
 
 ### Link to website: https://flatironvirtualbank.netlify.com/
