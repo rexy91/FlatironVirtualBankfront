@@ -23,7 +23,7 @@ export class ModalWithdrawal extends Component {
         swal(``,
         "Withdrawal Made",
         "success");
-      
+      e.target.amount.value = ''
           fetch(`https://flatironbankapi.herokuapp.com/checkings/withdrawal/${checkingId}`, {
               method:'PATCH',
               headers: {
