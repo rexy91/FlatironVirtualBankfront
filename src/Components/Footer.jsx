@@ -4,28 +4,9 @@ import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 export class Footer extends Component {
 
 
-    emailSupport = () => {
-        const userId = this.props?.appState?.user?.id
-        console.log(userId)
-        let message = 'This website can be improved, I have a hard time on user interface. '
-        fetch('https://flatironbankapi.herokuapp.com/customer_support/complaint', {
-          method: "POST",
-          headers: {
-            "content-type": "application/json"
-          },
-          body: JSON.stringify(
-            {
-                message,
-                userId:this.props.appState.user.id 
-            }
-          )
-        })
-          .then(r => r.json())
-          .then(responseFromServer => {
-              
-              // console.log(responseFromServer)
-              
-          }) } 
+    handleEmail =() => {
+      
+    }
     renderChinese = () => {
       return (
         <MDBFooter id ='mainFooter' color="black" className="font-small pt-4 mt-4">
@@ -75,8 +56,8 @@ export class Footer extends Component {
         <MDBContainer fluid className="text-center text-md-left">
           <MDBRow>
             <MDBCol md="6">
-              <h5 className="title">Thank you for visiting our site! 💎💛💓</h5>
-
+              <h4 className="title">Thank you for visiting our site! 💎💛💓</h4>
+              <h5 onClick = {this.handleEmail} style={{cursor:"pointer"}}>Email Us</h5>
             </MDBCol>
             <MDBCol md="6">
 
