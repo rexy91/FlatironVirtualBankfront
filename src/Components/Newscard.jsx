@@ -12,7 +12,7 @@ export class Newscard extends Component {
     openTab = () => {
         window.open(`${this.props.singleNews.url}`);
       }
-
+      
     render() {
         // console.log(this.props.singleNews)
         const {title, urlToImage,url} = this.props.singleNews
@@ -27,32 +27,11 @@ export class Newscard extends Component {
                         <MDBCardBody>
                         <MDBCardTitle>{title}</MDBCardTitle>
                         <MDBBtn onClick = {this.openTab} >{languageTerary}</MDBBtn>
-                    {/* </a> */}
                         </MDBCardBody>
                     </MDBCard>
-    
-            </div> )
+            </div> 
+            )
 
-                // <div class="ui card">
-                // <div class="image">
-                // <img src= {urlToImage} />
-                // </div>
-                // <div class="content">
-                // <a class="header">{title}</a>
-                // <div class="meta">
-                //     <span class="date">Joined in 2013</span>
-                // </div>
-                // <div class="description">
-                //     Kristy is an art director living in New York.
-                // </div>
-                // </div>
-                // <div class="extra content">
-                // <a>
-                //     <i class="user icon"></i>
-                //     22 Friends
-                // </a>
-                // </div>
-                // </div>)
 }
 }
 
