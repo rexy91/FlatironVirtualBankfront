@@ -17,7 +17,7 @@ export class Newscard extends Component {
         // console.log(this.props.singleNews)
         const {title, urlToImage,url} = this.props.singleNews
         // console.log(title, urlToImage,url)
-        const imgStyle = {height:'15vw'}
+        const imgStyle = {height:''}
         const languageTerary = this.props.appState.language ==='Chinese'? '观看新闻': 'See Article' 
 
         return (
