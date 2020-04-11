@@ -17,11 +17,11 @@ export class Newscard extends Component {
         // console.log(this.props.singleNews)
         const {title, urlToImage,url} = this.props.singleNews
         // console.log(title, urlToImage,url)
-        const imgStyle = {height:'260px', width:'320px'}
+        // const imgStyle = {height:'260px', width:'320px'}
         const languageTerary = this.props.appState.language ==='Chinese'? '观看新闻': 'See Article' 
 
         return (
-            <div>
+            <div className = 'news-card'>
                     {/* <MDBCard id = 'news-card' style={{ width: "22rem" }}>
                         <MDBCardImage  style = {imgStyle} className="img-fluid" src={urlToImage} waves />
                         <MDBCardBody>
@@ -29,6 +29,8 @@ export class Newscard extends Component {
                         <MDBBtn onClick = {this.openTab} >{languageTerary}</MDBBtn>
                         </MDBCardBody>
                     </MDBCard> */}
+                    <img className ='border'src={urlToImage}alt=""/>
+                    <p>{title}</p>
             </div> 
             )
 
