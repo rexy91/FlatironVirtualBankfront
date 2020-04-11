@@ -30,6 +30,21 @@
   }
 }
 
+#signup-form{
+  margin-top: 5%;
+  margin-left: 32vw;
+  color: aliceblue;
+}
+
+#signup-form-style{
+  width:40vw;
+}
+
+@media(max-width: 767px){
+  #signup-form-style{
+    width: 50vw;
+  }
+}
 #login-button{
   background-color: black !important;
 }
@@ -45,11 +60,8 @@
     background-color: rgba(57, 76, 94, 0.15)
 }
 
-#signup-form{
-  margin-top: 5%;
-  margin-left: 32vw;
-  color: aliceblue;
-}
+
+
 
 #welcome-section{
   

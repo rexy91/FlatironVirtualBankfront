@@ -153,7 +153,7 @@ class MDBSignup extends Component {
         }
         else {
               
-        return         <Form style={{width:'40vw'}} onSubmit = {this.handleSignupSubmit}> 
+        return         <Form id='signup-form-style' onSubmit = {this.handleSignupSubmit}> 
                           <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email</Form.Label>
                             <Form.Control placeholder="Enter email" name = 'email' 
