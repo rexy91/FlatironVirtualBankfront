@@ -11,6 +11,7 @@ export class MDBLogin extends Component {
     password: ''
 }
   handleLoginSubmit = (e) => {
+
     e.preventDefault()
     fetch('https://flatironbankapi.herokuapp.com/login', {
       // fetch('https://flatironbankapi.herokuapp.com/login', {
@@ -65,10 +66,10 @@ renderLogin =() => {
         </MDBCol>
       </MDBRow>
     </MDBContainer> */}
-              <Form style={{width:'40vw', opacity:'0.9'}} onSubmit ={this.handleLoginSubmit}> 
+              <Form style={{width:'40vw'}} onSubmit ={this.handleLoginSubmit}> 
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Username</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" name = 'username' 
+              <Form.Control placeholder="Enter email" name = 'username' 
                 onChange = {this.handleChange} value = {this.state.username} />
             </Form.Group>
 
