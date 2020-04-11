@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import TransContainer from './TransContainer'
-import CheckingTransPage from './CheckingTransPage'
+import CheckingTransPage from './AccountActions/CheckingTransPage'
 import Footer from '../Components/Footer'
 import { NavLink, Link } from 'react-router-dom'
 import {Switch, Route} from 'react-router'
@@ -9,16 +9,16 @@ import {withRouter} from 'react-router-dom'
 import { Signup } from './Signup'
 import { Button } from 'semantic-ui-react'
 import swal from 'sweetalert';
-import ModalDeposit from './ModalDeposit'
-import ModalWithdrawal from './ModalWithdrawal'
-import MDBSignup from './MDBSignup'
+import ModalDeposit from '../Components/AccountActions/ModalDeposit'
+import ModalWithdrawal from '../Components/AccountActions/ModalWithdrawal'
+import MDBSignup from '../Components/AccountActions/MDBSignup'
 import Title from './Title'
 // Redux
 
 import {deleteCheckingAccount} from './Redux/actions'
 import {deleteSavingAccount} from '../Components/Redux/actions'
 import { Modal } from 'semantic-ui-react'
-import ProfileDropdown from './ProfileDropdown'
+import ProfileDropdown from '../Components/AccountActions/ProfileDropdown'
 // import { MDBSignup } from './MDBSignup'
 
 export class Profile extends Component {

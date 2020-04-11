@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import Newscard from './Newscard'
+import Newscard from '../Newscard'
 import {connect} from 'react-redux'
-import DynamicSearch from '../Components/TransactionPage/DynamicSearch'
+import DynamicSearch from '../TransactionPage/DynamicSearch'
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 import { Button } from 'semantic-ui-react'
-import {sortTransAmount} from '../Components/Redux/actions'
+import {sortTransAmount} from '../Redux/actions'
 import {withRouter} from 'react-router-dom'
 import uuid from 'react-uuid'
 

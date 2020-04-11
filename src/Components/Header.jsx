@@ -136,7 +136,7 @@ class FixedNavbarExample extends React.Component {
                     {this.props.appState.language==='Chinese'? this.renderChineseLogout():this.renderEnglishLogout()}
                   </MDBNavbarNav>
                   <MDBNavbarNav right>
-                    <MDBNavItem>
+                    {/* <MDBNavItem>
                       <MDBNavLink to="#"><MDBIcon fab icon="facebook-f" /></MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
@@ -144,7 +144,7 @@ class FixedNavbarExample extends React.Component {
                     </MDBNavItem>
                     <MDBNavItem>
                       <MDBNavLink to="#"><MDBIcon fab icon="instagram" /></MDBNavLink>
-                    </MDBNavItem>
+                    </MDBNavItem> */}
                   </MDBNavbarNav>
                 </MDBCollapse>
               </MDBNavbar>
@@ -187,7 +187,7 @@ class FixedNavbarExample extends React.Component {
                         {this.props.appState.language==='Chinese'? this.renderChineseLogout():this.renderEnglishLogout()}
                       </MDBNavbarNav>
                       <MDBNavbarNav right>
-                        <MDBNavItem>
+                        {/* <MDBNavItem>
                           <MDBNavLink to="#"><MDBIcon fab icon="facebook-f" /></MDBNavLink>
                         </MDBNavItem>
                         <MDBNavItem>
@@ -195,7 +195,7 @@ class FixedNavbarExample extends React.Component {
                         </MDBNavItem>
                         <MDBNavItem>
                           <MDBNavLink to="#"><MDBIcon fab icon="instagram" /></MDBNavLink>
-                        </MDBNavItem>
+                        </MDBNavItem> */}
                       </MDBNavbarNav>
                     </MDBCollapse>
                   </MDBNavbar>

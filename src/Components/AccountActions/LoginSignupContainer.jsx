@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MDBLogin from './MDBLogin'
 import MDBSignup from './MDBSignup'
-import Signup from './Signup'
+import Signup from '../Signup'
 import {connect} from 'react-redux'
 class LoginSignupContainer extends Component {
     state = {

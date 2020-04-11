@@ -12,47 +12,26 @@ export class Newscard extends Component {
     openTab = () => {
         window.open(`${this.props.singleNews.url}`);
       }
-
+      
     render() {
         // console.log(this.props.singleNews)
         const {title, urlToImage,url} = this.props.singleNews
         // console.log(title, urlToImage,url)
-        const imgStyle = {height:'15vw'}
+        const imgStyle = {height:'260px', width:'320px'}
         const languageTerary = this.props.appState.language ==='Chinese'? '观看新闻': 'See Article' 
 
         return (
             <div>
-                    <MDBCard id = 'news-card' style={{ width: "22rem" }}>
+                    {/* <MDBCard id = 'news-card' style={{ width: "22rem" }}>
                         <MDBCardImage  style = {imgStyle} className="img-fluid" src={urlToImage} waves />
                         <MDBCardBody>
-                        <MDBCardTitle>{title}</MDBCardTitle>
+                        <p>{title}</p>
                         <MDBBtn onClick = {this.openTab} >{languageTerary}</MDBBtn>
-                    {/* </a> */}
                         </MDBCardBody>
-                    </MDBCard>
-    
-            </div> )
+                    </MDBCard> */}
+            </div> 
+            )
 
-                // <div class="ui card">
-                // <div class="image">
-                // <img src= {urlToImage} />
-                // </div>
-                // <div class="content">
-                // <a class="header">{title}</a>
-                // <div class="meta">
-                //     <span class="date">Joined in 2013</span>
-                // </div>
-                // <div class="description">
-                //     Kristy is an art director living in New York.
-                // </div>
-                // </div>
-                // <div class="extra content">
-                // <a>
-                //     <i class="user icon"></i>
-                //     22 Friends
-                // </a>
-                // </div>
-                // </div>)
 }
 }
 

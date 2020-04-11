@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { Button, Header, Image, Modal } from 'semantic-ui-react'
 import {connect} from 'react-redux'
-import {onlineWithdrawal} from './Redux/actions'
+import {onlineWithdrawal} from '../Redux/actions'
 import swal from 'sweetalert';
 import {withRouter} from 'react-router-dom'
 export class ModalWithdrawal extends Component {
-
+  
         // Refactor later : 
     handleWithdrawal = (e) => {
         e.preventDefault()
@@ -23,7 +23,7 @@ export class ModalWithdrawal extends Component {
         swal(``,
         "Withdrawal Made",
         "success");
-      
+      e.target.amount.value = ''
           fetch(`https://flatironbankapi.herokuapp.com/checkings/withdrawal/${checkingId}`, {
               method:'PATCH',
               headers: {

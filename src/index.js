@@ -26,7 +26,7 @@ import Particles from './Components/Particles';
 import { Container } from 'semantic-ui-react';
 import Home from './Components/Home';
 import { InstantTransfer } from './Components/AccountActions/InstantTransfer';
-import { MDBLogin } from './Components/MDBLogin';
+import { MDBLogin } from './Components/AccountActions/MDBLogin'
 // import Particles from 'react-particles-js'
 
 // Will just define a const rootReducer if combining reducers.
