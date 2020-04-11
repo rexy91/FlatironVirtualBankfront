@@ -21,15 +21,9 @@ export class Newscard extends Component {
         const languageTerary = this.props.appState.language ==='Chinese'? '观看新闻': 'See Article' 
 
         return (
-            <div className = 'news-card'>
-                    {/* <MDBCard id = 'news-card' style={{ width: "22rem" }}>
-                        <MDBCardImage  style = {imgStyle} className="img-fluid" src={urlToImage} waves />
-                        <MDBCardBody>
-                        <p>{title}</p>
-                        <MDBBtn onClick = {this.openTab} >{languageTerary}</MDBBtn>
-                        </MDBCardBody>
-                    </MDBCard> */}
-                    <img className='border border-white'src={urlToImage}alt=""/>
+            <div className = 'news-card' style={{cursor:'pointer'}} onClick= {this.openTab}>
+
+                    <img className='border border-white' src={urlToImage}alt=""/>
                     <p>{title}</p>
             </div> 
             )

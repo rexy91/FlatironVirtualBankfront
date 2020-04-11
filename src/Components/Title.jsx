@@ -25,6 +25,7 @@ export class Title extends Component {
     renderEnglish= () => {
       return (
         <div>
+          
             <MDBContainer  className="text-center mt-5 pt-5" >
                 <MDBRow>
                   <MDBCol md='3'>
@@ -43,6 +44,7 @@ export class Title extends Component {
       const languageTernry = this.props.language==='Chinese'? this.renderChinese(): this.renderEnglish()
       return(
         <>
+          
             {languageTernry}
         </>
       )

@@ -20,13 +20,8 @@ class LoginSignupContainer extends Component {
 
     }
 
-    
-    // toggleForm  =  this.state.login ? <Login /> : <Signup />
-
     toggleForm  = () =>  this.state.login ? <MDBLogin /> : <MDBSignup />
 
-
-    
 
     render() {
 
