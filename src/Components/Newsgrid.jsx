@@ -25,12 +25,12 @@ export class Newsgrid extends Component {
 
     renderEnglish =() => {
         let oldArray = this.props.newsArray
-        let newArray = this.props?.newsArray?.slice(0,6)
+        let newArray = this.props?.newsArray?.slice(0,8)
         // console.log(newArray)
 
         let newsMapper = newArray?.map(singleArticle => {
             
-                return <MDBCol md ='4'><Newscard singleNews = {singleArticle} key = {uuid()}/></MDBCol>
+                return <MDBCol md ='3'><Newscard singleNews = {singleArticle} key = {uuid()}/></MDBCol>
         })   
 
     return  <div>
