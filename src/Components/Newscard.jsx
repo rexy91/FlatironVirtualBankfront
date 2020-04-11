@@ -29,7 +29,7 @@ export class Newscard extends Component {
                         <MDBBtn onClick = {this.openTab} >{languageTerary}</MDBBtn>
                         </MDBCardBody>
                     </MDBCard> */}
-                    <img className ='border'src={urlToImage}alt=""/>
+                    <img className='border border-white'src={urlToImage}alt=""/>
                     <p>{title}</p>
             </div> 
             )

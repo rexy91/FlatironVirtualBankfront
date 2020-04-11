@@ -169,8 +169,18 @@ ul.nav li a:hover {
   margin-bottom: 7px;
 }
 .news-card p{
-  color: white;
+  /* color: white; */
   font-size: 16px;
+}
+
+#newsCardContainer{
+  margin-bottom: 0%; 
+  /* background-image: url('https://images.unsplash.com/photo-1553387789-2b36a3f5de14?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); */
+  background-color: rgb(248, 240, 240);
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-position: center center;
+  background-repeat: 1;
 }
 
 .app{
@@ -246,14 +256,6 @@ ul.nav li a:hover {
   width: 100%; 
 }
 
-#newsCardContainer{
-  margin-bottom: 0%; 
-  background-image: url('https://images.unsplash.com/photo-1553387789-2b36a3f5de14?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-  background-repeat: no-repeat;
-  background-size: cover; 
-  background-position: center center;
-  background-repeat: 1;
-}
 
 #home-wrapper{
   background-image: url('./image/homepagepic.jpg');
@@ -339,7 +341,7 @@ ul.nav li a:hover {
 }
 
 .news-title{
-  color: white;
+  /* color: white; */
   font-weight: bolder;
   padding: 3%;
   text-align: center;
