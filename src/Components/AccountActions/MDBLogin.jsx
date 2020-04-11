@@ -66,7 +66,7 @@ renderLogin =() => {
         </MDBCol>
       </MDBRow>
     </MDBContainer> */}
-              <Form style={{width:'40vw'}} onSubmit ={this.handleLoginSubmit}> 
+              <Form id='login-form-style'  onSubmit ={this.handleLoginSubmit}> 
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Username</Form.Label>
               <Form.Control placeholder="Enter email" name = 'username' 
