@@ -60,9 +60,6 @@
     background-color: rgba(57, 76, 94, 0.15)
 }
 
-
-
-
 #welcome-section{
   
   border: solid 1px;
@@ -103,12 +100,8 @@
 }
 
 /* Clock  */
-#news-card{
-  /* height: 5% !important; */
-  margin-bottom: 5vh !important;
-  /* height: 45vh; */
-  padding: 1% !important; 
-  /* box-shadow: 5px 10px black; */
+.news-card{
+  margin-bottom: 10px;
 }
 
 .news-card img{
@@ -119,6 +112,7 @@
 .news-card p{
   /* color: white; */
   font-size: 16px;
+  
 }
 
 #newsCardContainer{
@@ -199,9 +193,9 @@
     /* margin-top: 5%; */
     margin: 5%;
 }
-#mainFooter{
-  /* position: fixed; */
-  width: 100%; 
+
+#mainFooter h4, h5{
+  text-align: center;
 }
 
 

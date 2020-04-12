@@ -52,7 +52,7 @@ ReactDOM.render(
         <Header/>
         <App /> 
         <Particles />
-        <Footer />
+        {/* <Footer /> */}
     </BrowserRouter>
 </Provider>,
 

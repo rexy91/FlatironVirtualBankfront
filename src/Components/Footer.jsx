@@ -54,13 +54,8 @@ export class Footer extends Component {
       return (
         <MDBFooter id ='mainFooter' color="black" className="font-small pt-4 mt-4">
         <MDBContainer fluid className="text-center text-md-left">
-          <MDBRow>
-            <MDBCol md="6">
               <h4 className="title">Thank you for visiting our site! 💎💛💓</h4>
               <h5 onClick = {this.handleEmail} style={{cursor:"pointer"}}>Email Us</h5>
-            </MDBCol>
-            <MDBCol md="6">
-
             <li className="list-unstyled">
                   {/* <a onClick = {this.emailSupport}href="#!">Email Us</a> */}
                 </li>
@@ -76,13 +71,8 @@ export class Footer extends Component {
                   <a href="#!">Link 4</a>
                 </li>
               </ul> */}
-            </MDBCol>
-          </MDBRow>
         </MDBContainer>
         <div className="footer-copyright text-center py-3">
-          <MDBContainer fluid>
-            &copy; {new Date().getFullYear()} Copyright: <a href="https://www.MDBootstrap.com"> MDBootstrap.com </a>
-          </MDBContainer>
         </div>
       </MDBFooter>
     )
