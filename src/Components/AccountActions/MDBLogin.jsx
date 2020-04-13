@@ -44,7 +44,7 @@ export class MDBLogin extends Component {
   }
 
 renderLogin =() => {
-  console.log(this.props.appState)
+  console.log(this.props)
   if(localStorage.length === 0){
     {return <div id='login-form'>
     {/* <MDBContainer>
