@@ -44,6 +44,7 @@ export class MDBLogin extends Component {
   }
 
 renderLogin =() => {
+  console.log(this.props.appState)
   if(localStorage.length === 0){
     {return <div id='login-form'>
     {/* <MDBContainer>
@@ -95,32 +96,14 @@ else{
             <>
               {this.renderLogin()}
             </>
-/* <div id='login-form'>
-<MDBContainer>
-  <MDBRow>
-    <MDBCol md="6">
-      <form onSubmit ={this.handleLoginSubmit}>
-        <p className="h5 text-center mb-4">Sign in</p>
-        <div className="grey-text">
-          <p>Username length: between 5-10</p>
-          <MDBInput name = 'username' label="Type your username" icon="user-alt" group type="username" 
-           onChange = {this.handleChange} value = {this.state.username} />
-           <p>Password length: between 7-20</p>
-          <MDBInput name = 'password' label="Type your password" icon="lock" group type="password"
-           onChange = {this.handleChange} value = {this.state.password} />
-        </div>
-        <div className="text-center">
-          <MDBBtn id='login-button' type = 'submit'>Login</MDBBtn>
-        </div>
-      </form>
-    </MDBCol>
-  </MDBRow>
-</MDBContainer>
-</div> */
         )
     }
 }
 
-export default connect(null, {saveUserToState})(withRouter(MDBLogin));
+const mstp = (appState) => {
+  return appState
+}
+ 
+export default connect(mstp, {saveUserToState})(withRouter(MDBLogin));
 
 
