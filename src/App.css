@@ -10,8 +10,14 @@
 }
 
 #verify-section{
-    margin-top: 7%;
-    margin-bottom: 47vh;
+    text-align: center;
+    font-size: 18px;
+    /* margin-top: 7%; */
+    /* margin-bottom: 47vh; */
+}
+
+#verify-section{
+
 }
 
 #login-form{

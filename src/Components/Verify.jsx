@@ -5,10 +5,7 @@ import swal from 'sweetalert';
 export class Verify extends Component {
 
     handleCode =(e) => {
-        e.preventDefault()
-        // console.log(e.target)
-        
-        // Save local storage here if code is correct. 
+        e.preventDefault()  
         if (e.target.verify_code.value === this.props?.appState?.code){
             localStorage.setItem('token',this.props?.appState?.token)
             this.props.history.push(`/account/${this.props?.appState?.user?.id}`) 
@@ -28,15 +25,14 @@ export class Verify extends Component {
             "error")
         }
     }
-    
     render() {
         return (
             <div id='verify-section'>
                 <h3>Welcome</h3>
-                <form  onSubmit = {this.handleCode} action="">
+                <form  onSubmit = {this.handleCode} style = {{marginTop:'18vh'}}>
                     <p>We have sent a code to {this.props?.appState?.user?.email}</p>
-                    <label htmlFor=""> Please enter the code:</label>
-                    <input type="number" name='verify_code'/>
+                    <label htmlFor=""> Please enter the code to finish the registration:</label>
+                    <input type="text" name='verify_code'/>
                     <input type="submit"/>
                 </form>
             </div>

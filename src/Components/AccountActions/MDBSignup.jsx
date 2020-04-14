@@ -5,7 +5,6 @@ import {signUpUser} from '../Redux/actions'
 import {signUpAccount} from '../Redux/actions'
 import {Form, Button} from 'react-bootstrap'
 import {connect} from 'react-redux'
-import SignupCode from './SignupCode'
 import swal from 'sweetalert';
 
 class MDBSignup extends Component {

@@ -28,7 +28,6 @@ import Personalinfo from './Components/AccountActions/Personalinfo'
 import InstantTransfer from './Components/AccountActions/InstantTransfer'
 import Newscontainer from './Components/Newscontainer'
 import  InternalTransfer  from './Components/AccountActions/InternalTransfer'
-// import { Newscontainer } from './Components/Newscontainer';
 
 class App extends Component {
 
