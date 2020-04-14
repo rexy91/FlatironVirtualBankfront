@@ -39,11 +39,6 @@ class MDBSignup extends Component {
             .then(r => r.json())
             .then(responseFromServer => {
               
-                // console.log(!responseFromServer.errors)
-                // debugging
-                // console.log(responseFromServer)
-                // console.log(responseFromServer.user)
-                // console.log(responseFromServer.user.signup_type === 'Checking')
           if (!responseFromServer.errors) {
                 console.log(responseFromServer)
                 console.log('here')
@@ -121,13 +116,67 @@ class MDBSignup extends Component {
             }
        }
 
+    renderSignUpChinese = () => {
+
+      if (this.props.user){
+        return  <MDBContainer>
+                  <MDBRow>
+                    <MDBCol md="6">
+                      <form onSubmit ={this.handleExistingUserSignup}>
+                        <p className="h5 text-center mb-4">{this.props.user.username}, 请确认你的资料</p>
+                        <div className="grey-text">
+                          <MDBInput label="Username" icon="user" group type="text" validate error="wrong"
+                            success="right" name = 'username' value ={this.props.user.username}/>
+                          <MDBInput label="Your email" icon="envelope" group type="email" validate error="wrong"
+                            success="right" name = 'email' value={this.props.user.email} />
+                        </div>
+                        <div className="text-center">
+                          <select name="accountType" id="">
+                              {/* <option value="checking">Checking</option> */}
+                              {this.checkingOrSaving()}
+                          </select>
+                          <MDBBtn type = 'submit' color="black">注册账户</MDBBtn>
+                        </div>
+                      </form>
+                    </MDBCol>
+                  </MDBRow>
+                </MDBContainer>
+      }
+      else {
+            
+      return         <Form id='signup-form-style' onSubmit = {this.handleSignupSubmit}> 
+                        <Form.Group controlId="formBasicEmail">
+                          <Form.Label>邮箱地址</Form.Label>
+                          <Form.Control placeholder="Enter email" name = 'email' 
+                             onChange = {this.handleChange} value = {this.state.email}
+                             />
+                        </Form.Group>
+                        <Form.Group>
+                        <Form.Label>用户名 (长度: 5-10)</Form.Label>
+                          <Form.Control placeholder="Enter username" name = 'username' 
+                            onChange = {this.handleChange} value = {this.state.username} />
+                          </Form.Group>
+                        <Form.Group controlId="formBasicPassword">
+                          <Form.Label>密码 (长度: 7-20)</Form.Label>
+                          <Form.Control type="password" placeholder="Password" name = 'password' 
+                            onChange = {this.handleChange} value = {this.state.password} />
+                        </Form.Group>
+                        <Form.Group style={{display:'inline'}}>
+                          <b><label>账号类型</label></b>
+                          <select name="accountType" id="">
+                              <option value="checking">支票账号</option>
+                              <option value="saving">储蓄账号></option>
+                              <br/><br/>
+                          </select>
+                        </Form.Group>
+                        <MDBBtn type = 'submit' id='register-button' >注册</MDBBtn>
+                      </Form>
+      }
+  }
+    
     renderSignUp = () => {
-        // console.log(this.props)
-        // If existing user trying to signup, render different input.
         
         if (this.props.user){
-          // console.log("yoo")
-          // console.log(this.props)
           return  <MDBContainer>
                     <MDBRow>
                       <MDBCol md="6">
@@ -184,7 +233,7 @@ class MDBSignup extends Component {
     }
     
 render() {
-        // console.log(this.props)
+        console.log(this.props)
         return (
         <div id = 'signup-form'>
           {this.renderSignUp()}
