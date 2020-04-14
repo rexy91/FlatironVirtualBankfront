@@ -3,7 +3,7 @@ import {Modal} from 'react-bootstrap'
 import { Button, Header, Image} from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import {onlineWithdrawal} from '../Redux/actions'
-import {swal} from 'sweetalert'
+import swal from 'sweetalert'
 
 export class WithdrawalModal extends Component {
 
@@ -13,8 +13,10 @@ export class WithdrawalModal extends Component {
 
     handleWithdrawal = (e) => {
         e.preventDefault()
+
         const amount = e.target.amount.value
         const checkingId = this.props.user.checking.id
+        console.log(amount, checkingId)
     if (amount <= 0) {
         swal('','Please enter a valid amount', 'error')
     }
@@ -75,8 +77,7 @@ export class WithdrawalModal extends Component {
                       <label htmlFor="">Withdrawal Amount</label>
                       <input type="number" name = 'amount' />
                       <br/>
-                  </form>
-              </Modal.Body>
+
               <Modal.Footer>
                 <Button variant="secondary" onClick={this.handleClose}>
                   Close
@@ -85,6 +86,8 @@ export class WithdrawalModal extends Component {
                   Submit
                 </Button>
               </Modal.Footer>
+              </form>
+              </Modal.Body>
             </Modal>
           </>
     }
