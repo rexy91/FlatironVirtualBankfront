@@ -174,7 +174,7 @@ class MDBSignup extends Component {
       }
   }
     
-    renderSignUp = () => {
+    renderSignUpEnglish = () => {
         
         if (this.props.user){
           return  <MDBContainer>
@@ -233,10 +233,10 @@ class MDBSignup extends Component {
     }
     
 render() {
-        console.log(this.props)
         return (
         <div id = 'signup-form'>
-          {this.renderSignUp()}
+          {/* {this.renderSignUp()} */}
+          {this.props.language === 'Chinese' ? this.renderSignUpChinese() : this.renderSignUpEnglish()}
         </div>
         )
     }

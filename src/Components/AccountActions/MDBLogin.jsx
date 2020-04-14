@@ -67,7 +67,6 @@ renderLoginChinese = () => {
 }}
 
 renderLoginEnglish =() => {
-  console.log('here')
   if(localStorage.length === 0){
     {return <div id='login-form'>
               <Form id='login-form-style'  onSubmit ={this.handleLoginSubmit}> 
