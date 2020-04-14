@@ -41,11 +41,6 @@ class LoginSignupContainer extends Component {
 
     render() {
         return (
-            // <div className='loginSignupForms'>
-            //     {toggleSigninLanguage}
-            //     {toggleSignupLanguage} 
-            //     {this.toggleForm()}
-            // </div>
             <>
                 {this.confirmLogin()}
             </>
