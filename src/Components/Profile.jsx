@@ -9,14 +9,12 @@ import {withRouter} from 'react-router-dom'
 import { Signup } from './Signup'
 import { Button } from 'semantic-ui-react'
 import swal from 'sweetalert';
-import ModalDeposit from '../Components/AccountActions/ModalDeposit'
-import ModalWithdrawal from '../Components/AccountActions/ModalWithdrawal'
 import MDBSignup from '../Components/AccountActions/MDBSignup'
 import Title from './Title'
 import WithdrawalModal from './AccountActions/WithdrawalModal'
+import DepositModal from './AccountActions/DepositModal'
 
 // Redux
-
 import {deleteCheckingAccount} from './Redux/actions'
 import {deleteSavingAccount} from '../Components/Redux/actions'
 import { Modal } from 'semantic-ui-react'
@@ -76,14 +74,14 @@ export class Profile extends Component {
             <p>Checking Acc: {this.props.user.checking.acc_num}</p>
             <p>Available Balance: ${this.props.user.checking.balance}</p>
             {/* <p>Status: {accountstatusTenery}</p> */}
-            <Link to={`${this.props.match.url}/checking/transactions`}>
-            <Button color='black'>View Transactions</Button>
+            <Link to={`${this.props.match.url}/checking/transactions`} >
+            <Button style = {{marginBottom:'5px'}} color='black'>View Transactions</Button>
             </Link>
             <br/>
             <WithdrawalModal/>
+            <DepositModal/>
             <br/>
-            <Button color='black' onClick = {this.handleDeleteCheckingAcc} >Deactivate Account</Button>
-            <ModalDeposit /> 
+            <Button color='black'style = {{marginTop:'5px'}} onClick = {this.handleDeleteCheckingAcc} >Deactivate Account</Button>
             </div>
             )
         }
@@ -108,13 +106,13 @@ export class Profile extends Component {
             <p>当前余额: ${this.props.user.checking.balance}</p>
             {/* <p>Status: {accountstatusTenery}</p> */}
             <Link to={`${this.props.match.url}/checking/transactions`}>
-            <Button color='black'>查看你的交易记录</Button>
+            <Button style = {{marginBottom:'5px'}} color='black'>查看你的交易记录</Button>
             </Link>
             <br/>
             <WithdrawalModal/>
+            <DepositModal/>
             <br/>
-            <Button color='black' onClick = {this.handleDeleteCheckingAcc} >取消你的账户</Button>
-            <ModalDeposit /> 
+            <Button color='black' style = {{marginTop:'5px'}} onClick = {this.handleDeleteCheckingAcc} >取消你的账户</Button>
             </div>
             )
         }
