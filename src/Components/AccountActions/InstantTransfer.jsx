@@ -10,9 +10,6 @@ import Newscard from '../Newscard'
 import News from '../Newscontainer'
 export class InstantTransfer extends Component {
 
-    //Fetch to get all users, save that to the store.
-    //Strech goal: Filter out the current user, can't transfer to yourself. 
-
     componentDidMount(){
         fetch('https://flatironbankapi.herokuapp.com/users')
         .then(res => res.json())
@@ -71,9 +68,7 @@ export class InstantTransfer extends Component {
         return <option value={`${user.id}`}>{user.username} , {user.email} </option>
   })
   return (
-      <div id='instant-transfer'>
-          <h2 id='instant-transfer-header'  >Transfer your funds in seconds</h2>
-          
+      <div id='instant-transfer'>        
 <MDBContainer>
 <MDBRow>
   <MDBCol md='6'>
@@ -82,7 +77,9 @@ export class InstantTransfer extends Component {
       style={{
         backgroundImage:
           'url(https://homelandprepnews.com/wp-content/uploads/2018/10/shutterstock_1105484522.jpg)',
-        width: '28rem'
+        width: '100%',
+        marginTop:'10vh',
+        marginBottom:'-5vh'
       }}
     >
       <div className='text-white rgba-stylish-strong py-5 px-5 z-depth-4'>
@@ -103,6 +100,7 @@ export class InstantTransfer extends Component {
         <input name ='instant_transfer_amount' type="number"/>
         <br/>
         <label htmlFor="">Transfer To</label>
+        <br/>
         <select name="transfer_to" id="">
               {mapAllUsers}
         </select>
@@ -144,7 +142,7 @@ export class InstantTransfer extends Component {
   })
   return (
       <div id='instant-transfer'>
-          <h2 id='instant-transfer-header'  >几秒内就能轻易转账</h2>
+          
 <MDBContainer>
 <MDBRow>
   <MDBCol md='6'>
@@ -153,7 +151,9 @@ export class InstantTransfer extends Component {
       style={{
         backgroundImage:
           'url(https://homelandprepnews.com/wp-content/uploads/2018/10/shutterstock_1105484522.jpg)',
-        width: '28rem'
+        width: '100%',
+        marginTop:'10vh',
+        marginBottom:'-5vh'
       }}
     >
       <div className='text-white rgba-stylish-strong py-5 px-5 z-depth-4'>
@@ -174,6 +174,7 @@ export class InstantTransfer extends Component {
         <input name ='instant_transfer_amount' type="number"/>
         <br/>
         <label htmlFor="">转到的账户</label>
+        <br/>
         <select name="transfer_to" id="">
               {mapAllUsers}
         </select>
