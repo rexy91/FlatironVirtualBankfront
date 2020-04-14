@@ -101,7 +101,7 @@ export class InstantTransfer extends Component {
         <br/>
         <label htmlFor="">Transfer To</label>
         <br/>
-        <select name="transfer_to" id="" style={{width:'90%'}}>
+        <select name="transfer_to" id="instant-transfer-select" >
               {mapAllUsers}
         </select>
         <br/>
@@ -175,7 +175,7 @@ export class InstantTransfer extends Component {
         <br/>
         <label htmlFor="">转到的账户</label>
         <br/>
-        <select name="transfer_to" id="" style={{width:'90%'}}>
+        <select name="transfer_to" id="instant-transfer-select">
               {mapAllUsers}
         </select>
         <br/>

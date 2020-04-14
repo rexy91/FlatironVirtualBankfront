@@ -192,10 +192,19 @@
     margin: 5%;
 }
 
+#instant-transfer-select{
+  width: 90%;
+}
+
+@media(min-width:1023px){
+  #instant-transfer-select{
+    width: 60%;
+  }
+}
+
 #mainFooter h4, h5{
   text-align: center;
 }
-
 
 #home-wrapper{
   background-image: url('./image/homepagepic.jpg');
