@@ -111,7 +111,7 @@ export class Profile extends Component {
             <Button color='black'>查看你的交易记录</Button>
             </Link>
             <br/>
-            <ModalWithdrawal />
+            <WithdrawalModal/>
             <br/>
             <Button color='black' onClick = {this.handleDeleteCheckingAcc} >取消你的账户</Button>
             <ModalDeposit /> 

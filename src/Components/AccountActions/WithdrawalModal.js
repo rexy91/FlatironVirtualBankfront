@@ -91,6 +91,7 @@ export class WithdrawalModal extends Component {
             </Modal>
           </>
     }
+    
     renderChinese = () => {
         return             <>
         <Button color='black' onClick={this.handleShow} >取款交易</Button>
@@ -104,24 +105,25 @@ export class WithdrawalModal extends Component {
                   <label htmlFor="">取钱的金额</label>
                   <input type="number" name = 'amount' />
                   <br/>
-              </form>
-          </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={this.handleClose}>
               关闭
             </Button>
-            <Button variant="primary" type = 'submit' onClick={this.handleClose}>
+            <Button variant="primary" type = 'submit'>
               提交
             </Button>
           </Modal.Footer>
+          </form>
+          </Modal.Body>
         </Modal>
       </>
 }
 
     render() {
         return (
+            
             <>
-                {this.props?.appState?.language === 'Chinese' ? this.renderChinese() : this.renderEnglish()}
+                {this.props?.language === 'Chinese' ? this.renderChinese() : this.renderEnglish()}
             </>
           )
     }
