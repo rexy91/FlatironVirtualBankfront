@@ -5,6 +5,8 @@ import {withRouter} from 'react-router-dom'
 import {saveNewsToStore} from './Redux/actions'
 import uuid from 'react-uuid'
 import Newsgrid from '../Components/Newsgrid'
+import Footer from './Footer'
+
 export class Newscontainer extends Component {
 
     componentDidMount(){
@@ -26,6 +28,7 @@ export class Newscontainer extends Component {
         return (
             <div id = 'newsCardContainer'>
                     <Newsgrid />
+                    <Footer/>
             </div>
         )
     }

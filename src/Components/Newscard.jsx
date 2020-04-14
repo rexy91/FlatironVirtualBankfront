@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import { NavLink, Link } from 'react-router-dom'
+
 export class Newscard extends Component {
 
     newsUrl = () => {
@@ -24,6 +25,7 @@ export class Newscard extends Component {
             <div className = 'news-card border' style={{cursor:'pointer'}} onClick= {this.openTab}>
                     <img src={urlToImage}alt=""/>
                     <p>{title}</p>
+                    
             </div> 
             )
 
