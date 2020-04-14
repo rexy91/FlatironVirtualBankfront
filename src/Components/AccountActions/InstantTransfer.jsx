@@ -4,6 +4,7 @@ import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBInput } from 'mdbreac
 import {saveAllUsersToStore} from '../Redux/actions'
 import {updateSendinguserBalance} from '../Redux/actions'
 import {updateInternalTransfer} from'../Redux/actions'
+import Footer from '../Footer'
 import swal from 'sweetalert';
 import Newscard from '../Newscard'
 import News from '../Newscontainer'
@@ -109,7 +110,7 @@ export class InstantTransfer extends Component {
         <br/>
         <MDBBtn
               type ='submit'
-              color='black'
+              color='white'
               rounded
               className='btn-block z-depth-1'
             >
@@ -180,7 +181,7 @@ export class InstantTransfer extends Component {
         <br/>
         <MDBBtn
               type ='submit'
-              color='black'
+              color='white'
               rounded
               className='btn-block z-depth-1'
             >
@@ -203,7 +204,6 @@ export class InstantTransfer extends Component {
   </MDBCol>
 </MDBRow>
 </MDBContainer>
-        <News/>
       </div>
   )
     }
@@ -214,6 +214,7 @@ export class InstantTransfer extends Component {
       return(
       <>
         {languageTernery}
+        <Footer/>
       </>
       )
     }

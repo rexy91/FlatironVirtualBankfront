@@ -191,8 +191,7 @@ export class Profile extends Component {
         if (user) {
         return (
             <div>
-                <Title/>
-                <ProfileDropdown />
+                <ProfileDropdown/>
                 <div id='welcome-section'>
                 <h3>Welcome: {user.username}</h3>
                  <h4>Here are you accounts:</h4>

@@ -148,9 +148,9 @@ export class ProfileDropdown extends Component {
             const languageTernery = this.props?.appState?.language === 'Chinese'? this.renderChinese(): this.renderEnglish()
 
         return(
-            <>
+            <div style={{marginTop:'13vh'}}>
                 {languageTernery}
-            </>
+            </div>
         )
     }
 }

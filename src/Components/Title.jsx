@@ -25,7 +25,6 @@ export class Title extends Component {
     renderEnglish= () => {
       return (
         <div>
-          
             <MDBContainer  className="text-center mt-5 pt-5" >
                 <MDBRow>
                   <MDBCol md='3'>
