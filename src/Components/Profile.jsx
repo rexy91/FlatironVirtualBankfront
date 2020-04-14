@@ -13,6 +13,7 @@ import ModalDeposit from '../Components/AccountActions/ModalDeposit'
 import ModalWithdrawal from '../Components/AccountActions/ModalWithdrawal'
 import MDBSignup from '../Components/AccountActions/MDBSignup'
 import Title from './Title'
+import WithdrawalModal from './AccountActions/WithdrawalModal'
 
 // Redux
 
@@ -79,7 +80,7 @@ export class Profile extends Component {
             <Button color='black'>View Transactions</Button>
             </Link>
             <br/>
-            <ModalWithdrawal />
+            <WithdrawalModal/>
             <br/>
             <Button color='black' onClick = {this.handleDeleteCheckingAcc} >Deactivate Account</Button>
             <ModalDeposit /> 
