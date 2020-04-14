@@ -25,7 +25,8 @@ export class Verify extends Component {
             "error")
         }
     }
-    render() {
+
+    renderEnglish = () => {
         return (
             <div id='verify-section'>
                 <h3>Welcome</h3>
@@ -35,7 +36,27 @@ export class Verify extends Component {
                     <input type="text" name='verify_code'/>
                     <input type="submit"/>
                 </form>
-            </div>
+            </div>)
+    }
+
+    renderChinese = () => {
+        return (
+            <div id='verify-section'>
+                <h3>欢迎</h3>
+                <form  onSubmit = {this.handleCode} style = {{marginTop:'18vh'}}>
+                    <p>我们发了一个验证号码到此邮箱 {this.props?.appState?.user?.email}</p>
+                    <label htmlFor=""> 请输入验证号码完成注册:</label>
+                    <input type="text" name='verify_code'/>
+                    <input type="submit">提交</input>
+                </form>
+            </div>)
+    }
+
+    render() {
+        return (
+            <>
+                {this.renderEnglish()}
+            </>
         )
     }
 }

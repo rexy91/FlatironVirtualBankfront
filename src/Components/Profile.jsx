@@ -13,6 +13,7 @@ import ModalDeposit from '../Components/AccountActions/ModalDeposit'
 import ModalWithdrawal from '../Components/AccountActions/ModalWithdrawal'
 import MDBSignup from '../Components/AccountActions/MDBSignup'
 import Title from './Title'
+
 // Redux
 
 import {deleteCheckingAccount} from './Redux/actions'
