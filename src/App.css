@@ -273,14 +273,13 @@
   margin-right: 20vw;
 }
 
-.personalInfo-wrapper p{
-  
-}
-
 .personalInfo-wrapper span{
   content: "\00a0 \00a0 \00a0";
 }
 
+.personalInfo-wrapper a{
+    color: blue;
+}
 
 #internal_transfer{
   margin: 5%;

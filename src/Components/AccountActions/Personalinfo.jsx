@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import Modalupdate from './Modalupdate'
 import { Modal } from 'semantic-ui-react'
-
+import { EditModal } from './EditModal'
 
 export class Personalinfo extends Component {
 
@@ -11,15 +11,20 @@ export class Personalinfo extends Component {
     }
 
     // updateInfo = () => {
-    
     //     return <Modalupdate /> 
     // }
+
+    handleEdit = (e) => {
+        e.preventDefault()
+    }
 
     renderEnglish =() =>{
         console.log(this.props?.appState?.user?.first_name)
         return (
             <div className='personalInfo'>
                 <h3 style={{marginLeft:'20%'}}>Personal Information</h3>
+                {/* <a href="" target="" onClick = {this.handleEdit}style={{marginLeft:'20%'}}>Edit</a> */}
+                <EditModal/>
                 <div className = 'ui grid'>
                     <div className = 'sixteen wide column border personalInfo-wrapper'>
                         <div className = 'ui grid'>
@@ -28,6 +33,12 @@ export class Personalinfo extends Component {
                                 </div>
                                 <div className="eight wide column">
                                         <p>Last Name: <span>{this.props?.appState?.user?.last_name}</span></p>
+                                </div>
+                                <div className = 'sixteen wide column'>
+                                        <p>Address: <span>{this.props?.appState?.user?.billing_address}</span></p>
+                                </div>
+                                <div className = 'sixteen wide column'>
+                                        <p>Email: <span>{this.props?.appState?.user?.email}</span></p>
                                 </div>
                         </div>
                     </div>
