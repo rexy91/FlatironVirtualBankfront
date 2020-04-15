@@ -134,7 +134,7 @@ export class CheckingTransGrid extends Component {
                 <MDBCol md ='3'>{transaction.date}</MDBCol>
                 <MDBCol md ='3'>{transaction.trans_type}</MDBCol>
                 <MDBCol md ='3'>{transaction.description}</MDBCol>
-                <MDBCol md ='3' id='amount'>{this.whiteSpace()}{transaction.amount}</MDBCol>
+                <MDBCol md ='3' id='amount'>${transaction.amount}</MDBCol>
                 </MDBRow></>
         )):null 
         return (
@@ -143,10 +143,10 @@ export class CheckingTransGrid extends Component {
             <DynamicSearch />
             <MDBContainer>
                 <MDBRow>
-                <MDBCol md ='3'><Button color='black'>日期</Button></MDBCol>
-                <MDBCol md ='3'><Button color='black'>交易类型</Button></MDBCol>
-                <MDBCol md ='3'><Button color='black'>交易细节</Button></MDBCol>
-                <MDBCol md ='3'><Button onClick={this.sortByAmount} color='black'>交易金额</Button></MDBCol>
+                <MDBCol md ='3'><Button className = 'transButtons' color='black'>日期</Button></MDBCol>
+                <MDBCol md ='3'><Button className = 'transButtons' color='black'>交易类型</Button></MDBCol>
+                <MDBCol md ='3'><Button className = 'transButtons' color='black'>交易细节</Button></MDBCol>
+                <MDBCol md ='3'><Button className = 'transButtons' onClick={this.sortByAmount} color='black'>交易金额</Button></MDBCol>
                 </MDBRow>
             </MDBContainer>
 
