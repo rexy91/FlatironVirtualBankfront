@@ -124,7 +124,7 @@ class FixedNavbarExample extends React.Component {
                         <MDBNavLink exact to="/">主页</MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem active>
-                        <MDBNavLink onClick ={this.handleLoans} exact to="/">贷款</MDBNavLink>
+                        {/* <MDBNavLink onClick ={this.handleLoans} exact to="/">贷款</MDBNavLink> */}
                     </MDBNavItem>
                     <MDBNavItem>
                         <MDBNavLink onClick = {this.toggleLanguage} to="#">中文</MDBNavLink>
@@ -175,7 +175,7 @@ class FixedNavbarExample extends React.Component {
                             <MDBNavLink exact to="/">Home</MDBNavLink>
                         </MDBNavItem>
                         <MDBNavItem active>
-                        <MDBNavLink exact onClick ={this.handleLoans} to="/">Loans</MDBNavLink>
+                        {/* <MDBNavLink exact onClick ={this.handleLoans} to="/">Loans</MDBNavLink> */}
                     </MDBNavItem>
                         <MDBNavItem>
                             <MDBNavLink onClick = {this.toggleLanguage} to="#">Chinese</MDBNavLink>
