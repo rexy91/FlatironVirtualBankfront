@@ -258,14 +258,29 @@
   content: "\00a0 \00a0 \00a0 \00a0 \00a0 \00a0";
 }}
 
-#personalInfo{
-    margin-left: 5%;
-    margin-bottom: 46vh;
+.personalInfo{
+  margin-top: 10vh;
 }
 
 #profile-height{
   height: 82vh;
 }
+
+.personalInfo-wrapper{
+  background-color: rgba(248, 246, 246, 0.959);
+  margin-top: 2vh;
+  margin-left: 20vw;
+  margin-right: 20vw;
+}
+
+.personalInfo-wrapper p{
+  
+}
+
+.personalInfo-wrapper span{
+  content: "\00a0 \00a0 \00a0";
+}
+
 
 #internal_transfer{
   margin: 5%;

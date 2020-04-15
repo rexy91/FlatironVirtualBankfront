@@ -16,9 +16,23 @@ export class Personalinfo extends Component {
     // }
 
     renderEnglish =() =>{
+        console.log(this.props?.appState?.user?.first_name)
         return (
-            <div>
-                <h3>Welcome: {this.props?.appState?.user?.username}</h3>
+            <div className='personalInfo'>
+                <h3 style={{marginLeft:'20%'}}>Personal Information</h3>
+                <div className = 'ui grid'>
+                    <div className = 'sixteen wide column border personalInfo-wrapper'>
+                        <div className = 'ui grid'>
+                                <div className="eight wide column">
+                                        <p>First Name: <span>{this.props?.appState?.user?.first_name}</span></p> 
+                                </div>
+                                <div className="eight wide column">
+                                        <p>Last Name: <span>{this.props?.appState?.user?.last_name}</span></p>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                {/* <h3>Welcome: {this.props?.appState?.user?.username}</h3>
                 <h4>Here are your Personal Info</h4>
                 <br/>
                 <p>First Name: {this.props?.appState?.user?.first_name} </p>
@@ -28,10 +42,9 @@ export class Personalinfo extends Component {
                 <p>Email: {this.props?.appState?.user?.email} </p>
                 <br/>
                 <p>Billing Address: {this.props?.appState?.user?.billing_address} </p>
-                {/* <button onClick = {this.updateInfo()}>Update</button> */}
                 <Modalupdate />
                 <br/>
-                <button onClick = {this.goBack}>Back</button>
+                <button onClick = {this.goBack}>Back</button> */}
             </div>
         )
     }
