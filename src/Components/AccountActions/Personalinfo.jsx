@@ -23,7 +23,7 @@ export class Personalinfo extends Component {
             <div className='personalInfo'>
                 <h3 style={{marginLeft:'20%'}}>Personal Information</h3>
                 {/* <a href="" target="" onClick = {this.handleEdit}style={{marginLeft:'20%'}}>Edit</a> */}
-                <EditModal/>
+                <EditModal user = {this.props?.appState?.user}/>
                 <div className = 'ui grid'>
                     <div className = 'sixteen wide column border personalInfo-wrapper'>
                         <div className = 'ui grid'>
@@ -80,8 +80,7 @@ export class Personalinfo extends Component {
         )
     }
 
-    render() { 
-        console.log(this.props)
+    render() {
         const languageTernry = this.props?.appState?.language ==='Chinese'? this.renderChinese(): this.renderEnglish()
         return (
             <div id='personalInfo'>
