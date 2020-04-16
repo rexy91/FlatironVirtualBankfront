@@ -122,7 +122,6 @@ export class WithdrawalModal extends Component {
 
     render() {
         return (
-            
             <>
                 {this.props?.language === 'Chinese' ? this.renderChinese() : this.renderEnglish()}
             </>
@@ -131,7 +130,7 @@ export class WithdrawalModal extends Component {
 }
 
 const mstp = (appState) => {
-
+    console.log('here')
     return appState
   }
 

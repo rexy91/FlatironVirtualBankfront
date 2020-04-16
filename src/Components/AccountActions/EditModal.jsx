@@ -10,48 +10,6 @@ export class EditModal extends Component {
     state = {
         show:false
     }
-    
-    submitDeposit = (e) => {
-        e.preventDefault()
-        const amount = e.target.amount.value
-        // console.log(this.props.user.checking.id)
-        const checkingId = this.props.user.checking.id
-        // Multiple of 20  , minium deposit is 20 
-    if(amount < 20){
-        swal('Please make a minimum deposit of $20')
-    }
-    else if (amount > 5000){
-        swal(
-          'Alert!!',
-          'Deposit Amount is too large, please visit one of our five thousands branches.',
-          'error')
-    }
-
-    else{
-      swal(``,
-      "Deposit Made",
-      "success");
-      e.target.amount.value = ''
-  
-        fetch(`https://flatironbankapi.herokuapp.com/checkings/deposit/${checkingId}`, {
-            method:'PATCH',
-            headers: {
-              'Content-Type': 'application/json',
-              Accept: 'application/json'
-            },
-            body:JSON.stringify({
-              amount,
-              checkingId
-            })
-        })
-        .then(res => res.json())
-        // User obj here contains the new checking trans array. 
-        .then(updatedUserObj => {
-            this.props.onlineCheckingDeposit(updatedUserObj)
-        })
-        // this.props.history.push(`/account/${this.props.user.id}`)
-        // this.props.history.goBack()
-    }}
 
     handleClose = () => {
         this.setState({
@@ -68,25 +26,40 @@ export class EditModal extends Component {
 
     renderEnglish = () => {
             return             <>
-            {/* <Button color='black' onClick={this.handleShow} >Deposit</Button> */}
-            <a href="" target="" onClick = {this.handleShow}style={{marginLeft:'20%'}}>Edit</a>
-            <Modal show={this.state.show} onHide={this.handleClose} animation={false}>
+            <a href="" target="" onClick = {this.handleShow}style={{marginLeft:'20%'}}>Edit Info</a>
+            <Modal style={{marginTop:'17vh'}} show={this.state.show} onHide={this.handleClose} animation={false}>
               <Modal.Header closeButton>
-                <Modal.Title>Deposit</Modal.Title>
+                <Modal.Title>Update Info</Modal.Title>
               </Modal.Header>
               <Modal.Body>
                   <form onSubmit = {this.submitDeposit} >
                       {/* <p>Account balance: ${this.props.user.checking.balance} </p> */}
-                      <label htmlFor="">Deposit Amount</label>
-                      <input type="number" name = 'amount' />
+                      <label htmlFor="">First Name</label>
+                      <input type="text" name = 'first_name' size="10"/>
+                      <label style={{marginLeft:'10px'}} htmlFor="">Last Name</label>
+                      <input type="text" name = 'last_name' size="10"/>
                       <br/>
-
+                      <label htmlFor="">Address</label>
+                      <input type="text" name = 'address' size="40"/>
+                      <label style={{marginLeft:'5px', marginTop:'5px'}} htmlFor="">Apt
+                             
+                      </label>
+                      <input style={{marginLeft:'5px', marginTop:'5px'}} type="text" name = 'apt' size="10"/>
+                      <label style={{marginLeft:'5px', marginTop:'5px'}} htmlFor="">City</label>
+                      <input style={{marginLeft:'21px', marginTop:'5px'}} type="text" name = 'city' size="10"/>
+                      <label style={{marginLeft:'5px', marginTop:'5px'}} htmlFor="">Zip</label>
+                      <input style={{marginLeft:'21px', marginTop:'5px'}} type="number" name = 'zip' size="1"/>
+                      <br/>
+                      <label style={{marginLeft:'5px', marginTop:'5px'}} htmlFor=""
+                             
+                      >Email</label>
+                      <input style={{marginLeft:'13px', marginTop:'5px'}} type="text" name = 'email' size="25"/>
               <Modal.Footer>
                 <Button variant="secondary" onClick={this.handleClose}>
                   Close
                 </Button>
                 <Button variant="primary" type = 'submit' >
-                  Submit
+                  Update
                 </Button>
               </Modal.Footer>
               </form>
@@ -123,18 +96,18 @@ export class EditModal extends Component {
 }
 
     render() {
+      console.log(this.props?.language)
         return (
-            
             <>
                 {this.props?.language === 'Chinese' ? this.renderChinese() : this.renderEnglish()}
             </>
           )
     }
-}
-
-const mstp = (appState) => {
-
-    return appState
   }
+
+  const mstp = (appState) => {
+    console.log(appState)
+    return {appState}
+}
 
 export default connect(mstp)(EditModal)

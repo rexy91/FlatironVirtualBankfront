@@ -19,7 +19,6 @@ export class Personalinfo extends Component {
     }
 
     renderEnglish =() =>{
-        console.log(this.props?.appState?.user?.first_name)
         return (
             <div className='personalInfo'>
                 <h3 style={{marginLeft:'20%'}}>Personal Information</h3>
@@ -81,8 +80,8 @@ export class Personalinfo extends Component {
         )
     }
 
-    render() {
-
+    render() { 
+        console.log(this.props)
         const languageTernry = this.props?.appState?.language ==='Chinese'? this.renderChinese(): this.renderEnglish()
         return (
             <div id='personalInfo'>

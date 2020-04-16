@@ -65,8 +65,6 @@ export class ProfileDropdown extends Component {
             
         }
         else if (e.target.innerText === 'Profile' || e.target.innerText === '个人资料'){
-            console.log('here')
-            console.log(this.props)
             this.props.history.push(`/account/${id}/profile`)
     
         }
