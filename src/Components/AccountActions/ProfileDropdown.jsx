@@ -94,7 +94,8 @@ export class ProfileDropdown extends Component {
         else if (e.target.innerText === 'Transfer' || e.target.innerText ==='进行转账'){
                 this.props.history.push(`${id}/instant_transfer`)
         }
-        else if (e.target.innerTest ==='Donate' || e.target.innerText ==='捐款'){
+        else if (e.target.innerText ==='Donate' || e.target.innerText ==='捐款'){
+                console.log('here')
                 this.props.history.push(`/account/${id}/donations`)
         }
     }
