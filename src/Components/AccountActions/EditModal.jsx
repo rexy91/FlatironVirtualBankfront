@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Modal} from 'react-bootstrap'
 import { Button, Header, Image} from 'semantic-ui-react'
 import {connect} from 'react-redux'
-import {onlineCheckingDeposit} from '../Redux/actions'
+import {updateUserInfo} from '../Redux/actions'
 import swal from 'sweetalert'
 
 export class EditModal extends Component {
@@ -31,10 +31,8 @@ export class EditModal extends Component {
         const last_name = e.target.last_name.value
         const billing_address = e.target.billing_address.value
         const email = e.target.email.value
-        
-        // fetch(`https://flatironbankapi.herokuapp.com/account/${this.props?.user?.id}/profile/update`,{
 
-          fetch(`http://localhost:3000/account/2/profile/update`, {
+        fetch(`https://flatironbankapi.herokuapp.com/account/${this.props?.user?.id}/profile/update`,{
           method:'PATCH',
           headers:{
             Accept:'application/json',
@@ -48,7 +46,9 @@ export class EditModal extends Component {
           })
         })
         .then(res => res.json())
-        .then(console.log)
+        .then(newInfoObj => {
+          // this.props.updateUserInfo(newInfoObj)
+        })
     }
 
     renderEnglish = () => {
@@ -118,8 +118,8 @@ export class EditModal extends Component {
         </Modal>
       </>
 }
-
     render() {
+        console.log(this.props)
         return (
             <>
                 {this.props?.language === 'Chinese' ? this.renderChinese() : this.renderEnglish()}
@@ -130,4 +130,4 @@ export class EditModal extends Component {
 
 
 
-export default EditModal
+export default connect(null, {updateUserInfo})(EditModal)

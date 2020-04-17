@@ -7,12 +7,12 @@ import Chart from '../AccountActions/Chart'
 import {Switch, Route} from 'react-router'
 
 const tagOptions = [
-    {
-        key: 'Profile',
-        text: 'Profile',
-        value: 'updateInfo',
-        label: { color: 'black', empty: true, circular: true },
-    },
+    // {
+    //     key: 'Profile',
+    //     text: 'Profile',
+    //     value: 'updateInfo',
+    //     label: { color: 'black', empty: true, circular: true },
+    // },
     {
         key: 'Expense Summary',
         text: 'Expense Summary',
