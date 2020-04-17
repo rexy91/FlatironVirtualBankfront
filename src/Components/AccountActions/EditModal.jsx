@@ -23,9 +23,18 @@ export class EditModal extends Component {
             show: true
         })
     }
+    
+    submitUpdate = (e) => {
+        e.preventDefault()
+        const first_name = e.target.first_name.value
+        const last_name = e.target.last_name.value
+        const billing_address = e.target.billing_address.value
+        const email = e.target.email.value
+        
+
+    }
 
     renderEnglish = () => {
-            console.log(this.props.user)
             return             <>
             <a href="" target="" onClick = {this.handleShow}style={{marginLeft:'20%'}}>Edit Info</a>
             <Modal style={{marginTop:'17vh'}} show={this.state.show} onHide={this.handleClose} animation={false}>
@@ -33,7 +42,7 @@ export class EditModal extends Component {
                 <Modal.Title>Update Info</Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                  <form onSubmit = {this.submitDeposit} >
+                  <form onSubmit = {this.submitUpdate} >
                       {/* <p>Account balance: ${this.props.user.checking.balance} </p> */}
                       <label htmlFor="">First Name</label>
                       <input type="text" name = 'first_name' size="10"
@@ -45,17 +54,9 @@ export class EditModal extends Component {
                       />
                       <br/>
                       <label htmlFor="">Address</label>
-                      <input type="text" name = 'address' size="45"
+                      <input type="text" name = 'billing_address' size="45"
                              value={this.props?.user?.billing_address}
                       />
-                      {/* <label style={{marginLeft:'5px', marginTop:'5px'}} htmlFor="">Apt
-                             
-                      </label>
-                      <input style={{marginLeft:'5px', marginTop:'5px'}} type="text" name = 'apt' size="10"/>
-                      <label style={{marginLeft:'5px', marginTop:'5px'}} htmlFor="">City</label>
-                      <input style={{marginLeft:'21px', marginTop:'5px'}} type="text" name = 'city' size="10"/>
-                      <label style={{marginLeft:'5px', marginTop:'5px'}} htmlFor="">Zip</label>
-                      <input style={{marginLeft:'21px', marginTop:'5px'}} type="number" name = 'zip' size="1"/> */}
                       <br/>
                       <label style={{marginLeft:'5px', marginTop:'5px'}} htmlFor="">Email</label>
                       <input style={{marginLeft:'13px', marginTop:'5px'}} type="text" name = 'email' size="28"
