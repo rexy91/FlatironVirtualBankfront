@@ -13,6 +13,12 @@ const tagOptions = [
     //     value: 'updateInfo',
     //     label: { color: 'black', empty: true, circular: true },
     // },
+        {
+        key: 'Donate',
+        text: 'Donate',
+        value: 'updateInfo',
+        label: { color: 'black', empty: true, circular: true },
+    },
     {
         key: 'Expense Summary',
         text: 'Expense Summary',
@@ -30,9 +36,15 @@ const tagOptions = [
 ]
 
 const ChinesetagOptions = [
+    // {
+    //     key: 'Profile',
+    //     text: '个人资料',
+    //     value: 'updateInfo',
+    //     label: { color: 'black', empty: true, circular: true },
+    // },
     {
-        key: 'Profile',
-        text: '个人资料',
+        key: '捐款',
+        text: '捐款',
         value: 'updateInfo',
         label: { color: 'black', empty: true, circular: true },
     },
@@ -81,6 +93,9 @@ export class ProfileDropdown extends Component {
         }
         else if (e.target.innerText === 'Transfer' || e.target.innerText ==='进行转账'){
                 this.props.history.push(`${id}/instant_transfer`)
+        }
+        else if (e.target.innerTest ==='Donate' || e.target.innerText ==='捐款'){
+                this.props.history.push(`/account/${id}/donations`)
         }
     }
 
