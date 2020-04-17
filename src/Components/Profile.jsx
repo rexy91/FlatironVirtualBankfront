@@ -6,7 +6,6 @@ import Footer from '../Components/Footer'
 import { NavLink, Link } from 'react-router-dom'
 import {Switch, Route} from 'react-router'
 import {withRouter} from 'react-router-dom'
-import { Signup } from './Signup'
 import { Button } from 'semantic-ui-react'
 import swal from 'sweetalert';
 import MDBSignup from '../Components/AccountActions/MDBSignup'

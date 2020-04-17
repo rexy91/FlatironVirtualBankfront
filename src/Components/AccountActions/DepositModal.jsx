@@ -32,7 +32,6 @@ export class WithdrawalModal extends Component {
       "Deposit Made",
       "success");
       e.target.amount.value = ''
-  
         fetch(`https://flatironbankapi.herokuapp.com/checkings/deposit/${checkingId}`, {
             method:'PATCH',
             headers: {
