@@ -32,7 +32,9 @@ export class EditModal extends Component {
         const billing_address = e.target.billing_address.value
         const email = e.target.email.value
         
-        fetch(`https://flatironbankapi.herokuapp.com/account/${this.props?.user?.id}/profile/update`,{
+        // fetch(`https://flatironbankapi.herokuapp.com/account/${this.props?.user?.id}/profile/update`,{
+
+          fetch(`http://localhost:3000/account/2/profile/update`, {
           method:'PATCH',
           headers:{
             Accept:'application/json',

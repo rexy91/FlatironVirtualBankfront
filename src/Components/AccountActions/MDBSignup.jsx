@@ -122,7 +122,7 @@ class MDBSignup extends Component {
                   <MDBRow>
                     <MDBCol md="6">
                       <form onSubmit ={this.handleExistingUserSignup}>
-                        <p className="h5 text-center mb-4">{this.props.user.username}, 请确认你的资料</p>
+                        <p className="h5 text-center mb-4" style={{color:'black', marginTop:'15px'}}>请确认你的资料</p>
                         <div className="grey-text">
                           <MDBInput label="Username" icon="user" group type="text" validate error="wrong"
                             success="right" name = 'username' value ={this.props.user.username}/>
@@ -134,7 +134,7 @@ class MDBSignup extends Component {
                               {/* <option value="checking">Checking</option> */}
                               {this.checkingOrSaving()}
                           </select>
-                          <MDBBtn type = 'submit' color="black">注册账户</MDBBtn>
+                          <MDBBtn type = 'submit' color="white">注册账户</MDBBtn>
                         </div>
                       </form>
                     </MDBCol>
@@ -180,7 +180,7 @@ class MDBSignup extends Component {
                     <MDBRow>
                       <MDBCol md="6">
                         <form onSubmit ={this.handleExistingUserSignup}>
-                          <p className="h5 text-center mb-4">{this.props.user.username}, please confirm your info</p>
+                          <p className="h5 text-center mb-4" style={{color:'black', marginTop:'15px'}}>Please confirm your info</p>
                           <div className="grey-text">
                             <MDBInput label="Username" icon="user" group type="text" validate error="wrong"
                               success="right" name = 'username' value ={this.props.user.username}/>
@@ -192,7 +192,7 @@ class MDBSignup extends Component {
                                 {/* <option value="checking">Checking</option> */}
                                 {this.checkingOrSaving()}
                             </select>
-                            <MDBBtn type = 'submit' color="black">Register Account</MDBBtn>
+                            <MDBBtn type = 'submit' color="white">Register Account</MDBBtn>
                           </div>
                         </form>
                       </MDBCol>
