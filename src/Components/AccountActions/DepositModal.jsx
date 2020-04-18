@@ -129,7 +129,6 @@ export class WithdrawalModal extends Component {
 }
 
 const mstp = (appState) => {
-    console.log('here')
     return appState
   }
 

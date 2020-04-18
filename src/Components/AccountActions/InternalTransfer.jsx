@@ -33,7 +33,6 @@ class InternalTransfer extends Component {
    
 
     render() {
-        console.log(this.props)
         return (
             <div id='internal_transfer'>
                 <form onSubmit = {this.handleInternalTransfer} class='ui form'>

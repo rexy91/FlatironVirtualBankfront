@@ -37,7 +37,6 @@ export class Profile extends Component {
     }
 
     handleDeleteSavingAcc = (e) => {
-         
         if(this.props?.user?.saving?.balance !== 0){
             swal('','Please transfer out your funds before deactivting.','error')}
         else{
@@ -212,7 +211,7 @@ export class Profile extends Component {
 }
 
 // get states from reducer
-// Now this.props will give you the user state. 
+// Now props will give you the user state. 
 const mstp = (appState) => {
     // console.log(appState)
     return appState

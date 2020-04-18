@@ -1,6 +1,5 @@
 import React from 'react';
-import { MDBContainer, MDBNavbar, MDBCol, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink, MDBIcon, MDBRow } from 'mdbreact';
-import { BrowserRouter as Router } from 'react-router-dom';
+import {MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink} from 'mdbreact';
 import {withRouter} from 'react-router-dom'
 import { NavLink, Link } from 'react-router-dom'
 import {connect} from 'react-redux'
