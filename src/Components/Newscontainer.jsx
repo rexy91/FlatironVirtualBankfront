@@ -1,9 +1,4 @@
 import React, { Component } from 'react'
-import Newscard from './Newscard'
-import {connect} from 'react-redux'
-import {withRouter} from 'react-router-dom'
-import {saveNewsToStore} from './Redux/actions'
-import uuid from 'react-uuid'
 import Newsgrid from '../Components/Newsgrid'
 import Footer from './Footer'
 

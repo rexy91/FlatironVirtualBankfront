@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBInput } from 'mdbreact';
-import logo from '../image/mylogo.jpg'
+import { MDBContainer, MDBRow, MDBCol } from 'mdbreact';
 import {connect} from 'react-redux'
 
 export class Title extends Component {

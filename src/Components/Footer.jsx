@@ -13,7 +13,7 @@ export class Footer extends Component {
         <MDBContainer fluid className="text-center text-md-left">
           <MDBRow>
             <MDBCol md="6">
-              <h5 className="title">谢谢你使用我们的网站! 💎💛💓</h5>
+              <h5 className="title">谢谢你使用我们的网站! <span>💎💛💓</span></h5>
               {/* <p>
                   史蒂夫绝对是见风使舵见风使舵距福建省地方就绝对是放假的时间风刀霜剑飞机上的风景大煞风景
               </p> */}
