@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Bar, Line, Radar} from 'react-chartjs-2'
+import {Bar, Line} from 'react-chartjs-2'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 export class Chart extends Component {

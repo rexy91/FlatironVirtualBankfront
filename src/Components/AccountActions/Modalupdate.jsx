@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Header, Image, Modal } from 'semantic-ui-react'
+import { Button, Header, Modal } from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import {updateUserInfo} from '../Redux/actions'
 export class Modalupdate extends Component {

@@ -48,7 +48,6 @@ class App extends Component {
         }
       })
     }
-    
             // Convert inso yyyy--mm--dd format 
             let todayDate = new Date
             let newDate = todayDate.toISOString().slice(0,10)

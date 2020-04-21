@@ -55,7 +55,7 @@ export class Footer extends Component {
         <MDBFooter id ='mainFooter' color="black" className="font-small pt-4 mt-4">
         <MDBContainer fluid className="text-center text-md-left">
               <h4 className="title">Thank you for visiting our site! 💎💛💓</h4>
-              <h5 onClick = {this.handleEmail} style={{cursor:"pointer"}}>Email Us</h5>
+              {/* <h5 onClick = {this.handleEmail} style={{cursor:"pointer"}}>Email Us</h5> */}
             <li className="list-unstyled">
                   {/* <a onClick = {this.emailSupport}href="#!">Email Us</a> */}
                 </li>

@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import {Modal} from 'react-bootstrap'
-import { Button, Header, Image} from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import {updateUserInfo} from '../Redux/actions'
-import swal from 'sweetalert'
 
 export class EditModal extends Component {
-
+  
     state = {
         show:false
     }
@@ -23,6 +22,7 @@ export class EditModal extends Component {
             show: true
         })
     }
+  
     
     submitUpdate = (e) => {
         e.preventDefault()
