@@ -11,12 +11,12 @@ const tagOptions = [
     //     value: 'updateInfo',
     //     label: { color: 'black', empty: true, circular: true },
     // },
-        {
-        key: 'Donate',
-        text: 'Donate',
-        value: 'updateInfo',
-        label: { color: 'black', empty: true, circular: true },
-    },
+    //     {
+    //     key: 'Donate',
+    //     text: 'Donate',
+    //     value: 'updateInfo',
+    //     label: { color: 'black', empty: true, circular: true },
+    // },
     {
         key: 'Expense Summary',
         text: 'Expense Summary',
@@ -40,12 +40,12 @@ const ChinesetagOptions = [
     //     value: 'updateInfo',
     //     label: { color: 'black', empty: true, circular: true },
     // },
-    {
-        key: '捐款',
-        text: '捐款',
-        value: 'updateInfo',
-        label: { color: 'black', empty: true, circular: true },
-    },
+    // {
+    //     key: '捐款',
+    //     text: '捐款',
+    //     value: 'updateInfo',
+    //     label: { color: 'black', empty: true, circular: true },
+    // },
     {
         key: 'Expense Summary',
         text: '消费总结',
