@@ -22,7 +22,7 @@ export class Newscontainer extends Component {
         // console.log(this.props.newsArray)
         return (
             <div id = 'newsCardContainer'>
-                    <Newsgrid />
+                    {/* <Newsgrid /> */}
                     <Footer/>
             </div>
         )
