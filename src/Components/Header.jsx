@@ -1,11 +1,8 @@
 import React from 'react';
 import {MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink} from 'mdbreact';
 import {withRouter} from 'react-router-dom'
-import { NavLink, Link } from 'react-router-dom'
 import {connect} from 'react-redux'
 import {handleLogout} from './Redux/actions'
-import logo from '../image/mylogo.jpg'
-import anotherLogo from '../image/anotherlogo.jpg'
 import {toggleLanguageState} from './Redux/actions' 
 import swal from 'sweetalert';
 
