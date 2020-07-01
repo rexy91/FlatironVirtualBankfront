@@ -74,17 +74,6 @@ class FixedNavbarExample extends React.Component {
   }
 
   renderEnglishLogout = () => {
-    // if(localStorage!== 0){
-    //     if(this.props.lanuage === 'Chinese'){
-    //       return <MDBNavItem active>
-    //               <MDBNavLink onClick = {this.handleLogout} to="/">登出</MDBNavLink>
-    //              </MDBNavItem>}
-    //     else{
-    //       console.log('here')
-    //       return <MDBNavItem active>
-    //               <MDBNavLink onClick = {this.handleLogout} to="/">Log Out</MDBNavLink>
-    //              </MDBNavItem>}
-    //     }
 
     if(localStorage.length !== 0){
           {return <MDBNavItem active>
@@ -92,7 +81,7 @@ class FixedNavbarExample extends React.Component {
                  </MDBNavItem>}
     }
     else{
-        // console.log('there')
+        
     }
     }
     renderChineseLogout = () => {
@@ -135,25 +124,12 @@ class FixedNavbarExample extends React.Component {
                     {this.props.appState.language==='Chinese'? this.renderChineseLogout():this.renderEnglishLogout()}
                   </MDBNavbarNav>
                   <MDBNavbarNav right>
-                    {/* <MDBNavItem>
-                      <MDBNavLink to="#"><MDBIcon fab icon="facebook-f" /></MDBNavLink>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                      <MDBNavLink to="#"><MDBIcon fab icon="twitter" /></MDBNavLink>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                      <MDBNavLink to="#"><MDBIcon fab icon="instagram" /></MDBNavLink>
-                    </MDBNavItem> */}
+
                   </MDBNavbarNav>
                 </MDBCollapse>
               </MDBNavbar>
         </header>
 
-        {/* <MDBContainer style={container} className="text-center mt-5 pt-5" >
-          <img id = 'logo' style = {imgSize} src={logo} alt=""/>
-          <h2 id='title'>欢迎使用虚拟银行系统</h2>
-          <img id = 'secondlogo' style ={imgSize} src={anotherLogo} alt ='' /> 
-        </MDBContainer> */}
       </div>
   }
 
@@ -174,7 +150,6 @@ class FixedNavbarExample extends React.Component {
                             <MDBNavLink exact to="/">Home</MDBNavLink>
                         </MDBNavItem>
                         <MDBNavItem active>
-                        {/* <MDBNavLink exact onClick ={this.handleLoans} to="/">Loans</MDBNavLink> */}
                     </MDBNavItem>
                         <MDBNavItem>
                             <MDBNavLink onClick = {this.toggleLanguage} to="#">Chinese</MDBNavLink>
@@ -186,31 +161,11 @@ class FixedNavbarExample extends React.Component {
                         {this.props.appState.language==='Chinese'? this.renderChineseLogout():this.renderEnglishLogout()}
                       </MDBNavbarNav>
                       <MDBNavbarNav right>
-                        {/* <MDBNavItem>
-                          <MDBNavLink to="#"><MDBIcon fab icon="facebook-f" /></MDBNavLink>
-                        </MDBNavItem>
-                        <MDBNavItem>
-                          <MDBNavLink to="#"><MDBIcon fab icon="twitter" /></MDBNavLink>
-                        </MDBNavItem>
-                        <MDBNavItem>
-                          <MDBNavLink to="#"><MDBIcon fab icon="instagram" /></MDBNavLink>
-                        </MDBNavItem> */}
                       </MDBNavbarNav>
                     </MDBCollapse>
                   </MDBNavbar>
                 </header>
 
-                    {/* <MDBContainer style={container} className="text-center mt-5 pt-5" >
-                    <MDBRow>
-                      <MDBCol md='3'>
-                      <img id = 'logo' style = {imgSize} src={logo} alt=""/>
-                      </MDBCol>
-                      <MDBCol md='9'>
-                      <h2 id='title'>Welcome to the #### Banking System</h2>
-                      </MDBCol>
-                    </MDBRow>
-                      <img id = 'secondlogo' style ={imgSize} src={anotherLogo} alt ='' /> 
-                    </MDBContainer> */}
                   </div>
   }
 
