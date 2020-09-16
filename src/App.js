@@ -12,7 +12,6 @@ import { connect } from 'react-redux';
 import MDBLogin from './Components/AccountActions/MDBLogin'
 import Home from './Components/Home'
 import Profile from './Components/Profile'
-import Donation from './Components/AccountActions/Donation'
 
 // React Routing:
 import {Switch, Route} from 'react-router'
@@ -82,7 +81,6 @@ class App extends Component {
         <Switch>
           <Route exact path = '/' render = { Home } />
           <Route exact path = '/account/:id/profile' component = { Personalinfo} />
-          <Route exact path = '/account/:id/donations' component = { Donation }/>
           <Route exact path = '/login' render = { (routerProps) => <MDBLogin {...routerProps} />} />
           <Route exact path = '/account/:id' component = { Profile } />                                                  {/* pass down current user state */}
           <Route exact path = '/signup' render = { (routerProps) => <MDBSignup {...routerProps}/>} /> 

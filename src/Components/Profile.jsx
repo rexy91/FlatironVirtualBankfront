@@ -1,22 +1,15 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import TransContainer from './TransContainer'
-import CheckingTransPage from './AccountActions/CheckingTransPage'
-import Footer from '../Components/Footer'
 import { NavLink, Link } from 'react-router-dom'
-import {Switch, Route} from 'react-router'
 import {withRouter} from 'react-router-dom'
 import { Button } from 'semantic-ui-react'
 import swal from 'sweetalert';
-import MDBSignup from '../Components/AccountActions/MDBSignup'
-import Title from './Title'
 import WithdrawalModal from './AccountActions/WithdrawalModal'
 import DepositModal from './AccountActions/DepositModal'
 
 // Redux
 import {deleteCheckingAccount} from './Redux/actions'
 import {deleteSavingAccount} from '../Components/Redux/actions'
-import { Modal } from 'semantic-ui-react'
 import ProfileDropdown from '../Components/AccountActions/ProfileDropdown'
 // import { MDBSignup } from './MDBSignup'
 
