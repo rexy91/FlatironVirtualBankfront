@@ -10,7 +10,6 @@ export class WithdrawalModal extends Component {
     state = {
         show:false
     }
-    
     submitDeposit = (e) => {
         e.preventDefault()
         const amount = e.target.amount.value

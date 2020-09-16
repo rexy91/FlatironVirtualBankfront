@@ -31,6 +31,7 @@ export class Title extends Component {
                   </MDBCol>
                   <MDBCol md='9'>
                   <h2 id='title'>Flatiron Virtual Bank</h2>
+                  <h4 id='backendNote'>(Note - As the backend database is being hosted on Heroku, on your initial auth, you may experience a delay as the server takes time to fire up. Please only submit form once.)</h4>
                   </MDBCol>
                 </MDBRow>
                 </MDBContainer>

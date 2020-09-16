@@ -22,8 +22,7 @@ class FixedNavbarExample extends React.Component {
   }
   
   toggleLanguage =(e) => {
-      // if (e.target.innerText ==='中文'){
-      // const language = 'Chinese'
+      console.log(this)
       this.props.toggleLanguageState('Chinese')
   }
 

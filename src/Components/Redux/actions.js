@@ -1,6 +1,5 @@
 export const signUpUser = (newUserState) => {
   return {
-      
       type: "SIGN_UP_USER",
       payload: newUserState
   }
