@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBInput } from 'mdbreact';
+
+//Actions import
 import {saveAllUsersToStore} from '../Redux/actions'
 import {updateSendinguserBalance} from '../Redux/actions'
 import {updateInternalTransfer} from'../Redux/actions'
+
 import Footer from '../Footer'
 import swal from 'sweetalert';
 import Newscard from '../Newscard'
@@ -210,7 +213,7 @@ export class InstantTransfer extends Component {
     }
 
     render() {
-        // console.log(this.props)
+        
           const languageTernery = this.props?.appState?.language ==='Chinese'? this.renderChinese(): this.renderEnglish()
       return(
       <>

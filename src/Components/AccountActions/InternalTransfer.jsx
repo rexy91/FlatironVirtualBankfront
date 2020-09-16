@@ -6,7 +6,6 @@ class InternalTransfer extends Component {
 
     handleInternalTransfer =(e) => {
             e.preventDefault()
-        // swal('Please transfer out your funds before deactivating.')
             console.log('ere')
             const amount = e.target.amount.value
             const checkingId = this.props?.user?.checking?.id

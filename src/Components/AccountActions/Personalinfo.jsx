@@ -10,9 +10,6 @@ export class Personalinfo extends Component {
         this.props.history.goBack()
     }
 
-    // updateInfo = () => {
-    //     return <Modalupdate /> 
-    // }
 
     handleEdit = (e) => {
         e.preventDefault()
@@ -42,19 +39,6 @@ export class Personalinfo extends Component {
                         </div>
                     </div>
                 </div>
-                {/* <h3>Welcome: {this.props?.appState?.user?.username}</h3>
-                <h4>Here are your Personal Info</h4>
-                <br/>
-                <p>First Name: {this.props?.appState?.user?.first_name} </p>
-                <br/>
-                <p>Last Name: {this.props?.appState?.user?.last_name} </p>
-                <br/>
-                <p>Email: {this.props?.appState?.user?.email} </p>
-                <br/>
-                <p>Billing Address: {this.props?.appState?.user?.billing_address} </p>
-                <Modalupdate />
-                <br/>
-                <button onClick = {this.goBack}>Back</button> */}
             </div>
         )
     }
@@ -72,7 +56,7 @@ export class Personalinfo extends Component {
                 <p>电子邮件地址: {this.props?.appState?.user?.email} </p>
                 <br/>
                 <p>你的信件地址: {this.props?.appState?.user?.billing_address} </p>
-                {/* <button onClick = {this.updateInfo()}>Update</button> */}
+                
                 <Modalupdate />
                 <br/>
                 <button onClick = {this.goBack}>后退</button>

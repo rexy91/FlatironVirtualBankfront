@@ -24,8 +24,7 @@ export class MDBLogin extends Component {
         .then(r => r.json())
         .then(responseFromServer => {
             if(responseFromServer.user.id){
-            //responseFromServer.user.checkings[0].acc_num
-            //responseFromServer.user.checkings[0].balance
+
             localStorage.setItem('token',responseFromServer.token)
             this.props.saveUserToState(responseFromServer)
             this.props.history.push(`/account/${responseFromServer.user.id}`)
@@ -58,9 +57,7 @@ renderLoginChinese = () => {
               <Form.Control type="password" placeholder="Password" name = 'password' 
                 onChange = {this.handleChange} value = {this.state.password} />
             </Form.Group>
-            {/* <Button variant="white" type="submit" style={{opacity: '0.6'}}>
-              Submit
-            </Button> */}
+
             <MDBBtn type = 'submit' id='register-button' >登入</MDBBtn>
           </Form>
     </div>}
@@ -81,15 +78,9 @@ renderLoginEnglish =() => {
               <Form.Control type="password" placeholder="Password" name = 'password' 
                 onChange = {this.handleChange} value = {this.state.password} />
             </Form.Group>
-            {/* <Button variant="white" type="submit" style={{opacity: '0.6'}}>
-              Submit
-            </Button> */}
             <MDBBtn type = 'submit' id='register-button' >Submit</MDBBtn>
           </Form>
     </div>}
-}
-else{
-  // console.log('there')
 }
 }
     render() {

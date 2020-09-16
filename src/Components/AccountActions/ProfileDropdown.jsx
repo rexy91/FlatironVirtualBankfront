@@ -5,18 +5,7 @@ import { connect } from 'react-redux'
 import {dispatchChartData} from '../Redux/actions'
 
 const tagOptions = [
-    // {
-    //     key: 'Profile',
-    //     text: 'Profile',
-    //     value: 'updateInfo',
-    //     label: { color: 'black', empty: true, circular: true },
-    // },
-    //     {
-    //     key: 'Donate',
-    //     text: 'Donate',
-    //     value: 'updateInfo',
-    //     label: { color: 'black', empty: true, circular: true },
-    // },
+    
     {
         key: 'Expense Summary',
         text: 'Expense Summary',
@@ -34,18 +23,7 @@ const tagOptions = [
 ]
 
 const ChinesetagOptions = [
-    // {
-    //     key: 'Profile',
-    //     text: '个人资料',
-    //     value: 'updateInfo',
-    //     label: { color: 'black', empty: true, circular: true },
-    // },
-    // {
-    //     key: '捐款',
-    //     text: '捐款',
-    //     value: 'updateInfo',
-    //     label: { color: 'black', empty: true, circular: true },
-    // },
+
     {
         key: 'Expense Summary',
         text: '消费总结',
@@ -63,10 +41,6 @@ const ChinesetagOptions = [
 
 export class ProfileDropdown extends Component {
     
-    // state = {
-    //     chartData: []
-    // }
-
     handleDropdown = (e) =>{
         const id = this.props.appState.user.id
         if (e.target.innerText === 'Update Info')

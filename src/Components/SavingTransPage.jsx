@@ -28,6 +28,4 @@ const mstp = (appState) => {
     // console.log(appState)
 }
 
-// export default connect (mstp)(CheckingTransPage)
-// export default connect(mstp)(SavingTransPage)
 export default withRouter(SavingTransPage)

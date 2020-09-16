@@ -48,16 +48,12 @@ class MDBSignup extends Component {
               // localStorage.setItem('token',responseFromServer.token)
                 
                 if (responseFromServer.signup_type === 'Checking'){
-                    // swal(`Welcome, ${responseFromServer.user.username}`,
-                    // "$5000 signup bonus has been desposited into you checking account.",
-                    // "success");     
+  
                 } else if (responseFromServer.signup_type === 'Saving'){
-                    // swal(`Welcome, ${responseFromServer.user.username}`,
-                    // "$5000 signup bonus has been desposited into you saving account.",
-                    // "success"); 
+
                 }}
             else {
-                //    console.log('fjsdjfsdjfjdsf')
+            
                 swal(`Unsuccessful Signup`,
                 `${responseFromServer.errors}`,
                 "error")

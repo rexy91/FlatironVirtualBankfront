@@ -12,17 +12,11 @@ export class CheckingTransGrid extends Component {
     }
 
     sortByAmount =() =>{
-        // Get array here, sort it and update the state inside the store.
-        //arr.sort((a, b) => a[prop] - b[prop]
-        // this.setState({
-        //     sortAmount: !this.state.sortAmount 
-        // })
 
         this.setState(prevState => {
             return {sortAmount: !prevState.sortAmount}
         })
 
-        // console.log(this.state.sortAmount)
         // Old trans will be lost, once state is upon sorting. 
             // This solution won't work, we need to get the unsortedArray which was saved seperately when user login.
         // const oldTransactions = this.props.user.checking.transactions

@@ -13,7 +13,6 @@ export class WithdrawalModal extends Component {
     submitDeposit = (e) => {
         e.preventDefault()
         const amount = e.target.amount.value
-        // console.log(this.props.user.checking.id)
         const checkingId = this.props.user.checking.id
         // Multiple of 20  , minium deposit is 20 
     if(amount < 20){
@@ -47,8 +46,7 @@ export class WithdrawalModal extends Component {
         .then(updatedUserObj => {
             this.props.onlineCheckingDeposit(updatedUserObj)
         })
-        // this.props.history.push(`/account/${this.props.user.id}`)
-        // this.props.history.goBack()
+
     }}
 
     handleClose = () => {

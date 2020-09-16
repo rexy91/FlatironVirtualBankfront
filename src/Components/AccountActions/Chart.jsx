@@ -12,7 +12,6 @@ export class Chart extends Component {
                     label:'Account Expense Summary',
                     // Get data from state :
                     data:
-                        // console.log(this.state)
                         // Pass in array we got from the back end. 
                         this.props?.chartData?.chartData,
 
@@ -29,10 +28,7 @@ export class Chart extends Component {
     }
     
     render() {
-        // console.log(this.props.chartData.chartData)
-        // console.log(this.state.chartData.datasets[0].data.chartData)
-        // console.log('inside chart')
-        // const chartStyle = { height:'80vh', width:'100vw'}
+
         return (
 
             <div className = 'chart-container '>

@@ -29,7 +29,6 @@ class LoginSignupContainer extends Component {
         if(localStorage.length === 0){
             return (
                 <div className='loginSignupForms'>
-                    {/* <button class='login-signup-toggle' onClick = {this.toggleLogin}> Login </button> */}
                     {toggleSigninLanguage}
                     {toggleSignupLanguage} 
                     {this.toggleForm()}
