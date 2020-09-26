@@ -76,11 +76,11 @@ class MDBSignup extends Component {
               this.props.history.push(`/account/${this.props?.user?.id}`) 
                     
                     if (this.props?.signup_type === 'Checking'){
-                        swal(`Welcome, ${this.props?.appState?.user?.username}`,
+                        swal(`Welcome, ${this.props?.user?.username}`,
                         "$5000 signup bonus has been desposited into you checking account.",
                         "success");  }
                     else if (this.props?.signup_type === 'Saving'){
-                        swal(`Welcome, ${this.props?.appState?.user?.username}`,
+                        swal(`Welcome, ${this.props?.user?.username}`,
                         "$5000 signup bonus has been desposited into you saving account.",
                         "success"); }
                     }
