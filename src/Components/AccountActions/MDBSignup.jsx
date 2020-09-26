@@ -19,12 +19,12 @@ class MDBSignup extends Component {
             [e.target.name]: e.target.value
         })
     }
-    handleSignupGenCode = (e) => {
-    }
 
     handleSignupSubmit = (e) => {
+      
         e.preventDefault()
-        // fetch('https://flatironbankapi.herokuapp.com/users', {
+
+        // fetch('http://localhost:3000/users', {
         fetch('https://flatironbankapi.herokuapp.com/users', {
             method: "POST",
             headers: {
@@ -43,9 +43,6 @@ class MDBSignup extends Component {
                 console.log('here')
                 this.props.signUpUser(responseFromServer) 
                 this.props.history.push(`/signup/verify_account`)
-                // this.props.history.push(`/account/${responseFromServer.user.id}`) 
-
-              // localStorage.setItem('token',responseFromServer.token)
                 
                 if (responseFromServer.signup_type === 'Checking'){
   
@@ -53,7 +50,6 @@ class MDBSignup extends Component {
 
                 }}
             else {
-            
                 swal(`Unsuccessful Signup`,
                 `${responseFromServer.errors}`,
                 "error")

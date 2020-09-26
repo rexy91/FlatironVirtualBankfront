@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {saveUserToState} from '../Redux/actions'
 import {Form, Button} from 'react-bootstrap'
+import swal from 'sweetalert'
 export class MDBLogin extends Component {
 
   state = {
@@ -13,8 +14,8 @@ export class MDBLogin extends Component {
   handleLoginSubmit = (e) => {
 
     e.preventDefault()
+    // fetch('http://localhost:3000/login', {
     fetch('https://flatironbankapi.herokuapp.com/login', {
-      // fetch('https://flatironbankapi.herokuapp.com/login', {
         method: "POST",
         headers: {
           "content-type": "application/json"
@@ -23,14 +24,16 @@ export class MDBLogin extends Component {
       })
         .then(r => r.json())
         .then(responseFromServer => {
-            if(responseFromServer.user.id){
 
+            if(responseFromServer?.user?.id){
             localStorage.setItem('token',responseFromServer.token)
             this.props.saveUserToState(responseFromServer)
             this.props.history.push(`/account/${responseFromServer.user.id}`)
             }
             else {
-              alert('invalid')
+              swal(`Invalid Credentials`,
+              `${responseFromServer.errors}`,
+              "error")
             }
         })
     }
