@@ -20,42 +20,78 @@ class MDBSignup extends Component {
         })
     }
 
-    handleSignupSubmit = (e) => {
+
+    // Handles signup via a code verification, removing this feature for now to make it easier for using the app. 
+
+    // handleSignupSubmit = (e) => {
       
-        e.preventDefault()
-
-        // fetch('http://localhost:3000/users', {
-        fetch('https://flatironbankapi.herokuapp.com/users', {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-              Accept: 'application/json'
-            },
-            body: JSON.stringify(
-                {...this.state, acc_type:e.target.accountType.value}
-                )
-          })
-            .then(r => r.json())
-            .then(responseFromServer => {
-              
-          if (!responseFromServer.errors) {
-                console.log(responseFromServer)
-                console.log('here')
-                this.props.signUpUser(responseFromServer) 
-                this.props.history.push(`/signup/verify_account`)
-                
-                if (responseFromServer.signup_type === 'Checking'){
+    //     e.preventDefault()
+    //     // fetch('http://localhost:3000/users', {
+    //     fetch('https://flatironbankapi.herokuapp.com/users', {
+    //         method: "POST",
+    //         headers: {
+    //           "content-type": "application/json",
+    //           Accept: 'application/json'
+    //         },
+    //         body: JSON.stringify(
+    //             {...this.state, acc_type:e.target.accountType.value}
+    //             )
+    //       })
+    //         .then(r => r.json())
+    //         .then(responseFromServer => {
+    //       if (!responseFromServer.errors) {
+    //             this.props.signUpUser(responseFromServer) 
+    //             this.props.history.push(`/signup/verify_account`)
+    //             if (responseFromServer.signup_type === 'Checking'){
   
-                } else if (responseFromServer.signup_type === 'Saving'){
+    //             } else if (responseFromServer.signup_type === 'Saving'){
 
-                }}
-            else {
-                swal(`Unsuccessful Signup`,
-                `${responseFromServer.errors}`,
-                "error")
-            }
-            })
-    }
+    //             }}
+    //         else {
+    //             swal(`Unsuccessful Signup`,
+    //             `${responseFromServer.errors}`,
+    //             "error")
+    //         }
+    //         })
+    // }
+
+    // Handle signup with out code verification: 
+    handleSignupSubmit = (e) => {
+      e.preventDefault()
+      fetch('https://flatironbankapi.herokuapp.com/users', {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            Accept: 'application/json'
+          },
+          body: JSON.stringify(
+              {...this.state, acc_type:e.target.accountType.value}
+              )
+        })
+          .then(r => r.json())
+          .then(responseFromServer => {
+            if (!responseFromServer.errors) {
+              this.props.signUpUser(responseFromServer) 
+              localStorage.setItem('token',this.props?.user?.token)
+              this.props.history.push(`/account/${this.props?.user?.id}`) 
+                    
+                    if (this.props?.signup_type === 'Checking'){
+                        swal(`Welcome, ${this.props?.appState?.user?.username}`,
+                        "$5000 signup bonus has been desposited into you checking account.",
+                        "success");  }
+                    else if (this.props?.signup_type === 'Saving'){
+                        swal(`Welcome, ${this.props?.appState?.user?.username}`,
+                        "$5000 signup bonus has been desposited into you saving account.",
+                        "success"); }
+                    }
+                else {
+                  swal(`Unsuccessful Signup`,
+                  `${responseFromServer.errors}`,
+                  "error")
+                }
+          } 
+          )}
+  
 
     handleExistingUserSignup = (e) => {
         e.preventDefault()
@@ -74,6 +110,7 @@ class MDBSignup extends Component {
                 }
                 )
           })
+
           .then(res => res.json())
           .then(userObj => {
               this.props.history.push(`/account/${userObj.user.id}`)
