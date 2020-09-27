@@ -74,7 +74,6 @@ class MDBSignup extends Component {
               this.props.signUpUser(responseFromServer) 
               localStorage.setItem('token',this.props?.user?.token)
               this.props.history.push(`/account/${this.props?.user?.id}`) 
-                    
                     if (this.props?.signup_type === 'Checking'){
                         swal(`Welcome, ${this.props?.user?.username}`,
                         "$5000 signup bonus has been desposited into you checking account.",
@@ -271,7 +270,7 @@ render() {
 }
 
 const mstp = (appState) => {
-
+  
   return appState
 }
 

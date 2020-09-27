@@ -7,10 +7,9 @@ const userReducer = (state = initialState, action) => {
         case 'SAVE_USER_TO_STATE':
             // Update the state, with user object form backend.
             // Spread the state, add key value pairs.
-
                 // Add a key 'unsortedTrans' to be used later for sorting trans by amount. 
 
-                return {...state, user:action.payload.user, token:action.payload.token, unsortedTrans:action.payload.user.checking.transactions}
+                return {...state, user:action.payload.user, token:action.payload.token, unsortedTrans:action.payload.user.checking?.transactions}
         
         case 'SIGN_UP_USER':
                  return {...state, user:action.payload.user, token:action.payload.token,code:action.payload.code, signup_type:action.payload.signup_type}
