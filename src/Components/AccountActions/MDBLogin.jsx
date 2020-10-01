@@ -5,15 +5,24 @@ import {withRouter} from 'react-router-dom'
 import {saveUserToState} from '../Redux/actions'
 import {Form, Button} from 'react-bootstrap'
 import swal from 'sweetalert'
+
+import LoadingOverlay from 'react-loading-overlay'
+
 export class MDBLogin extends Component {
 
   state = {
     username: '',
-    password: ''
+    password: '',
+    isActive: false
 }
   handleLoginSubmit = (e) => {
-
+    
     e.preventDefault()
+
+    this.setState({
+      isActive: !this.state.isActive
+    })
+
     // fetch('http://localhost:3000/login', {
     fetch('https://flatironbankapi.herokuapp.com/login', {
         method: "POST",
@@ -24,13 +33,15 @@ export class MDBLogin extends Component {
       })
         .then(r => r.json())
         .then(responseFromServer => {
-            
             if(responseFromServer?.user?.id){
             localStorage.setItem('token',responseFromServer.token)
             this.props.saveUserToState(responseFromServer)
             this.props.history.push(`/account/${responseFromServer.user.id}`)
             }
             else {
+              this.setState({
+                isActive: !this.state.isActive
+              })
               swal(`Invalid Credentials`,
               `${responseFromServer.errors}`,
               "error")
@@ -82,6 +93,7 @@ renderLoginEnglish =() => {
                 onChange = {this.handleChange} value = {this.state.password} />
             </Form.Group>
             <MDBBtn type = 'submit' id='register-button' >Submit</MDBBtn>
+            
           </Form>
     </div>}
 }
@@ -89,6 +101,12 @@ renderLoginEnglish =() => {
     render() {
         return (
             <>
+                <LoadingOverlay
+                active={this.state.isActive}
+                spinner
+                text='Signing in...'
+                >
+              </LoadingOverlay>
               {this.props.language === 'Chinese'? this.renderLoginChinese() : this.renderLoginEnglish()}
             </>
         )

@@ -26,6 +26,11 @@
   color: white;
 }
 
+#login-spinner{
+  
+}
+
+
 @media screen and (max-width:768px){
     #login-form{
       margin-left: 10vw;
@@ -353,4 +358,13 @@
   #backendNote{
     font-size: 11px;
   }
+}
+
+
+/* Loading indicator: */
+
+._loading_overlay_wrapper{
+  
+  position: initial !important;
+
 }

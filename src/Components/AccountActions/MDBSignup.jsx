@@ -7,11 +7,14 @@ import {Form, Button} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import swal from 'sweetalert';
 
+import LoadingOverlay from 'react-loading-overlay'
+
 class MDBSignup extends Component {
     state = {
         username: '',
         password: '',
         email: '',
+        isActive: false,
     }
 
     handleChange = (e) => {
@@ -19,7 +22,6 @@ class MDBSignup extends Component {
             [e.target.name]: e.target.value
         })
     }
-
 
     // Handles signup via a code verification, removing this feature for now to make it easier for using the app. 
 
@@ -58,6 +60,10 @@ class MDBSignup extends Component {
     // Handle signup with out code verification: 
     handleSignupSubmit = (e) => {
       e.preventDefault()
+      this.setState({
+        isActive: !this.state.isActive
+      })
+
       fetch('https://flatironbankapi.herokuapp.com/users', {
           method: "POST",
           headers: {
@@ -71,6 +77,10 @@ class MDBSignup extends Component {
           .then(r => r.json())
           .then(responseFromServer => {
             if (!responseFromServer.errors) {
+              this.setState({
+                isActive: !this.state.isActive
+              })
+
               this.props.signUpUser(responseFromServer) 
               localStorage.setItem('token',this.props?.user?.token)
               this.props.history.push(`/account/${this.props?.user?.id}`) 
@@ -84,6 +94,9 @@ class MDBSignup extends Component {
                         "success"); }
                     }
                 else {
+                  this.setState({
+                    isActive: !this.state.isActive
+                  })
                   swal(`Unsuccessful Signup`,
                   `${responseFromServer.errors}`,
                   "error")
@@ -230,6 +243,7 @@ class MDBSignup extends Component {
         else {
               
         return         <Form id='signup-form-style' onSubmit = {this.handleSignupSubmit}> 
+        
                           <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email</Form.Label>
                             <Form.Control placeholder="Enter email" name = 'email' 
@@ -259,10 +273,16 @@ class MDBSignup extends Component {
         }
     }
     
-render() {
+render() {  
         return (
+          
         <div id = 'signup-form'>
-          {/* {this.renderSignUp()} */}
+                <LoadingOverlay
+                active={this.state.isActive}
+                spinner
+                text='Signing up...'
+                >
+              </LoadingOverlay>
           {this.props.language === 'Chinese' ? this.renderSignUpChinese() : this.renderSignUpEnglish()}
         </div>
         )

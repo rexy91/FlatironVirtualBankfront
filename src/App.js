@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import './App.css';
 
-import Header from './Components/Header'
 import Chart from './Components/AccountActions/Chart'
+import 'bootstrap/dist/css/bootstrap.min.css'
 //Redux
 import {saveUserToState} from './Components/Redux/actions'
 import {saveNewsToStore} from './Components/Redux/actions'
