@@ -60,6 +60,7 @@ class MDBSignup extends Component {
     // Handle signup with out code verification: 
     handleSignupSubmit = (e) => {
       e.preventDefault()
+      // isActive is used for the loadingOverlay 
       this.setState({
         isActive: !this.state.isActive
       })
@@ -71,6 +72,7 @@ class MDBSignup extends Component {
             Accept: 'application/json'
           },
           body: JSON.stringify(
+            // Spreading the state object and making a copy, adding key acc_type. 
               {...this.state, acc_type:e.target.accountType.value}
               )
         })
@@ -80,7 +82,7 @@ class MDBSignup extends Component {
               this.setState({
                 isActive: !this.state.isActive
               })
-
+              // Calling method dispatched from actions
               this.props.signUpUser(responseFromServer) 
               localStorage.setItem('token',this.props?.user?.token)
               this.props.history.push(`/account/${this.props?.user?.id}`) 
@@ -104,7 +106,7 @@ class MDBSignup extends Component {
           } 
           )}
   
-
+    // This handles signup for user that already has an existing checking/saving account. 
     handleExistingUserSignup = (e) => {
         e.preventDefault()
         const accType = e.target.accountType.value
@@ -142,9 +144,7 @@ class MDBSignup extends Component {
     }
 
     // If checking acc exist, render 'Saving', wiseversa.
-
         checkingOrSaving = () => {
-
             if (this.props.user){
               console.log('existed')
                 if(this.props.user.checking){
@@ -157,7 +157,6 @@ class MDBSignup extends Component {
        }
 
     renderSignUpChinese = () => {
-
       if (this.props.user){
         return  <MDBContainer>
                   <MDBRow>
@@ -165,14 +164,27 @@ class MDBSignup extends Component {
                       <form onSubmit ={this.handleExistingUserSignup}>
                         <p className="h5 text-center mb-4" style={{color:'black', marginTop:'15px'}}>请确认你的资料</p>
                         <div className="grey-text">
-                          <MDBInput label="Username" icon="user" group type="text" validate error="wrong"
-                            success="right" name = 'username' value ={this.props.user.username}/>
-                          <MDBInput label="Your email" icon="envelope" group type="email" validate error="wrong"
-                            success="right" name = 'email' value={this.props.user.email} />
+                          <MDBInput 
+                            label="Username" 
+                            icon="user" 
+                            group type="text" 
+                            validate error="wrong"
+                            success="right" 
+                            name = 'username' 
+                            value ={this.props.user.username}/>
+
+                          <MDBInput 
+                          label="Your email" 
+                          icon="envelope" 
+                          group type="email" 
+                          validate error="wrong"
+                          success="right" 
+                          name = 'email' 
+                          value={this.props.user.email} />
+
                         </div>
                         <div className="text-center">
                           <select name="accountType" id="">
-                              {/* <option value="checking">Checking</option> */}
                               {this.checkingOrSaving()}
                           </select>
                           <MDBBtn type = 'submit' color="white">注册账户</MDBBtn>
@@ -183,24 +195,36 @@ class MDBSignup extends Component {
                 </MDBContainer>
       }
       else {
-            
+        // Else if user is not logged in, render different signup content. 
       return         <Form id='signup-form-style' onSubmit = {this.handleSignupSubmit}> 
                         <Form.Group controlId="formBasicEmail">
                           <Form.Label>邮箱地址</Form.Label>
-                          <Form.Control placeholder="Enter email" name = 'email' 
-                             onChange = {this.handleChange} value = {this.state.email}
-                             />
+                          <Form.Control 
+                          placeholder="Enter email" 
+                          name = 'email' 
+                          onChange = {this.handleChange} 
+                          value = {this.state.email}/>
                         </Form.Group>
+
                         <Form.Group>
                         <Form.Label>用户名 (长度: 5-10)</Form.Label>
-                          <Form.Control placeholder="Enter username" name = 'username' 
-                            onChange = {this.handleChange} value = {this.state.username} />
+                          <Form.Control 
+                          placeholder="Enter username" 
+                          name = 'username' 
+                          onChange = {this.handleChange} 
+                          value = {this.state.username}/>
                           </Form.Group>
+
                         <Form.Group controlId="formBasicPassword">
                           <Form.Label>密码 (长度: 7-20)</Form.Label>
-                          <Form.Control type="password" placeholder="Password" name = 'password' 
-                            onChange = {this.handleChange} value = {this.state.password} />
+                          <Form.Control 
+                          type="password" 
+                          placeholder="Password" 
+                          name = 'password' 
+                          onChange = {this.handleChange} 
+                          value = {this.state.password} />
                         </Form.Group>
+
                         <Form.Group style={{display:'inline'}}>
                           <b><label>账号类型</label></b>
                           <select name="accountType" id="">
@@ -215,7 +239,6 @@ class MDBSignup extends Component {
   }
     
     renderSignUpEnglish = () => {
-        
         if (this.props.user){
           return  <MDBContainer>
                     <MDBRow>
@@ -223,14 +246,25 @@ class MDBSignup extends Component {
                         <form onSubmit ={this.handleExistingUserSignup}>
                           <p className="h5 text-center mb-4" style={{color:'black', marginTop:'15px'}}>Please confirm your info</p>
                           <div className="grey-text">
-                            <MDBInput label="Username" icon="user" group type="text" validate error="wrong"
-                              success="right" name = 'username' value ={this.props.user.username}/>
-                            <MDBInput label="Your email" icon="envelope" group type="email" validate error="wrong"
-                              success="right" name = 'email' value={this.props.user.email} />
+                            <MDBInput 
+                              label="Username" 
+                              icon="user" 
+                              group type="text" 
+                              validate error="wrong"
+                              success="right" 
+                              name = 'username' 
+                              value ={this.props.user.username}/>
+                            <MDBInput 
+                              label="Your email" 
+                              icon="envelope" 
+                              group type="email" 
+                              validate error="wrong"
+                              success="right" 
+                              name = 'email' 
+                              value={this.props.user.email} />
                           </div>
                           <div className="text-center">
                             <select name="accountType" id="">
-                                {/* <option value="checking">Checking</option> */}
                                 {this.checkingOrSaving()}
                             </select>
                             <MDBBtn type = 'submit' color="white">Register Account</MDBBtn>
@@ -243,22 +277,31 @@ class MDBSignup extends Component {
         else {
               
         return         <Form id='signup-form-style' onSubmit = {this.handleSignupSubmit}> 
-        
                           <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email</Form.Label>
-                            <Form.Control placeholder="Enter email" name = 'email' 
-                               onChange = {this.handleChange} value = {this.state.email}
+                            <Form.Control 
+                              placeholder="Enter email" 
+                              name = 'email' 
+                              onChange = {this.handleChange} 
+                              value = {this.state.email}
                                />
                           </Form.Group>
                           <Form.Group>
                           <Form.Label>Username (length: 5-10)</Form.Label>
-                            <Form.Control placeholder="Enter username" name = 'username' 
-                              onChange = {this.handleChange} value = {this.state.username} />
+                            <Form.Control 
+                              placeholder="Enter username" 
+                              name = 'username' 
+                              onChange = {this.handleChange} 
+                              value = {this.state.username} />
                             </Form.Group>
                           <Form.Group controlId="formBasicPassword">
                             <Form.Label>Password (length: 7-20)</Form.Label>
-                            <Form.Control type="password" placeholder="Password" name = 'password' 
-                              onChange = {this.handleChange} value = {this.state.password} />
+                            <Form.Control 
+                              type="password" 
+                              placeholder="Password" 
+                              name = 'password' 
+                              onChange = {this.handleChange} 
+                              value = {this.state.password} />
                           </Form.Group>
                           <Form.Group style={{display:'inline'}}>
                             <b><label>Account Type</label></b>
@@ -270,30 +313,29 @@ class MDBSignup extends Component {
                           </Form.Group>
                           <MDBBtn type = 'submit' id='register-button' >Register</MDBBtn>
                         </Form>
-        }
-    }
-    
-render() {  
-        return (
-          
-        <div id = 'signup-form'>
-                <LoadingOverlay
-                active={this.state.isActive}
-                spinner
-                text='Signing up...'
-                >
-              </LoadingOverlay>
-          {this.props.language === 'Chinese' ? this.renderSignUpChinese() : this.renderSignUpEnglish()}
-        </div>
-        )
-    }
-}
+                                }
+                            }
+          render() {  
+                  return (
+                  <div id = 'signup-form'>
+                          <LoadingOverlay
+                          active={this.state.isActive}
+                          spinner
+                          text='Signing up...'
+                          >
+                        </LoadingOverlay>
+                    {/* conditional rendering, depends on state's language */}
+                    {this.props.language === 'Chinese' ? this.renderSignUpChinese() : this.renderSignUpEnglish()}
+                  </div>
+                  )
+              }
+} // End of MDBSignup Class Component 
 
+// Pass states props to this component 
 const mstp = (appState) => {
   
   return appState
 }
-
 export default connect(mstp, {signUpUser, signUpAccount})(withRouter(MDBSignup))
 
 
