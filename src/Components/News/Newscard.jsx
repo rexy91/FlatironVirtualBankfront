@@ -5,19 +5,14 @@ import { NavLink, Link } from 'react-router-dom'
 
 export class Newscard extends Component {
 
-    newsUrl = () => {
-        this.props.history.push(this.props.singleNews.url)
-        // console.log(this.props)
-    }
+    // Send user to the article's page with new tab. 
     openTab = () => {
         window.open(`${this.props.singleNews.url}`);
       }
       
     render() {
-        // console.log(this.props.singleNews)
+        // Getting news from Redux store, this.props has a single news' info. 
         const {title, urlToImage,url} = this.props.singleNews
-        // console.log(title, urlToImage,url)
-        // const imgStyle = {height:'260px', width:'320px'}
         const languageTerary = this.props.appState.language ==='Chinese'? '观看新闻': 'See Article' 
 
         return (
@@ -27,7 +22,6 @@ export class Newscard extends Component {
                     
             </div> 
             )
-
 }
 }
 

@@ -7,10 +7,10 @@ import {saveAllUsersToStore} from '../Redux/actions'
 import {updateSendinguserBalance} from '../Redux/actions'
 import {updateInternalTransfer} from'../Redux/actions'
 
-import Footer from '../Footer'
+import Footer from '../Layout/Footer'
 import swal from 'sweetalert';
-import Newscard from '../Newscard'
-import News from '../Newscontainer'
+import Newscard from '../News/Newscard'
+import News from '../News/Newscontainer'
 export class InstantTransfer extends Component {
 
     componentDidMount(){

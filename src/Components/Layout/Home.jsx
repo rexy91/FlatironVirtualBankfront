@@ -1,7 +1,7 @@
 import React from 'react'
-import LoginSignupContainer from '../Components/AccountActions/LoginSignupContainer'
-import Title from './Title'
-import News from './Newscontainer'
+import LoginSignupContainer from '../AccountActions/Signup/LoginSignupContainer'
+import Title from '../Title'
+import Newscontainer from '../News/Newscontainer'
 
 export default function Home() {
     return (
@@ -10,7 +10,7 @@ export default function Home() {
             <Title/>
             <LoginSignupContainer />
             </div>
-            <News/>
+            <Newscontainer/>
         </>
     )
 }

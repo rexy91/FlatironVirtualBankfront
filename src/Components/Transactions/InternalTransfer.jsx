@@ -11,7 +11,7 @@ class InternalTransfer extends Component {
             const checkingId = this.props?.user?.checking?.id
             const savingId = this.props?.user?.saving?.id
             console.log(savingId)
-
+            
     fetch(`https://flatironbankapi.herokuapp.com/savings/${this.props?.user?.saving?.id}`, {
             method:'PATCH',
             headers:{

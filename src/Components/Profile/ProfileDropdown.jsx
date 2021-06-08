@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 import {dispatchChartData} from '../Redux/actions'
 
 const tagOptions = [
-    
     {
         key: 'Expense Summary',
         text: 'Expense Summary',

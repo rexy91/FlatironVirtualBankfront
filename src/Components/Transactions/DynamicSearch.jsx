@@ -10,7 +10,6 @@ export class DynamicSearch extends Component {
     }
     
     render() {
-        // console.log(this.props)
         return (
         <div>
             <MDBCol md="12">

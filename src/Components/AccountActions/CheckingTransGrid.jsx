@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import DynamicSearch from '../TransactionPage/DynamicSearch'
+import DynamicSearch from '../Transactions/DynamicSearch'
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 import { Button } from 'semantic-ui-react'
 import {sortTransAmount} from '../Redux/actions'
@@ -12,7 +12,7 @@ export class CheckingTransGrid extends Component {
     }
 
     sortByAmount =() =>{
-
+        // New state depends on the previous state, so we use prevState for consistency. 
         this.setState(prevState => {
             return {sortAmount: !prevState.sortAmount}
         })
@@ -21,7 +21,6 @@ export class CheckingTransGrid extends Component {
             // This solution won't work, we need to get the unsortedArray which was saved seperately when user login.
         // const oldTransactions = this.props.user.checking.transactions
         // const copyArray = [...oldTransactions]
-
         const unsortedTrans = this.props.unsortedTrans
         const sortedTransctions = this.props.user.checking.transactions.sort((a,b)=> a.amount - b.amount)
 
@@ -31,7 +30,6 @@ export class CheckingTransGrid extends Component {
         if (this.state.sortAmount === true){
                 console.log(this.props)
                 console.log(unsortedTrans)
-
                 // this.props.sortTransAmount(unsortedTrans)
                 
         }
@@ -50,7 +48,6 @@ export class CheckingTransGrid extends Component {
     }
 
     whiteSpace = () => {
-
       return  '\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0'
     }
 
@@ -67,7 +64,7 @@ export class CheckingTransGrid extends Component {
         // console.log(this.props.state.user.checking.transactions)
         // Filter that here 
               let arrayWeCareAbout = transactions?.filter(transaction => {
-              return transaction.trans_type.toLowerCase().includes(this.props.searchTerm) || transaction.amount.toString().includes(this.props.searchTerm)
+              return transaction.description.toLowerCase().includes(this.props.searchTerm) || transaction.trans_type.toLowerCase().includes(this.props.searchTerm) || transaction.amount.toString().includes(this.props.searchTerm)
               })
         // Map here :
 
@@ -116,7 +113,7 @@ export class CheckingTransGrid extends Component {
         // console.log(this.props.state.user.checking.transactions)
         // Filter that here 
               let arrayWeCareAbout = transactions?.filter(transaction => {
-              return transaction.trans_type.toLowerCase().includes(this.props.searchTerm)
+                return transaction.description.toLowerCase().includes(this.props.searchTerm) || transaction.trans_type.toLowerCase().includes(this.props.searchTerm) || transaction.amount.toString().includes(this.props.searchTerm)
               })
         // Map here :
         let transactionMapper = this.props?.user?.checking ? arrayWeCareAbout.map( (transaction) => (
@@ -168,8 +165,7 @@ export class CheckingTransGrid extends Component {
 }
 
 const mstp = (appState) => {
-    //appState will returns the current entire state.
-    // console.log(appState)
+
     // This will return the whole state inside store. 
     // So searchTerm won't be undefined at first. 
     let x = '' 

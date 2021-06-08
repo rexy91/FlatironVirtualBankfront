@@ -1,11 +1,10 @@
-import { MDBBtn } from 'mdbreact';
 import React, { Component } from 'react'
+import { MDBBtn } from 'mdbreact';
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
-import {saveUserToState} from '../Redux/actions'
+import {saveUserToState} from '../../Redux/actions'
 import {Form, Button} from 'react-bootstrap'
 import swal from 'sweetalert'
-
 import LoadingOverlay from 'react-loading-overlay'
 
 export class MDBLogin extends Component {
@@ -16,9 +15,8 @@ export class MDBLogin extends Component {
     isActive: false
 }
   handleLoginSubmit = (e) => {
-    
     e.preventDefault()
-
+    // isActive is used for loadingOverlay icon, when it's true the loading icon will be appeared. 
     this.setState({
       isActive: !this.state.isActive
     })
@@ -33,13 +31,15 @@ export class MDBLogin extends Component {
       })
         .then(r => r.json())
         .then(responseFromServer => {
+            // If id is not null, meaning we got the userObj from backend  
             if(responseFromServer?.user?.id){
             localStorage.setItem('token',responseFromServer.token)
             this.props.saveUserToState(responseFromServer)
-            this.props.history.push(`/account/${responseFromServer.user.id}`)
+            this.props.history.push(`/account/${responseFromServer.user.id}`) 
             }
             else {
               this.setState({
+                // Remove loading icon 
                 isActive: !this.state.isActive
               })
               swal(`Invalid Credentials`,
@@ -59,19 +59,28 @@ export class MDBLogin extends Component {
 renderLoginChinese = () => {
   if(localStorage.length === 0){
     {return <div id='login-form'>
-              <Form id='login-form-style'  onSubmit ={this.handleLoginSubmit}> 
+              <Form 
+                id='login-form-style'  
+                onSubmit ={this.handleLoginSubmit}> 
+
             <Form.Group controlId="formBasicEmail">
               <Form.Label>用戶名</Form.Label>
-              <Form.Control placeholder="Enter email" name = 'username' 
-                onChange = {this.handleChange} value = {this.state.username} />
+              <Form.Control 
+                placeholder="Enter email" 
+                name = 'username' 
+                onChange = {this.handleChange} 
+                value = {this.state.username} />
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
               <Form.Label>密码</Form.Label>
-              <Form.Control type="password" placeholder="Password" name = 'password' 
-                onChange = {this.handleChange} value = {this.state.password} />
+              <Form.Control 
+                type="password" 
+                placeholder="Password" 
+                name = 'password' 
+                onChange = {this.handleChange} 
+                value = {this.state.password} />
             </Form.Group>
-
             <MDBBtn type = 'submit' id='register-button' >登入</MDBBtn>
           </Form>
     </div>}
@@ -80,22 +89,31 @@ renderLoginChinese = () => {
 renderLoginEnglish =() => {
   if(localStorage.length === 0){
     {return <div id='login-form'>
-              <Form id='login-form-style'  onSubmit ={this.handleLoginSubmit}> 
+              <Form 
+                id='login-form-style'  
+                onSubmit ={this.handleLoginSubmit}> 
+
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Username</Form.Label>
-              <Form.Control placeholder="Enter email" name = 'username' 
-                onChange = {this.handleChange} value = {this.state.username} />
+              <Form.Control 
+                placeholder="Enter email" 
+                name = 'username' 
+                onChange = {this.handleChange} 
+                value = {this.state.username} />
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" name = 'password' 
-                onChange = {this.handleChange} value = {this.state.password} />
+              <Form.Control 
+                type="password" 
+                placeholder="Password" 
+                name = 'password' 
+                onChange = {this.handleChange} 
+                value = {this.state.password} />
             </Form.Group>
             <MDBBtn type = 'submit' id='register-button' >Submit</MDBBtn>
-            
           </Form>
-    </div>}
+          </div>}
 }
 }
     render() {

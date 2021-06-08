@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from 'mdbreact';
 import {withRouter} from 'react-router-dom'
-import {signUpUser} from '../Redux/actions'
-import {signUpAccount} from '../Redux/actions'
+import {signUpUser} from '../../Redux/actions'
+import {signUpAccount} from '../../Redux/actions'
 import {Form, Button} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import swal from 'sweetalert';

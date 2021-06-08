@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
-export class SavingTransPage extends Component {
+export class SavingTransGrid extends Component {
     
     goback = () => {
         this.props.history.goBack();
@@ -28,4 +28,4 @@ const mstp = (appState) => {
     // console.log(appState)
 }
 
-export default withRouter(SavingTransPage)
+export default withRouter(SavingTransGrid)

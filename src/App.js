@@ -2,32 +2,29 @@ import React, { Component } from 'react'
 import './App.css';
 
 import Chart from './Components/AccountActions/Chart'
-import 'bootstrap/dist/css/bootstrap.min.css'
+
+
 //Redux
-import {saveUserToState} from './Components/Redux/actions'
-import {saveNewsToStore} from './Components/Redux/actions'
+import { saveUserToState } from './Components/Redux/actions'
+import { saveNewsToStore } from './Components/Redux/actions'
 import { connect } from 'react-redux';
 
 // Components:
-import MDBLogin from './Components/AccountActions/MDBLogin'
-import Home from './Components/Home'
-import Profile from './Components/Profile'
+import AddCreditCard from './Components/Transactions/AddCreditCard'
+import MDBLogin from './Components/AccountActions/Signup/MDBLogin'
+import Home from '../src/Components/Layout/Home'
+import Profile from './Components/Profile/Profile'
+import CheckingTransGrid from './Components/AccountActions/CheckingTransGrid'
+import Verify from './Components/Verify'
+import MDBSignup from './Components/AccountActions/Signup/MDBSignup'
+import Personalinfo from './Components/AccountActions/Personalinfo'
+import InstantTransfer from './Components/Transactions/InstantTransfer'
+import InternalTransfer  from '../src/Components/Transactions/InternalTransfer'
 
 // React Routing:
 import {Switch, Route} from 'react-router'
-import LoginSignupContainer from './Components/AccountActions/LoginSignupContainer'
+import LoginSignupContainer from './Components/AccountActions/Signup/LoginSignupContainer'
 import {withRouter} from 'react-router-dom'
-import CheckingTransPage from './Components/AccountActions/CheckingTransPage';
-import CheckingTransGrid from './Components/AccountActions/CheckingTransGrid'
-import SavingTransPage from './Components/SavingTransPage'
-import Verify from './Components/Verify'
-import News from './Components/Newscontainer'
-import MDBSignup from './Components/AccountActions/MDBSignup'
-import HousingContainer from './Components/HousingContainer'
-import Personalinfo from './Components/AccountActions/Personalinfo'
-import InstantTransfer from './Components/AccountActions/InstantTransfer'
-import Newscontainer from './Components/Newscontainer'
-import  InternalTransfer  from './Components/AccountActions/InternalTransfer'
 
 class App extends Component {
 
@@ -53,21 +50,14 @@ class App extends Component {
             fetch(`http://newsapi.org/v2/everything?from=${newDate}-&sortBy=publishedAt&apiKey=b5b343b90e4d4f0e89f4da475f9e01d8&q=finance`)
             .then(res => res.json())
             .then(newsRes => { 
-                    // console.log(newsRes.articles)
-                    // console.log('App.js', newsRes.articles)
-                    // Don't want all the articles 
+                    // Don't want all the articles
                     let filteredNews = newsRes.articles.splice(0,9)
                     this.props.saveNewsToStore(filteredNews)
     
                 })
   }
-
-  getCheckingTransactions = () =>{
-      // console.log(this.props.user.checking.transactions)
-  }
   
   render() {
-    // console.log(this.props)
     return (    
       <div className = 'app'>
         {/* <InstantTransfer /> 
@@ -79,10 +69,11 @@ class App extends Component {
         {/* routing */}
         {/* <Newscontainer /> */}
         <Switch>
+          <Route exact path = '/addcc' component = { AddCreditCard }/> 
           <Route exact path = '/' render = { Home } />
           <Route exact path = '/account/:id/profile' component = { Personalinfo} />
           <Route exact path = '/login' render = { (routerProps) => <MDBLogin {...routerProps} />} />
-          <Route exact path = '/account/:id' component = { Profile } />                                                  {/* pass down current user state */}
+          <Route exact path = '/account/:id' component = { Profile } />{/* pass down current user state */}
           <Route exact path = '/signup' render = { (routerProps) => <MDBSignup {...routerProps}/>} /> 
           <Route exact path ='/account/:id/expense' render = {() => <Chart />} />
           <Route exact path ='/account/:id/instant_transfer' render = {() => <InstantTransfer />}/> 
@@ -90,16 +81,15 @@ class App extends Component {
           <Route exapt path ='/account/:id/saving/internal_transfer' render ={ () => <InternalTransfer user={this.props.user} />}/>
           <Route exact path = '/account/:id/checking/transactions'
               render = {(routerProps) =>
-           <CheckingTransGrid {...routerProps}
-          //  Pass user to this component through url
+           <CheckingTransGrid 
+           {...routerProps}
+          // Pass user to this component through url
            user = {this.props.user} 
            checkingOrSaving = {"checking"}
            />} />
            
-          <Route exact path = '/account/:id/saving/transactions' render = {() => <SavingTransPage user = {this.props.user}
-           />} />
-
-           
+          {/* <Route exact path = '/account/:id/saving/transactions' render = {() => <SavingTransGrid user = {this.props.user}
+           />} />  */}
         </Switch>
       </div>
     )

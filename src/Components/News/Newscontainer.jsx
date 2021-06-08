@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Newsgrid from '../Components/Newsgrid'
-import Footer from './Footer'
+import Newsgrid from './Newsgrid'
+import Footer from '../Layout/Footer'
 
 export class Newscontainer extends Component {
 
@@ -14,7 +14,7 @@ export class Newscontainer extends Component {
         // First render is undefined.
         return (
             <div id = 'newsCardContainer'>
-                    {/* <Newsgrid /> */}
+                    <Newsgrid />
                     <Footer/>
             </div>
         )

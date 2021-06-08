@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Header from './Components/Header'
+import Header from './Components/Layout/Header'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 //MDB
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -21,7 +22,7 @@ import {Provider} from 'react-redux'
 
 import userReducer from './Components/Redux/userReducer'
 // import newsReducer from './Components/Redux/newsReducer'
-import Particles from './Components/Particles';
+import Particles from './Components/Layout/Particles';
 
 const store = createStore(userReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 

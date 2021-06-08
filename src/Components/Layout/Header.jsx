@@ -2,8 +2,8 @@ import React from 'react';
 import {MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink} from 'mdbreact';
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {handleLogout} from './Redux/actions'
-import {toggleLanguageState} from './Redux/actions' 
+import {handleLogout} from '../Redux/actions'
+import {toggleLanguageState} from '../Redux/actions' 
 import swal from 'sweetalert';
 
 class FixedNavbarExample extends React.Component {

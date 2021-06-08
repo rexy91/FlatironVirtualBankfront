@@ -4,19 +4,17 @@ import { NavLink, Link } from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
 import { Button } from 'semantic-ui-react'
 import swal from 'sweetalert';
-import WithdrawalModal from './AccountActions/WithdrawalModal'
-import DepositModal from './AccountActions/DepositModal'
+import WithdrawalModal from './WithdrawalModal'
+import DepositModal from './DepositModal'
+import ProfileDropdown from './ProfileDropdown'
 
 // Redux
-import {deleteCheckingAccount} from './Redux/actions'
-import {deleteSavingAccount} from '../Components/Redux/actions'
-import ProfileDropdown from '../Components/AccountActions/ProfileDropdown'
-// import { MDBSignup } from './MDBSignup'
+import {deleteCheckingAccount} from '../Redux/actions'
+import {deleteSavingAccount} from '../Redux/actions'
 
 export class Profile extends Component {
 
     handleDeleteCheckingAcc = (e) => {
-         
         if(this.props?.user?.checking?.balance !== 0){
             swal('','Please transfer out your funds before deactivting.','error')}
         else{
@@ -51,14 +49,11 @@ export class Profile extends Component {
 
     renderModalSignup = () => {
 
-        // console.log('here')
         this.props.history.push('/signup')
     }
 
     renderEnglishcheckingAccount = () => {
 
-        // if (this.props.user.checking){
-        // const accountstatusTenery = this.props.user.checking.status ? 'Active' : 'Deactived'
         if(this.props?.user?.checking){
             return (
             <div id='checkingSection'>
@@ -170,11 +165,6 @@ export class Profile extends Component {
     }
 
     render() {
-
-        // changeHeaderColor = () => {
-        // if(this.props.match.path === '/account/:id'){
-            
-        // }}
         const {user} = this.props
         // To avoid ashy issues, first render if user doesn't exist, just return null. To avoid errors.
         const languageTernrySaving = this.props.language==='Chinese'? this.renderChineseSavingAccount(): this.renderEnglishSavingAccount()
